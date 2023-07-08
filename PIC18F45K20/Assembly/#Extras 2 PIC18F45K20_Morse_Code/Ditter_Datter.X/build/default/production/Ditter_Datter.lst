@@ -1,0 +1,1654 @@
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;****************************************************************************************
+                      00002 ;    Filename:           Morse_Code_PIC18.asm                                           *
+                      00003 ;    Date:               15/09/20                                                       *
+                      00004 ;    File Version:       1.0                                                            *
+                      00005 ;    Author:             Usmaan Hussain                                                 *
+                      00006 ;    Company:            Coventry University                                            *
+                      00007 ;    Program Function:   Output Characters Using Morse Code.                            *
+                      00008 ;    Limitations Lifted !!! Write Whatever you like.                                    *
+                      00009 ;****************************************************************************************
+                      00010 #include "p18f45k20.inc" ; Processor specific variable definitions                      *
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Jan 06 2020
+                      00005 ;  MPASM PIC18F45K20 processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 1999-2020 Microchip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+                      01570         LIST
+                      00011 ;****************************************************************************************
+                      00012 ; CONFIGURATION BITS                                                                    *
+                      00013 ; (Microchip has changed the format for defining the configuration bits, please         *
+                      00014 ; see the .inc file for further details on notation). Below are a few examples.         *
+                      00015 ;                                                                                       *
+                      00016 ; Oscillator Selection and other fuse settings:                                         *
+                      00017         CONFIG    FOSC    =  INTIO67      ; Internal clock selected                     *
+                      00018         CONFIG    MCLRE  =  ON      ; MCLR enabled                                      *
+                      00019         CONFIG    DEBUG  =  OFF     ; Background debugger disabled                      *
+                      00020         CONFIG    LVP    =  OFF     ; Low Voltage Programming OFF                       *
+                      00021         CONFIG    WDTEN = OFF     ; Watch-dog Timer Disabled                            *
+                      00022 ;****************************************************************************************
+                      00023 ; VARIABLES                                                                             *
+                      00024 ; Your variables definition below:                                                      *
+  00000010            00025 Delay_1   EQU            10     ; Reserve location for Delay value1                     *
+  00000011            00026 Delay_2   EQU            11     ; Reserve location for Delay value2                     *
+  00000012            00027 Delay_3   EQU            12     ; Reserve location for Delay value3                     *
+                      00028  ;****************************************************************************************
+                      00029 ; RESET VECTOR                                                                          *
+                      00030 ; This code will start executing when a reset occurs.                                   *
+                      00031     ORG     0x0000          ; ORG Directive                                             *
+000000 EF?? F???      00032     goto    Main            ; go to start the code on "Main" label                      *
+                      00033 ;****************************************************************************************
+                      00034 ; Your configuration code here:                                                         *
+000004                00035 Main                          ;                                                         *
+000004 0E76           00036     MOVLW b'01110110'         ;Move binary value into W register                        *
+000006 6ED3           00037     MOVWF OSCCON              ;Configure for 16MHz internal oscillator                  *
+000008 9095           00038     BCF TRISD,0               ;Configure Pin RD0 as output                              *
+00000A 908C           00039     BCF LATD,0                ;disable pin RD0                                          *
+00000C                00040 LOOP                          ;                                                         *
+                      00041 ; Your looping behaviours & subroutine calls here:                                      *
+00000C EC?? F???      00042     CALL New_Word        ; Call New_Word routine                                        *
+000010 EC?? F???      00043     CALL Character_G          ; Call Character H routine                                *
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000014 EC?? F???      00044     CALL New_Character        ; Call New Character routine                              *               
+                                        
+000018 EC?? F???      00045     CALL Character_R          ; Call Character E routine                                *
+00001C EC?? F???      00046     CALL New_Character        ; Call New Character routine                              *               
+                                      
+000020 EC?? F???      00047     CALL Character_E          ; Call Character L routine                                *
+000024 EC?? F???      00048     CALL New_Character        ; Call New Character routine                              *               
+                                      
+000028 EC?? F???      00049     CALL Character_E          ; Call Character L routine                                *
+00002C EC?? F???      00050     CALL New_Character        ; Call New Character routine                              *               
+                                       
+000030 EC?? F???      00051     CALL Character_T          ; Call Character O routine                                *
+000034 EC?? F???      00052     CALL New_Character        ; Call New Character routine                              * 
+000038 EC?? F???      00053     CALL Character_I          ; Call Character N routine                                *
+00003C EC?? F???      00054     CALL New_Character        ; Call New Character routine                              *   
+000040 EC?? F???      00055     CALL Character_N          ; Call Character I routine                                *
+000044 EC?? F???      00056     CALL New_Character        ; Call New Character routine                              * 
+000048 EC?? F???      00057     CALL Character_G          ; Call Character K routine                                *
+00004C EC?? F???      00058     CALL New_Character        ; Call New Character routine                              * 
+000050 EC?? F???      00059     CALL Character_S          ; Call Character I routine                                *
+000054 EC?? F???      00060     CALL New_Word        ; Call New_Word routine                                        *
+000058 EC?? F???      00061     CALL Character_A          ; Call Character T routine                                *
+00005C EC?? F???      00062     CALL New_Character        ; Call New Character routine                              *   
+000060 EC?? F???      00063     CALL Character_N          ; Call Character S routine                                *
+000064 EC?? F???      00064     CALL New_Character        ; Call New Character routine                              * 
+000068 EC?? F???      00065     CALL Character_D          ; Call Character U routine                                *
+00006C EC?? F???      00066     CALL New_Word        ; Call New_Word routine                                        *
+000070 EC?? F???      00067     CALL Character_S          ; Call Character H routine                                *
+000074 EC?? F???      00068     CALL New_Character        ; Call New Character routine                              *               
+                                   
+000078 EC?? F???      00069     CALL Character_A          ; Call Character E routine                                *
+00007C EC?? F???      00070     CALL New_Character        ; Call New Character routine                              *               
+                                         
+000080 EC?? F???      00071     CALL Character_L          ; Call Character L routine                                *
+000084 EC?? F???      00072     CALL New_Character        ; Call New Character routine                              *               
+                                       
+000088 EC?? F???      00073     CALL Character_U          ; Call Character L routine                                *
+00008C EC?? F???      00074     CALL New_Character        ; Call New Character routine                              *               
+                                        
+000090 EC?? F???      00075     CALL Character_T          ; Call Character O routine                                *
+000094 EC?? F???      00076     CALL New_Character        ; Call New Character routine                              * 
+000098 EC?? F???      00077     CALL Character_A          ; Call Character N routine                                *
+00009C EC?? F???      00078     CALL New_Character        ; Call New Character routine                              *   
+0000A0 EC?? F???      00079     CALL Character_T          ; Call Character I routine                                *
+0000A4 EC?? F???      00080     CALL New_Character        ; Call New Character routine                              *               
+                                     
+0000A8 EC?? F???      00081     CALL Character_I          ; Call Character E routine                                *
+0000AC EC?? F???      00082     CALL New_Character        ; Call New Character routine                              *               
+                                     
+0000B0 EC?? F???      00083     CALL Character_O          ; Call Character L routine                                *
+0000B4 EC?? F???      00084     CALL New_Character        ; Call New Character routine                              *               
+                                     
+0000B8 EC?? F???      00085     CALL Character_N          ; Call Character L routine                                *
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0000BC EC?? F???      00086     CALL New_Character        ; Call New Character routine                              * 
+0000C0 EC?? F???      00087     CALL Character_S          ; Call Character I routine                                *    
+0000C4 EC?? F???      00088     CALL New_Word        ; Call New_Word routine                                        *               
+                                  
+0000C8 EC?? F???      00089     CALL Character_U          ; Call Character O routine                                *
+0000CC EC?? F???      00090     CALL New_Character        ; Call New Character routine                              * 
+0000D0 EC?? F???      00091     CALL Character_R          ; Call Character N routine                                *
+0000D4 EC?? F???      00092     CALL New_Word        ; Call New_Word routine                                        *    
+0000D8 EC?? F???      00093     CALL Character_L          ; Call Character I routine                                *
+0000DC EC?? F???      00094     CALL New_Character        ; Call New Character routine                              *               
+                                     
+0000E0 EC?? F???      00095     CALL Character_I          ; Call Character E routine                                *
+0000E4 EC?? F???      00096     CALL New_Character        ; Call New Character routine                              *               
+                                      
+0000E8 EC?? F???      00097     CALL Character_M          ; Call Character L routine                                *
+0000EC EC?? F???      00098     CALL New_Character        ; Call New Character routine                              *               
+                                      
+0000F0 EC?? F???      00099     CALL Character_A          ; Call Character L routine                                *
+0000F4 EC?? F???      00100     CALL New_Character        ; Call New Character routine                              *               
+                                     
+0000F8 EC?? F???      00101     CALL Character_T          ; Call Character O routine                                *
+0000FC EC?? F???      00102     CALL New_Character        ; Call New Character routine                              * 
+000100 EC?? F???      00103     CALL Character_I          ; Call Character N routine                                *
+000104 EC?? F???      00104     CALL New_Character        ; Call New Character routine                              *   
+000108 EC?? F???      00105     CALL Character_O          ; Call Character I routine                                *
+00010C EC?? F???      00106     CALL New_Character        ; Call New Character routine                              * 
+000110 EC?? F???      00107     CALL Character_N          ; Call Character K routine                                *
+000114 EC?? F???      00108     CALL New_Character        ; Call New Character routine                              * 
+000118 EC?? F???      00109     CALL Character_S          ; Call Character H routine                                *
+00011C EC?? F???      00110     CALL New_Word        ; Call New_Word routine                                        *               
+                                    
+000120 EC?? F???      00111     CALL Character_H          ; Call Character E routine                                *
+000124 EC?? F???      00112     CALL New_Character        ; Call New Character routine                              *               
+                                 
+000128 EC?? F???      00113     CALL Character_A          ; Call Character L routine                                *
+00012C EC?? F???      00114     CALL New_Character        ; Call New Character routine                              *               
+                                      
+000130 EC?? F???      00115     CALL Character_V          ; Call Character L routine                                *
+000134 EC?? F???      00116     CALL New_Character        ; Call New Character routine                              *               
+                                      
+000138 EC?? F???      00117     CALL Character_E          ; Call Character O routine                                *
+00013C EC?? F???      00118     CALL New_Word        ; Call New_Word routine                                        * 
+000140 EC?? F???      00119     CALL Character_B          ; Call Character N routine                                *
+000144 EC?? F???      00120     CALL New_Character        ; Call New Character routine                              *   
+000148 EC?? F???      00121     CALL Character_E          ; Call Character I routine                                *
+00014C EC?? F???      00122     CALL New_Character        ; Call New Character routine                              * 
+000150 EC?? F???      00123     CALL Character_E          ; Call Character K routine                                *
+000154 EC?? F???      00124     CALL New_Character        ; Call New Character routine                              * 
+000158 EC?? F???      00125     CALL Character_N          ; Call Character K routine                                *
+00015C EC?? F???      00126     CALL New_Word        ; Call New_Word routine                                        * 
+000160 EC?? F???      00127     CALL Character_L          ; Call Character N routine                                *
+000164 EC?? F???      00128     CALL New_Character        ; Call New Character routine                              *   
+000168 EC?? F???      00129     CALL Character_I          ; Call Character I routine                                *
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00016C EC?? F???      00130     CALL New_Character        ; Call New Character routine                              * 
+000170 EC?? F???      00131     CALL Character_F          ; Call Character K routine                                *
+000174 EC?? F???      00132     CALL New_Character        ; Call New Character routine                              * 
+000178 EC?? F???      00133     CALL Character_T          ; Call Character K routine                                *
+00017C EC?? F???      00134     CALL New_Character        ; Call New Character routine                              * 
+000180 EC?? F???      00135     CALL Character_E          ; Call Character K routine                                *
+000184 EC?? F???      00136     CALL New_Character        ; Call New Character routine                              * 
+000188 EC?? F???      00137     CALL Character_D          ; Call Character K routine                                *
+00018C EC?? F???      00138     CALL New_Word        ; Call New_Word routine                                        * 
+000190 EC?? F???      00139     CALL Character_E          ; Call Character N routine                                *
+000194 EC?? F???      00140     CALL New_Character        ; Call New Character routine                              *   
+000198 EC?? F???      00141     CALL Character_N          ; Call Character I routine                                *
+00019C EC?? F???      00142     CALL New_Character        ; Call New Character routine                              * 
+0001A0 EC?? F???      00143     CALL Character_J          ; Call Character K routine                                *
+0001A4 EC?? F???      00144     CALL New_Character        ; Call New Character routine                              * 
+0001A8 EC?? F???      00145     CALL Character_O          ; Call Character K routine                                *
+0001AC EC?? F???      00146     CALL New_Character        ; Call New Character routine                              * 
+0001B0 EC?? F???      00147     CALL Character_Y          ; Call Character K routine                                *
+0001B4                00148 While_Loop                    ;                                                         *
+0001B4 EC?? F???      00149     CALL New_Word        ; Call New_Word routine                                        *
+0001B8 EF?? F???      00150     GOTO While_Loop                 ; Loop                                              *             
+                      00151 ; New Word Routine is below                                                             *
+0001BC                00152 New_Word                      ;                                                         *    
+0001BC 908C           00153     BCF LATD,0                ;disable pin RD0                                          * 
+0001BE EC?? F???      00154     CALL Word_Pause      ; Call routine to indicate new word                            *
+0001C2 0C00           00155     RETLW 0                   ; Return back from subroutine to Main.                    *
+                      00156 ; New Character Routine is below                                                        *
+0001C4                00157 New_Character                  ;                                                        *    
+0001C4 908C           00158     BCF LATD,0                ;disable pin RD0                                          *
+0001C6 EC?? F???      00159     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    *
+0001CA 0C00           00160     RETLW 0                    ; Return back from subroutine to Main.                   *   
+                      00161 ; Character Selection Routine is below                                                  *               
+                               
+0001CC                00162 Character_B                    ;                                                        *
+                      00163    ;Morse Dash                                                                          *
+0001CC 808C           00164     BSF LATD,0                ;disable pin RD0                                          *
+0001CE EC?? F???      00165     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00166    ;Element Pause                                                                       *
+0001D2 908C           00167     BCF LATD,0                ;disable pin RD0                                          *
+0001D4 EC?? F???      00168     CALL Dot                   ; Call routine to indicate dots                          * 
+0001D8                00169 Character_S                    ;                                                        *
+                      00170     ;Morse Dot                                                                          *
+0001D8 808C           00171     BSF LATD,0                ;disable pin RD0                                          *
+0001DA EC?? F???      00172     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00173    ;Element Pause                                                                       *
+0001DE 908C           00174     BCF LATD,0                ;disable pin RD0                                          *
+0001E0 EC?? F???      00175     CALL Dot                   ; Call routine to indicate dots                          *     
+                      00176    ;Morse Dot                                                                           *
+0001E4 808C           00177     BSF LATD,0                ;disable pin RD0                                          *
+0001E6 EC?? F???      00178     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00179    ;Element Pause                                                                       *
+0001EA 908C           00180     BCF LATD,0                ;disable pin RD0                                          *
+0001EC EC?? F???      00181     CALL Dot                   ; Call routine to indicate dots                          *   
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00182    ;Morse Dot                                                                           *
+0001F0 808C           00183     BSF LATD,0                ;disable pin RD0                                          *
+0001F2 EC?? F???      00184     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00185 ;   ;Element Pause                                                                      *
+                      00186 ;    BCF GPIO,2                 ; Diaable GPIO Pin 2                                    * 
+                      00187 ;    CALL Dot                          ; Call routine to indicate dots                  *   
+0001F6 0C00           00188     RETLW 0                   ; Return back from subroutine to Main.                    *    
+0001F8                00189 Character_C                    ;                                                        *
+                      00190    ;Morse Dash                                                                          *
+0001F8 808C           00191     BSF LATD,0                ;disable pin RD0                                          *
+0001FA EC?? F???      00192     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00193    ;Element Pause                                                                       *
+0001FE 908C           00194     BCF LATD,0                ;disable pin RD0                                          * 
+000200 EC?? F???      00195     CALL Dot                   ; Call routine to indicate dots                          * 
+                      00196     ;Morse Dot                                                                          *
+000204 808C           00197     BSF LATD,0                ;disable pin RD0                                          *
+000206 EC?? F???      00198     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00199    ;Element Pause                                                                       *
+00020A 908C           00200     BCF LATD,0                ;disable pin RD0                                          *
+00020C EC?? F???      00201     CALL Dot                   ; Call routine to indicate dots                          * 
+                      00202    ;Morse Dash                                                                          *
+000210 808C           00203     BSF LATD,0                ;disable pin RD0                                          *
+000212 EC?? F???      00204     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00205    ;Element Pause                                                                       *
+000216 908C           00206     BCF LATD,0                ;disable pin RD0                                          *
+000218 EC?? F???      00207     CALL Dot                   ; Call routine to indicate dots                          * 
+                      00208     ;Morse Dot                                                                          *
+00021C 808C           00209     BSF LATD,0                ;disable pin RD0                                          *
+00021E EC?? F???      00210     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00211 ;   ;Element Pause                                                                      *
+                      00212 ;    BCF GPIO,2                 ; Diaable GPIO Pin 2                                    * 
+                      00213 ;    CALL Dot                          ; Call routine to indicate dots                  * 
+000222 0C00           00214     RETLW 0                   ; Return back from subroutine to Main.                    *    
+000224                00215 Character_E                    ;                                                        *
+                      00216     ;Morse Dot                                                                          *
+000224 808C           00217     BSF LATD,0                ;disable pin RD0                                          *
+000226 EC?? F???      00218     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00219 ;   ;Element Pause                                                                      *
+                      00220 ;    BCF GPIO,2                 ; Diaable GPIO Pin 2                                    * 
+                      00221 ;    CALL Dot                          ; Call routine to indicate dots                  *         
+00022A 0C00           00222     RETLW 0                   ; Return back from subroutine to Main.                    *    
+00022C                00223 Character_F                    ;                                                        *
+                      00224     ;Morse Dot                                                                          *
+00022C 808C           00225     BSF LATD,0                ;disable pin RD0                                          *
+00022E EC?? F???      00226     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00227    ;Element Pause                                                                       *
+000232 908C           00228     BCF LATD,0                ;disable pin RD0                                          *
+000234 EC?? F???      00229     CALL Dot                   ; Call routine to indicate dots                          * 
+                      00230     ;Morse Dot                                                                          *
+000238 808C           00231     BSF LATD,0                ;disable pin RD0                                          *
+00023A EC?? F???      00232     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00233    ;Element Pause                                                                       *
+00023E 908C           00234     BCF LATD,0                ;disable pin RD0                                          *
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE  6
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000240 EC?? F???      00235     CALL Dot                   ; Call routine to indicate dots                          *               
+                             
+                      00236    ;Morse Dash                                                                          *
+000244 808C           00237     BSF LATD,0                ;disable pin RD0                                          *
+000246 EC?? F???      00238     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00239    ;Element Pause                                                                       *
+00024A 908C           00240     BCF LATD,0                ;disable pin RD0                                          *
+00024C EC?? F???      00241     CALL Dot                   ; Call routine to indicate dots                          *               
+                                
+                      00242     ;Morse Dot                                                                          *
+000250 808C           00243     BSF LATD,0                ;disable pin RD0                                          *
+000252 EC?? F???      00244     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00245 ;   ;Element Pause                                                                      *
+                      00246 ;    BCF GPIO,2                 ; Diaable GPIO Pin 2                                    * 
+                      00247 ;    CALL Dot                          ; Call routine to indicate dots                  *               
+                                     
+000256 0C00           00248     RETLW 0                   ; Return back from subroutine to Main.                    * 
+000258                00249 Character_H                    ;                                                        *
+                      00250     ;Morse Dot                                                                          *
+000258 808C           00251     BSF LATD,0                ;disable pin RD0                                          *
+00025A EC?? F???      00252     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00253    ;Element Pause                                                                       *
+00025E 908C           00254     BCF LATD,0                ;disable pin RD0                                          *
+000260 EC?? F???      00255     CALL Dot                   ; Call routine to indicate dots                          *               
+                                  
+                      00256     ;Morse Dot                                                                          *
+000264 808C           00257     BSF LATD,0                ;disable pin RD0                                          *
+000266 EC?? F???      00258     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00259    ;Element Pause                                                                       *
+00026A 908C           00260     BCF LATD,0                ;disable pin RD0                                          *
+00026C EC?? F???      00261     CALL Dot                   ; Call routine to indicate dots                          *               
+                                    
+                      00262     ;Morse Dot                                                                          *
+000270 808C           00263     BSF LATD,0                ;disable pin RD0                                          *
+000272 EC?? F???      00264     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00265    ;Element Pause                                                                       *
+000276 908C           00266     BCF LATD,0                ;disable pin RD0                                          *
+000278 EC?? F???      00267     CALL Dot                   ; Call routine to indicate dots                          *               
+                                   
+                      00268     ;Morse Dot                                                                          *
+00027C 808C           00269     BSF LATD,0                ;disable pin RD0                                          *
+00027E EC?? F???      00270     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00271 ;   ;Element Pause                                                                      *
+                      00272 ;    BCF GPIO,2                 ; Diaable GPIO Pin 2                                    * 
+                      00273 ;    CALL Dot                          ; Call routine to indicate dots                  *               
+                                    
+000282 0C00           00274     RETLW 0                   ; Return back from subroutine to Main.                    *
+000284                00275 Character_J                    ;                                                        *
+                      00276     ;Morse Dot                                                                          *
+000284 808C           00277     BSF LATD,0                ;disable pin RD0                                          *
+000286 EC?? F???      00278     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00279    ;Element Pause                                                                       *
+00028A 908C           00280     BCF LATD,0                ;disable pin RD0                                          *
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE  7
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00028C EC?? F???      00281     CALL Dot                   ; Call routine to indicate dots                          *               
+                                         
+000290                00282 Character_O                    ;                                                        *
+                      00283     ;Morse Dash                                                                         *
+000290 808C           00284     BSF LATD,0                ;disable pin RD0                                          *
+000292 EC?? F???      00285     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00286    ;Element Pause                                                                       *
+000296 908C           00287     BCF LATD,0                ;disable pin RD0                                          *
+000298 EC?? F???      00288     CALL Dot                   ; Call routine to indicate dots                          * 
+                      00289    ;Morse Dash                                                                          *
+00029C 808C           00290     BSF LATD,0                ;disable pin RD0                                          *
+00029E EC?? F???      00291     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00292    ;Element Pause                                                                       *
+0002A2 908C           00293     BCF LATD,0                ;disable pin RD0                                          *
+0002A4 EC?? F???      00294     CALL Dot                   ; Call routine to indicate dots                          * 
+                      00295    ;Morse Dash                                                                          *
+0002A8 808C           00296     BSF LATD,0                ;disable pin RD0                                          *
+0002AA EC?? F???      00297     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00298 ;   ;Element Pause                                                                      *
+                      00299 ;    BCF GPIO,2                 ; Diaable GPIO Pin 2                                    * 
+                      00300 ;    CALL Dot                          ; Call routine to indicate dots                  *               
+                                     
+0002AE 0C00           00301     RETLW 0                   ; Return back from subroutine to Main.                    *      
+0002B0                00302 Character_L                    ;                                                        *
+                      00303     ;Morse Dot                                                                          *
+0002B0 808C           00304     BSF LATD,0                ;disable pin RD0                                          *
+0002B2 EC?? F???      00305     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00306    ;Element Pause                                                                       *
+0002B6 908C           00307     BCF LATD,0                ;disable pin RD0                                          *
+0002B8 EC?? F???      00308     CALL Dot                   ; Call routine to indicate dots                          *               
+                                     
+0002BC                00309 Character_D                    ;                                                        *
+                      00310     ;Morse Dash                                                                         *
+0002BC 808C           00311     BSF LATD,0                ;disable pin RD0                                          *
+0002BE EC?? F???      00312     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00313    ;Element Pause                                                                       *
+0002C2 908C           00314     BCF LATD,0                ;disable pin RD0                                          *
+0002C4 EC?? F???      00315     CALL Dot                   ; Call routine to indicate dots                          *               
+                                     
+                      00316     ;Morse Dot                                                                          *
+0002C8 808C           00317     BSF LATD,0                ;disable pin RD0                                          *
+0002CA EC?? F???      00318     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00319    ;Element Pause                                                                       *
+0002CE 908C           00320     BCF LATD,0                ;disable pin RD0                                          *
+0002D0 EC?? F???      00321     CALL Dot                   ; Call routine to indicate dots                          *               
+                                     
+                      00322     ;Morse Dot                                                                          *
+0002D4 808C           00323     BSF LATD,0                ;disable pin RD0                                          *
+0002D6 EC?? F???      00324     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00325 ;   ;Element Pause                                                                      *
+                      00326 ;    BCF GPIO,2                 ; Diaable GPIO Pin 2                                    * 
+                      00327 ;    CALL Dot                          ; Call routine to indicate dots                  *               
+                                     
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE  8
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0002DA 0C00           00328     RETLW 0                   ; Return back from subroutine to Main.                    *   
+0002DC                00329 Character_P                    ;                                                        *
+                      00330     ;Morse Dot                                                                          *
+0002DC 808C           00331     BSF LATD,0                ;disable pin RD0                                          *
+0002DE EC?? F???      00332     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00333    ;Element Pause                                                                       *
+0002E2 908C           00334     BCF LATD,0                ;disable pin RD0                                          *
+0002E4 EC?? F???      00335     CALL Dot                   ; Call routine to indicate dots                          *               
+                                      
+0002E8                00336 Character_G                    ;                                                        * 
+                      00337     ;Morse Dash                                                                         *
+0002E8 808C           00338     BSF LATD,0                ;disable pin RD0                                          *
+0002EA EC?? F???      00339     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00340    ;Element Pause                                                                       *
+0002EE 908C           00341     BCF LATD,0                ;disable pin RD0                                          *
+0002F0 EC?? F???      00342     CALL Dot                   ; Call routine to indicate dots                          * 
+                      00343     ;Morse Dash                                                                         *
+0002F4 808C           00344     BSF LATD,0                ;disable pin RD0                                          *
+0002F6 EC?? F???      00345     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00346    ;Element Pause                                                                       *
+0002FA 908C           00347     BCF LATD,0                ;disable pin RD0                                          *
+0002FC EC?? F???      00348     CALL Dot                   ; Call routine to indicate dots                          * 
+                      00349     ;Morse Dot                                                                          *
+000300 808C           00350     BSF LATD,0                ;disable pin RD0                                          *
+000302 EC?? F???      00351     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00352 ;   ;Element Pause                                                                      *
+                      00353 ;    BCF GPIO,2                 ; Diaable GPIO Pin 2                                    * 
+                      00354 ;    CALL Dot                          ; Call routine to indicate dots                  *               
+                                      
+000306 0C00           00355     RETLW 0                   ; Return back from subroutine to Main.                    *    
+000308                00356 Character_Q                    ;                                                        *
+                      00357     ;Morse Dash                                                                         *
+000308 808C           00358     BSF LATD,0                ;disable pin RD0                                          *
+00030A EC?? F???      00359     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00360    ;Element Pause                                                                       *
+00030E 908C           00361     BCF LATD,0                ;disable pin RD0                                          *
+000310 EC?? F???      00362     CALL Dot                   ; Call routine to indicate dots                          * 
+000314                00363 Character_K                    ;                                                        *
+                      00364     ;Morse Dash                                                                         *
+000314 808C           00365     BSF LATD,0                ;disable pin RD0                                          *
+000316 EC?? F???      00366     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00367    ;Element Pause                                                                       *
+00031A 908C           00368     BCF LATD,0                ;disable pin RD0                                          *
+00031C EC?? F???      00369     CALL Dot                   ; Call routine to indicate dots                          *               
+                                      
+                      00370     ;Morse Dot                                                                          *
+000320 808C           00371     BSF LATD,0                ;disable pin RD0                                          *
+000322 EC?? F???      00372     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00373    ;Element Pause                                                                       *
+000326 908C           00374     BCF LATD,0                ;disable pin RD0                                          *
+000328 EC?? F???      00375     CALL Dot                   ; Call routine to indicate dots                          *               
+                                     
+                      00376     ;Morse Dash                                                                         *
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE  9
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00032C 808C           00377     BSF LATD,0                ;disable pin RD0                                          *
+00032E EC?? F???      00378     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00379 ;   ;Element Pause                                                                      *
+                      00380 ;    BCF GPIO,2                 ; Diaable GPIO Pin 2                                    * 
+                      00381 ;    CALL Dot                          ; Call routine to indicate dots                  *               
+                                     
+000332 0C00           00382     RETLW 0                   ; Return back from subroutine to Main.                    *    
+000334                00383 Character_R                    ;                                                        *
+                      00384     ;Morse Dot                                                                          *
+000334 808C           00385     BSF LATD,0                ;disable pin RD0                                          *
+000336 EC?? F???      00386     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00387    ;Element Pause                                                                       *
+00033A 908C           00388     BCF LATD,0                ;disable pin RD0                                          *
+00033C EC?? F???      00389     CALL Dot                   ; Call routine to indicate dots                          *               
+                                     
+000340                00390 Character_N                    ;                                                        *
+                      00391     ;Morse Dash                                                                         *
+000340 808C           00392     BSF LATD,0                ;disable pin RD0                                          *
+000342 EC?? F???      00393     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00394    ;Element Pause                                                                       *
+000346 908C           00395     BCF LATD,0                ;disable pin RD0                                          *
+000348 EC?? F???      00396     CALL Dot                   ; Call routine to indicate dots                          * 
+                      00397     ;Morse Dot                                                                          *
+00034C 808C           00398     BSF LATD,0                ;disable pin RD0                                          *
+00034E EC?? F???      00399     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00400 ;   ;Element Pause                                                                      *
+                      00401 ;    BCF GPIO,2                 ; Diaable GPIO Pin 2                                    * 
+                      00402 ;    CALL Dot                          ; Call routine to indicate dots                  *               
+                                      
+000352 0C00           00403     RETLW 0                   ; Return back from subroutine to Main.                    *
+000354                00404 Character_V                    ;                                                        *
+                      00405     ;Morse Dot                                                                          *
+000354 808C           00406     BSF LATD,0                ;disable pin RD0                                          *
+000356 EC?? F???      00407     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00408    ;Element Pause                                                                       *
+00035A 908C           00409     BCF LATD,0                ;disable pin RD0                                          *
+00035C EC?? F???      00410     CALL Dot                   ; Call routine to indicate dots                          *               
+                                    
+000360                00411 Character_U                    ;                                                        *
+                      00412     ;Morse Dot                                                                          *
+000360 808C           00413     BSF LATD,0                ;disable pin RD0                                          *
+000362 EC?? F???      00414     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00415    ;Element Pause                                                                       *
+000366 908C           00416     BCF LATD,0                ;disable pin RD0                                          *
+000368 EC?? F???      00417     CALL Dot                   ; Call routine to indicate dots                          * 
+                      00418     ;Morse Dot                                                                          *
+00036C 808C           00419     BSF LATD,0                ;disable pin RD0                                          *
+00036E EC?? F???      00420     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00421    ;Element Pause                                                                       *
+000372 908C           00422     BCF LATD,0                ;disable pin RD0                                          *
+000374 EC?? F???      00423     CALL Dot                   ; Call routine to indicate dots                          *               
+                                     
+                      00424      ;Morse Dash                                                                        *
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 10
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000378 808C           00425     BSF LATD,0                ;disable pin RD0                                          *
+00037A EC?? F???      00426     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00427 ;   ;Element Pause                                                                      *
+                      00428 ;    BCF GPIO,2                 ; Diaable GPIO Pin 2                                    * 
+                      00429 ;    CALL Dot                          ; Call routine to indicate dots                  *               
+                                     
+00037E 0C00           00430     RETLW 0                   ; Return back from subroutine to Main.                    *
+000380                00431 Character_X                    ;                                                        *
+                      00432      ;Morse Dash                                                                        *
+000380 808C           00433     BSF LATD,0                ;disable pin RD0                                          *
+000382 EC?? F???      00434     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00435    ;Element Pause                                                                       *
+000386 908C           00436     BCF LATD,0                ;disable pin RD0                                          *
+000388 EC?? F???      00437     CALL Dot                   ; Call routine to indicate dots                          *               
+                                     
+                      00438     ;Morse Dot                                                                          *
+00038C 808C           00439     BSF LATD,0                ;disable pin RD0                                          *
+00038E EC?? F???      00440     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00441    ;Element Pause                                                                       *
+000392 908C           00442     BCF LATD,0                ;disable pin RD0                                          *
+000394 EC?? F???      00443     CALL Dot                   ; Call routine to indicate dots                          * 
+000398                00444 Character_A                    ;                                                        *    
+                      00445     ;Morse Dot                                                                          *
+000398 808C           00446     BSF LATD,0                ;disable pin RD0                                          *
+00039A EC?? F???      00447     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00448    ;Element Pause                                                                       *
+00039E 908C           00449     BCF LATD,0                ;disable pin RD0                                          *
+0003A0 EC?? F???      00450     CALL Dot                   ; Call routine to indicate dots                          * 
+0003A4                00451 Character_T                    ;                                                        *
+                      00452     ;Morse Dash                                                                         *
+0003A4 808C           00453     BSF LATD,0                ;disable pin RD0                                          *
+0003A6 EC?? F???      00454     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00455 ;   ;Element Pause                                                                      *
+                      00456 ;    BCF GPIO,2                 ; Diaable GPIO Pin 2                                    * 
+                      00457 ;    CALL Dot                          ; Call routine to indicate dots                  *               
+                                      
+0003AA 0C00           00458     RETLW 0                   ; Return back from subroutine to Main.                    *
+0003AC                00459 Character_Y                    ;                                                        *
+                      00460     ;Morse Dash                                                                         *
+0003AC 808C           00461     BSF LATD,0                ;disable pin RD0                                          *
+0003AE EC?? F???      00462     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00463    ;Element Pause                                                                       *
+0003B2 908C           00464     BCF LATD,0                ;disable pin RD0                                          *
+0003B4 EC?? F???      00465     CALL Dot                   ; Call routine to indicate dots                          *               
+                                     
+0003B8                00466 Character_W                    ;                                                        *
+                      00467     ;Morse Dot                                                                          *
+0003B8 808C           00468     BSF LATD,0                ;disable pin RD0                                          *
+0003BA EC?? F???      00469     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00470    ;Element Pause                                                                       *
+0003BE 908C           00471     BCF LATD,0                ;disable pin RD0                                          *
+0003C0 EC?? F???      00472     CALL Dot                   ; Call routine to indicate dots                          * 
+0003C4                00473 Character_M                    ;                                                        *
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 11
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00474     ;Morse Dash                                                                         *
+0003C4 808C           00475     BSF LATD,0                ;disable pin RD0                                          *
+0003C6 EC?? F???      00476     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00477    ;Element Pause                                                                       *
+0003CA 908C           00478     BCF LATD,0                ;disable pin RD0                                          *
+0003CC EC?? F???      00479     CALL Dot                   ; Call routine to indicate dots                          *               
+                                     
+                      00480     ;Morse Dash                                                                         *
+0003D0 808C           00481     BSF LATD,0                ;disable pin RD0                                          *
+0003D2 EC?? F???      00482     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00483 ;   ;Element Pause                                                                      *
+                      00484 ;    BCF GPIO,2                 ; Diaable GPIO Pin 2                                    * 
+                      00485 ;    CALL Dot                          ; Call routine to indicate dots                  *               
+                                     
+0003D6 0C00           00486     RETLW 0                   ; Return back from subroutine to Main.                    *
+0003D8                00487 Character_Z                    ;                                                        *
+                      00488     ;Morse Dash                                                                         *
+0003D8 808C           00489     BSF LATD,0                ;disable pin RD0                                          *
+0003DA EC?? F???      00490     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00491    ;Element Pause                                                                       *
+0003DE 908C           00492     BCF LATD,0                ;disable pin RD0                                          *
+0003E0 EC?? F???      00493     CALL Dot                   ; Call routine to indicate dots                          *               
+                                     
+                      00494     ;Morse Dash                                                                         *
+0003E4 808C           00495     BSF LATD,0                ;disable pin RD0                                          *
+0003E6 EC?? F???      00496     CALL Dash_Spaces     ; Call routine to indicate dashes/spaces between characters    * 
+                      00497    ;Element Pause                                                                       *
+0003EA 908C           00498     BCF LATD,0                ;disable pin RD0                                          *
+0003EC EC?? F???      00499     CALL Dot                   ; Call routine to indicate dots                          * 
+0003F0                00500 Character_I                    ;                                                        *
+                      00501     ;Morse Dot                                                                          *
+0003F0 808C           00502     BSF LATD,0                ;disable pin RD0                                          *
+0003F2 EC?? F???      00503     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00504    ;Element Pause                                                                       *
+0003F6 908C           00505     BCF LATD,0                ;disable pin RD0                                          *
+0003F8 EC?? F???      00506     CALL Dot                   ; Call routine to indicate dots                          *               
+                                     
+                      00507     ;Morse Dot                                                                          *
+0003FC 808C           00508     BSF LATD,0                ;disable pin RD0                                          *
+0003FE EC?? F???      00509     CALL Dot                   ; Call routine to indicate dots                          *       
+                      00510 ;   ;Element Pause                                                                      *
+                      00511 ;    BCF GPIO,2                 ; Diaable GPIO Pin 2                                    * 
+                      00512 ;    CALL Dot                          ; Call routine to indicate dots                  *               
+                                     
+000402 0C00           00513     RETLW 0                   ; Return back from subroutine to Main.                    * 
+                      00514 ; DELAY ROUTINE FOLLOWS BELOW                                                           *
+000404                00515 Word_Pause                    ;                                                         *
+000404 0E04           00516     MOVLW D'4'                ; Move Decimal 4 into W Reg.                              *
+000406 2612           00517     ADDWF Delay_3 , F         ; ADD Contents of W Reg into Variable Delay_3.            *    
+000408                00518 Dash_Spaces                   ;                                                         *
+000408 0E02           00519     MOVLW D'2'                ; Move Decimal 2 into W Reg.                              *  
+00040A 2612           00520     ADDWF Delay_3 , F         ; ADD Contents of W Reg into Variable Delay_3.            *            
+00040C                00521 Dot                           ;                                                         *
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 12
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00040C 0E01           00522     MOVLW D'1'                ; Move Decimal 1 into W Reg.                              *               
+                                 
+00040E 2612           00523     ADDWF Delay_3 , F         ; ADD Contents of W Reg into Variable Delay_3.            *      
+000410                00524 LOOP_Dot                      ;                                                         *
+000410 0E32           00525     MOVLW D'50'       ; MOVE Decimal value of 50 into W Reg.                            *               
+                             
+000412 6E10           00526     MOVWF Delay_1             ; Move this W reg value now to DELVAL2 location.          * 
+000414 0EC8           00527     MOVLW D'200'              ; MOVE Decimal value of 255 into W Reg.                   *    
+000416 6E11           00528     MOVWF Delay_2             ; Move this W reg value now to DELVAL2 location.          *               
+                             
+000418                00529 DELAY                         ;                                                         *
+000418 2E10           00530     DECFSZ Delay_1, F         ; skip next instruction if F=0.                           *               
+                                 
+00041A EF?? F???      00531     GOTO DELAY                ; Unconditional branch to DELAY.                          *               
+                             
+00041E 2E11           00532     DECFSZ Delay_2, F         ; skip next instruction if F=0.                           *               
+                              
+000420 EF?? F???      00533     GOTO DELAY                ; Unconditional branch to DELAY.                          * 
+000424 2E12           00534     DECFSZ Delay_3, F         ; skip next instruction if F=0.                           *  
+000426 EF?? F???      00535     GOTO LOOP_Dot             ; Unconditional branch to Loop_Dot.                       *
+00042A 0C00           00536     RETLW 0                   ; Return back from subroutine to Main.                    *
+                      00537 ;**************************************************************************************** 
+                      00538 ; END OF PROGRAM                                                                        *
+                      00539 ; Assembler directive for end of program:                                               *
+                      00540         END                         ;                                                   *
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 13
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+A                                 00000000
+ABDEN                             00000000
+ABDOVF                            00000007
+ACCESS                            00000000
+ACKDT                             00000005
+ACKEN                             00000004
+ACKSTAT                           00000006
+ACQT0                             00000003
+ACQT1                             00000004
+ACQT2                             00000005
+ADCON0                            00000FC2
+ADCON1                            00000FC1
+ADCON2                            00000FC0
+ADCS0                             00000000
+ADCS1                             00000001
+ADCS2                             00000002
+ADDEN                             00000003
+ADEN                              00000003
+ADFM                              00000007
+ADIE                              00000006
+ADIF                              00000006
+ADIP                              00000006
+ADON                              00000000
+ADRES                             00000FC3
+ADRESH                            00000FC4
+ADRESL                            00000FC3
+AN0                               00000000
+AN1                               00000001
+AN10                              00000001
+AN11                              00000004
+AN12                              00000000
+AN2                               00000002
+AN3                               00000003
+AN4                               00000005
+AN5                               00000000
+AN6                               00000001
+AN7                               00000002
+AN8                               00000002
+AN9                               00000003
+ANS0                              00000000
+ANS1                              00000001
+ANS10                             00000002
+ANS11                             00000003
+ANS12                             00000004
+ANS2                              00000002
+ANS3                              00000003
+ANS4                              00000004
+ANS5                              00000005
+ANS6                              00000006
+ANS7                              00000007
+ANS8                              00000000
+ANS9                              00000001
+ANSEL                             00000F7E
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 14
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ANSELH                            00000F7F
+BANKED                            00000001
+BAUDCON                           00000FB8
+BAUDCTL                           00000FB8
+BCLIE                             00000003
+BCLIF                             00000003
+BCLIP                             00000003
+BF                                00000000
+BGST                              00000005
+BOR                               00000000
+BRG16                             00000003
+BRGH                              00000002
+BSR                               00000FE0
+C                                 00000000
+C12IN0M                           00000000
+C12IN0N                           00000000
+C12IN1M                           00000001
+C12IN1N                           00000001
+C12IN2M                           00000003
+C12IN2N                           00000003
+C12IN3M                           00000001
+C12IN3N                           00000001
+C1CH0                             00000000
+C1CH1                             00000001
+C1IE                              00000006
+C1IF                              00000006
+C1INP                             00000003
+C1IP                              00000006
+C1OE                              00000005
+C1ON                              00000007
+C1OUT_CM1CON0                     00000006
+C1OUT_PORTA                       00000004
+C1POL                             00000004
+C1R                               00000002
+C1RSEL                            00000005
+C1SP                              00000003
+C2CH0                             00000000
+C2CH1                             00000001
+C2IE                              00000005
+C2IF                              00000005
+C2INP                             00000002
+C2IP                              00000005
+C2OE                              00000005
+C2ON                              00000007
+C2OUT_CM2CON0                     00000006
+C2OUT_PORTA                       00000005
+C2POL                             00000004
+C2R                               00000002
+C2RSEL                            00000004
+C2SP                              00000003
+CCP1                              00000002
+CCP1CON                           00000FBD
+CCP1IE                            00000002
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 15
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+CCP1IF                            00000002
+CCP1IP                            00000002
+CCP1M0                            00000000
+CCP1M1                            00000001
+CCP1M2                            00000002
+CCP1M3                            00000003
+CCP2CON                           00000FBA
+CCP2IE                            00000000
+CCP2IF                            00000000
+CCP2IP                            00000000
+CCP2M0                            00000000
+CCP2M1                            00000001
+CCP2M2                            00000002
+CCP2M3                            00000003
+CCP2_PORTB                        00000003
+CCP2_PORTC                        00000001
+CCPR1                             00000FBE
+CCPR1H                            00000FBF
+CCPR1L                            00000FBE
+CCPR2                             00000FBB
+CCPR2H                            00000FBC
+CCPR2L                            00000FBB
+CFGS                              00000006
+CHS0                              00000002
+CHS1                              00000003
+CHS2                              00000004
+CHS3                              00000005
+CK                                00000006
+CKE                               00000006
+CKP                               00000004
+CKTXP                             00000004
+CM1CON0                           00000F7B
+CM2CON0                           00000F7A
+CM2CON1                           00000F79
+CREN                              00000004
+CS                                00000002
+CSRC                              00000007
+CVR0                              00000000
+CVR1                              00000001
+CVR2                              00000002
+CVR3                              00000003
+CVRCON                            00000FB5
+CVRCON2                           00000FB4
+CVREF                             00000002
+CVREN                             00000007
+CVROE                             00000006
+CVRR                              00000005
+CVRSS                             00000004
+Character_A                       00000398
+Character_B                       000001CC
+Character_C                       000001F8
+Character_D                       000002BC
+Character_E                       00000224
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 16
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+Character_F                       0000022C
+Character_G                       000002E8
+Character_H                       00000258
+Character_I                       000003F0
+Character_J                       00000284
+Character_K                       00000314
+Character_L                       000002B0
+Character_M                       000003C4
+Character_N                       00000340
+Character_O                       00000290
+Character_P                       000002DC
+Character_Q                       00000308
+Character_R                       00000334
+Character_S                       000001D8
+Character_T                       000003A4
+Character_U                       00000360
+Character_V                       00000354
+Character_W                       000003B8
+Character_X                       00000380
+Character_Y                       000003AC
+Character_Z                       000003D8
+D                                 00000005
+DC                                00000001
+DC1B0                             00000004
+DC1B1                             00000005
+DC2B0                             00000004
+DC2B1                             00000005
+DDRA                              TRISA
+DDRB                              TRISB
+DDRC                              TRISC
+DDRD                              TRISD
+DDRE                              TRISE
+DELAY                             00000418
+DONE                              00000001
+DTRXP                             00000005
+D_A                               00000005
+D_NOT_A                           00000005
+Dash_Spaces                       00000408
+Delay_1                           00000010
+Delay_2                           00000011
+Delay_3                           00000012
+Dot                               0000040C
+ECCP1AS                           00000FB6
+ECCPAS0                           00000004
+ECCPAS1                           00000005
+ECCPAS2                           00000006
+ECCPASE                           00000007
+EEADR                             00000FA9
+EEADR0                            00000000
+EEADR1                            00000001
+EEADR2                            00000002
+EEADR3                            00000003
+EEADR4                            00000004
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 17
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+EEADR5                            00000005
+EEADR6                            00000006
+EEADR7                            00000007
+EECON1                            00000FA6
+EECON2                            00000FA7
+EEDATA                            00000FA8
+EEIE                              00000004
+EEIF                              00000004
+EEIP                              00000004
+EEPGD                             00000007
+FAST                              00000001
+FERR                              00000002
+FLT0                              00000000
+FREE                              00000004
+FSR0                              00000000
+FSR0H                             00000FEA
+FSR0L                             00000FE9
+FSR1                              00000001
+FSR1H                             00000FE2
+FSR1L                             00000FE1
+FSR2                              00000002
+FSR2H                             00000FDA
+FSR2L                             00000FD9
+FVREN                             00000007
+FVRST                             00000006
+GCEN                              00000007
+GIE                               00000007
+GIEH                              00000007
+GIEL                              00000006
+GIE_GIEH                          00000007
+GO                                00000001
+GO_DONE                           00000001
+GO_NOT_DONE                       00000001
+HLVDCON                           00000FD2
+HLVDEN                            00000004
+HLVDIE                            00000002
+HLVDIF                            00000002
+HLVDIN                            00000005
+HLVDIP                            00000002
+HLVDL0                            00000000
+HLVDL1                            00000001
+HLVDL2                            00000002
+HLVDL3                            00000003
+IBF                               00000007
+IBOV                              00000005
+IDLEN                             00000007
+INDF0                             00000FEF
+INDF1                             00000FE7
+INDF2                             00000FDF
+INT0                              00000000
+INT0E                             00000004
+INT0F                             00000001
+INT0IE                            00000004
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 18
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+INT0IF                            00000001
+INT1                              00000001
+INT1E                             00000003
+INT1F                             00000000
+INT1IE                            00000003
+INT1IF                            00000000
+INT1IP                            00000006
+INT1P                             00000006
+INT2                              00000002
+INT2E                             00000004
+INT2F                             00000001
+INT2IE                            00000004
+INT2IF                            00000001
+INT2IP                            00000007
+INT2P                             00000007
+INTCON                            00000FF2
+INTCON2                           00000FF1
+INTCON3                           00000FF0
+INTEDG0                           00000006
+INTEDG1                           00000005
+INTEDG2                           00000004
+INTSRC                            00000007
+IOCB                              00000F7D
+IOCB4                             00000004
+IOCB5                             00000005
+IOCB6                             00000006
+IOCB7                             00000007
+IOFS                              00000002
+IPEN                              00000007
+IPR1                              00000F9F
+IPR2                              00000FA2
+IRCF0                             00000004
+IRCF1                             00000005
+IRCF2                             00000006
+IRVST                             00000005
+IVRST                             00000005
+KBI0                              00000004
+KBI1                              00000005
+KBI2                              00000006
+KBI3                              00000007
+LATA                              00000F89
+LATA0                             00000000
+LATA1                             00000001
+LATA2                             00000002
+LATA3                             00000003
+LATA4                             00000004
+LATA5                             00000005
+LATA6                             00000006
+LATA7                             00000007
+LATB                              00000F8A
+LATB0                             00000000
+LATB1                             00000001
+LATB2                             00000002
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 19
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+LATB3                             00000003
+LATB4                             00000004
+LATB5                             00000005
+LATB6                             00000006
+LATB7                             00000007
+LATC                              00000F8B
+LATC0                             00000000
+LATC1                             00000001
+LATC2                             00000002
+LATC3                             00000003
+LATC4                             00000004
+LATC5                             00000005
+LATC6                             00000006
+LATC7                             00000007
+LATD                              00000F8C
+LATD0                             00000000
+LATD1                             00000001
+LATD2                             00000002
+LATD3                             00000003
+LATD4                             00000004
+LATD5                             00000005
+LATD6                             00000006
+LATD7                             00000007
+LATE                              00000F8D
+LATE0                             00000000
+LATE1                             00000001
+LATE2                             00000002
+LOOP                              0000000C
+LOOP_Dot                          00000410
+LVDCON                            00000FD2
+LVDEN                             00000004
+LVDIE                             00000002
+LVDIF                             00000002
+LVDIN                             00000005
+LVDIP                             00000002
+LVDL0                             00000000
+LVDL1                             00000001
+LVDL2                             00000002
+LVDL3                             00000003
+LVV0                              00000000
+LVV1                              00000001
+LVV2                              00000002
+LVV3                              00000003
+MC1OUT                            00000007
+MC2OUT                            00000006
+MCLR                              00000003
+MSK0                              00000000
+MSK1                              00000001
+MSK2                              00000002
+MSK3                              00000003
+MSK4                              00000004
+MSK5                              00000005
+MSK6                              00000006
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 20
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+MSK7                              00000007
+Main                              00000004
+N                                 00000004
+NOT_A                             00000005
+NOT_ADDRESS                       00000005
+NOT_BOR                           00000000
+NOT_CS                            00000002
+NOT_DONE                          00000001
+NOT_MCLR                          00000003
+NOT_PD                            00000002
+NOT_POR                           00000001
+NOT_RBPU                          00000007
+NOT_RD                            00000000
+NOT_RI                            00000004
+NOT_SS                            00000005
+NOT_T1SYNC                        00000002
+NOT_T3SYNC                        00000002
+NOT_TO                            00000003
+NOT_W                             00000002
+NOT_WR                            00000001
+NOT_WRITE                         00000002
+New_Character                     000001C4
+New_Word                          000001BC
+OBF                               00000006
+OERR                              00000001
+OSCCON                            00000FD3
+OSCFIE                            00000007
+OSCFIF                            00000007
+OSCFIP                            00000007
+OSCTUNE                           00000F9B
+OSTS                              00000003
+OV                                00000003
+P                                 00000004
+P1A                               00000002
+P1B                               00000005
+P1C                               00000006
+P1D                               00000007
+P1M0                              00000006
+P1M1                              00000007
+PC                                00000FF9
+PCL                               00000FF9
+PCLATH                            00000FFA
+PCLATU                            00000FFB
+PD                                00000002
+PDC0                              00000000
+PDC1                              00000001
+PDC2                              00000002
+PDC3                              00000003
+PDC4                              00000004
+PDC5                              00000005
+PDC6                              00000006
+PEIE                              00000006
+PEIE_GIEL                         00000006
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 21
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PEN                               00000002
+PGC                               00000006
+PGD                               00000007
+PGM                               00000005
+PIE1                              00000F9D
+PIE2                              00000FA0
+PIR1                              00000F9E
+PIR2                              00000FA1
+PLLEN                             00000006
+PLUSW0                            00000FEB
+PLUSW1                            00000FE3
+PLUSW2                            00000FDB
+POR                               00000001
+PORTA                             00000F80
+PORTB                             00000F81
+PORTC                             00000F82
+PORTD                             00000F83
+PORTE                             00000F84
+POSTDEC0                          00000FED
+POSTDEC1                          00000FE5
+POSTDEC2                          00000FDD
+POSTINC0                          00000FEE
+POSTINC1                          00000FE6
+POSTINC2                          00000FDE
+PR2                               00000FCB
+PREINC0                           00000FEC
+PREINC1                           00000FE4
+PREINC2                           00000FDC
+PROD                              00000FF3
+PRODH                             00000FF4
+PRODL                             00000FF3
+PRSEN                             00000007
+PSA                               00000003
+PSP0                              00000000
+PSP1                              00000001
+PSP2                              00000002
+PSP3                              00000003
+PSP4                              00000004
+PSP5                              00000005
+PSP6                              00000006
+PSP7                              00000007
+PSPIE                             00000007
+PSPIF                             00000007
+PSPIP                             00000007
+PSPMODE                           00000004
+PSSAC0                            00000002
+PSSAC1                            00000003
+PSSBD0                            00000000
+PSSBD1                            00000001
+PSTRCON                           00000FB9
+PWM1CON                           00000FB7
+R                                 00000002
+RA0                               00000000
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 22
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RA5                               00000005
+RA6                               00000006
+RA7                               00000007
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RBIP                              00000000
+RBPU                              00000007
+RC0                               00000000
+RC1                               00000001
+RC2                               00000002
+RC3                               00000003
+RC4                               00000004
+RC5                               00000005
+RC6                               00000006
+RC7                               00000007
+RCEN                              00000003
+RCIDL                             00000006
+RCIE                              00000005
+RCIF                              00000005
+RCIP                              00000005
+RCON                              00000FD0
+RCREG                             00000FAE
+RCSTA                             00000FAB
+RD                                00000000
+RD0                               00000000
+RD1                               00000001
+RD16                              00000007
+RD2                               00000002
+RD3                               00000003
+RD4                               00000004
+RD5                               00000005
+RD6                               00000006
+RD7                               00000007
+RE0                               00000000
+RE1                               00000001
+RE2                               00000002
+RE3                               00000003
+RI                                00000004
+RSEN                              00000001
+RX                                00000007
+RX9                               00000006
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 23
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RX9D                              00000000
+R_NOT_W                           00000002
+R_W                               00000002
+S                                 00000003
+SBOREN                            00000006
+SCK                               00000003
+SCKP                              00000004
+SCL                               00000003
+SCS0                              00000000
+SCS1                              00000001
+SDA                               00000004
+SDI                               00000004
+SDO                               00000005
+SEN                               00000000
+SENDB                             00000003
+SLRA                              00000000
+SLRB                              00000001
+SLRC                              00000002
+SLRCON                            00000F78
+SLRD                              00000003
+SLRE                              00000004
+SMP                               00000007
+SP0                               00000000
+SP1                               00000001
+SP2                               00000002
+SP3                               00000003
+SP4                               00000004
+SPBRG                             00000FAF
+SPBRGH                            00000FB0
+SPEN                              00000007
+SREN                              00000005
+SS                                00000005
+SSPADD                            00000FC8
+SSPBUF                            00000FC9
+SSPCON1                           00000FC6
+SSPCON2                           00000FC5
+SSPEN                             00000005
+SSPIE                             00000003
+SSPIF                             00000003
+SSPIP                             00000003
+SSPM0                             00000000
+SSPM1                             00000001
+SSPM2                             00000002
+SSPM3                             00000003
+SSPMSK                            00000F77
+SSPOV                             00000006
+SSPSTAT                           00000FC7
+START                             00000003
+STATUS                            00000FD8
+STKFUL                            00000007
+STKOVF                            00000007
+STKPTR                            00000FFC
+STKUNF                            00000006
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 24
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+STOP                              00000004
+STRA                              00000000
+STRB                              00000001
+STRC                              00000002
+STRD                              00000003
+STRSYNC                           00000004
+SWDTE                             00000000
+SWDTEN                            00000000
+SYNC                              00000004
+T08BIT                            00000006
+T0CKI                             00000004
+T0CON                             00000FD5
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0PS0                             00000000
+T0PS1                             00000001
+T0PS2                             00000002
+T0SE                              00000004
+T13CKI                            00000000
+T1CKI                             00000000
+T1CKPS0                           00000004
+T1CKPS1                           00000005
+T1CON                             00000FCD
+T1OSCEN                           00000003
+T1OSI                             00000001
+T1OSO                             00000000
+T1RUN                             00000006
+T1SYNC                            00000002
+T2CKPS0                           00000000
+T2CKPS1                           00000001
+T2CON                             00000FCA
+T2OUTPS0                          00000003
+T2OUTPS1                          00000004
+T2OUTPS2                          00000005
+T2OUTPS3                          00000006
+T3CCP1                            00000003
+T3CCP2                            00000006
+T3CKI                             00000000
+T3CKPS0                           00000004
+T3CKPS1                           00000005
+T3CON                             00000FB1
+T3SYNC                            00000002
+TABLAT                            00000FF5
+TBLPTR                            00000FF6
+TBLPTRH                           00000FF7
+TBLPTRL                           00000FF6
+TBLPTRU                           00000FF8
+TMR0                              00000FD6
+TMR0H                             00000FD7
+TMR0IE                            00000005
+TMR0IF                            00000002
+TMR0IP                            00000002
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 25
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TMR0L                             00000FD6
+TMR0ON                            00000007
+TMR1                              00000FCE
+TMR1CS                            00000001
+TMR1H                             00000FCF
+TMR1IE                            00000000
+TMR1IF                            00000000
+TMR1IP                            00000000
+TMR1L                             00000FCE
+TMR1ON                            00000000
+TMR2                              00000FCC
+TMR2IE                            00000001
+TMR2IF                            00000001
+TMR2IP                            00000001
+TMR2ON                            00000002
+TMR3                              00000FB2
+TMR3CS                            00000001
+TMR3H                             00000FB3
+TMR3IE                            00000001
+TMR3IF                            00000001
+TMR3IP                            00000001
+TMR3L                             00000FB2
+TMR3ON                            00000000
+TO                                00000003
+TOS                               00000FFD
+TOSH                              00000FFE
+TOSL                              00000FFD
+TOSU                              00000FFF
+TRISA                             00000F92
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISA5                            00000005
+TRISA6                            00000006
+TRISA7                            00000007
+TRISB                             00000F93
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+TRISC                             00000F94
+TRISC0                            00000000
+TRISC1                            00000001
+TRISC2                            00000002
+TRISC3                            00000003
+TRISC4                            00000004
+TRISC5                            00000005
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 26
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TRISC6                            00000006
+TRISC7                            00000007
+TRISD                             00000F95
+TRISD0                            00000000
+TRISD1                            00000001
+TRISD2                            00000002
+TRISD3                            00000003
+TRISD4                            00000004
+TRISD5                            00000005
+TRISD6                            00000006
+TRISD7                            00000007
+TRISE                             00000F96
+TRISE0                            00000000
+TRISE1                            00000001
+TRISE2                            00000002
+TRMT                              00000001
+TUN0                              00000000
+TUN1                              00000001
+TUN2                              00000002
+TUN3                              00000003
+TUN4                              00000004
+TUN5                              00000005
+TX                                00000006
+TX9                               00000006
+TX9D                              00000000
+TXEN                              00000005
+TXIE                              00000004
+TXIF                              00000004
+TXIP                              00000004
+TXREG                             00000FAD
+TXSTA                             00000FAC
+UA                                00000001
+VCFG0                             00000004
+VCFG1                             00000005
+VDIRMAG                           00000007
+VPP                               00000003
+VREFM                             00000002
+VREFN                             00000002
+VREFP                             00000003
+W                                 00000000
+WCOL                              00000007
+WDTCON                            00000FD1
+WPUB                              00000F7C
+WPUB0                             00000000
+WPUB1                             00000001
+WPUB2                             00000002
+WPUB3                             00000003
+WPUB4                             00000004
+WPUB5                             00000005
+WPUB6                             00000006
+WPUB7                             00000007
+WR                                00000001
+WREG                              00000FE8
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 27
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+WREN                              00000002
+WRERR                             00000003
+WUE                               00000001
+While_Loop                        000001B4
+Word_Pause                        00000404
+Z                                 00000002
+_BOREN_NOSLP_2L                   000000FD
+_BOREN_OFF_2L                     000000F9
+_BOREN_ON_2L                      000000FB
+_BOREN_SBORDIS_2L                 000000FF
+_BORV_18_2L                       000000FF
+_BORV_22_2L                       000000F7
+_BORV_27_2L                       000000EF
+_BORV_30_2L                       000000E7
+_CCP2MX_PORTBE_3H                 000000FE
+_CCP2MX_PORTC_3H                  000000FF
+_CONFIG1H                         00300001
+_CONFIG2H                         00300003
+_CONFIG2L                         00300002
+_CONFIG3H                         00300005
+_CONFIG4L                         00300006
+_CONFIG5H                         00300009
+_CONFIG5L                         00300008
+_CONFIG6H                         0030000B
+_CONFIG6L                         0030000A
+_CONFIG7H                         0030000D
+_CONFIG7L                         0030000C
+_CP0_OFF_5L                       000000FF
+_CP0_ON_5L                        000000FE
+_CP1_OFF_5L                       000000FF
+_CP1_ON_5L                        000000FD
+_CP2_OFF_5L                       000000FF
+_CP2_ON_5L                        000000FB
+_CP3_OFF_5L                       000000FF
+_CP3_ON_5L                        000000F7
+_CPB_OFF_5H                       000000FF
+_CPB_ON_5H                        000000BF
+_CPD_OFF_5H                       000000FF
+_CPD_ON_5H                        0000007F
+_DEBUG_OFF_4L                     000000FF
+_DEBUG_ON_4L                      0000007F
+_DEVID1                           003FFFFE
+_DEVID2                           003FFFFF
+_EBTR0_OFF_7L                     000000FF
+_EBTR0_ON_7L                      000000FE
+_EBTR1_OFF_7L                     000000FF
+_EBTR1_ON_7L                      000000FD
+_EBTR2_OFF_7L                     000000FF
+_EBTR2_ON_7L                      000000FB
+_EBTR3_OFF_7L                     000000FF
+_EBTR3_ON_7L                      000000F7
+_EBTRB_OFF_7H                     000000FF
+_EBTRB_ON_7H                      000000BF
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 28
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_FCMEN_OFF_1H                     000000BF
+_FCMEN_ON_1H                      000000FF
+_FOSC_ECIO6_1H                    000000F5
+_FOSC_EC_1H                       000000F4
+_FOSC_HSPLL_1H                    000000F6
+_FOSC_HS_1H                       000000F2
+_FOSC_INTIO67_1H                  000000F8
+_FOSC_INTIO7_1H                   000000F9
+_FOSC_LP_1H                       000000F0
+_FOSC_RCIO6_1H                    000000F7
+_FOSC_RC_1H                       000000F3
+_FOSC_XT_1H                       000000F1
+_HFOFST_OFF_3H                    000000F7
+_HFOFST_ON_3H                     000000FF
+_IDLOC0                           00200000
+_IDLOC1                           00200001
+_IDLOC2                           00200002
+_IDLOC3                           00200003
+_IDLOC4                           00200004
+_IDLOC5                           00200005
+_IDLOC6                           00200006
+_IDLOC7                           00200007
+_IESO_OFF_1H                      0000007F
+_IESO_ON_1H                       000000FF
+_LPT1OSC_OFF_3H                   000000FB
+_LPT1OSC_ON_3H                    000000FF
+_LVP_OFF_4L                       000000FB
+_LVP_ON_4L                        000000FF
+_MCLRE_OFF_3H                     0000007F
+_MCLRE_ON_3H                      000000FF
+_PBADEN_OFF_3H                    000000FD
+_PBADEN_ON_3H                     000000FF
+_PWRT_OFF_2L                      000000FF
+_PWRT_ON_2L                       000000FE
+_STVREN_OFF_4L                    000000FE
+_STVREN_ON_4L                     000000FF
+_WDTEN_OFF_2H                     000000FE
+_WDTEN_ON_2H                      000000FF
+_WDTPS_1024_2H                    000000F5
+_WDTPS_128_2H                     000000EF
+_WDTPS_16384_2H                   000000FD
+_WDTPS_16_2H                      000000E9
+_WDTPS_1_2H                       000000E1
+_WDTPS_2048_2H                    000000F7
+_WDTPS_256_2H                     000000F1
+_WDTPS_2_2H                       000000E3
+_WDTPS_32768_2H                   000000FF
+_WDTPS_32_2H                      000000EB
+_WDTPS_4096_2H                    000000F9
+_WDTPS_4_2H                       000000E5
+_WDTPS_512_2H                     000000F3
+_WDTPS_64_2H                      000000ED
+_WDTPS_8192_2H                    000000FB
+MPASM 5.87                 DITTER_DATTER.ASM   9-15-2020  22:04:55         PAGE 29
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_WDTPS_8_2H                       000000E7
+_WRT0_OFF_6L                      000000FF
+_WRT0_ON_6L                       000000FE
+_WRT1_OFF_6L                      000000FF
+_WRT1_ON_6L                       000000FD
+_WRT2_OFF_6L                      000000FF
+_WRT2_ON_6L                       000000FB
+_WRT3_OFF_6L                      000000FF
+_WRT3_ON_6L                       000000F7
+_WRTB_OFF_6H                      000000FF
+_WRTB_ON_6H                       000000BF
+_WRTC_OFF_6H                      000000FF
+_WRTC_ON_6H                       000000DF
+_WRTD_OFF_6H                      000000FF
+_WRTD_ON_6H                       0000007F
+_XINST_OFF_4L                     000000BF
+_XINST_ON_4L                      000000FF
+__18F45K20                        00000001
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+
