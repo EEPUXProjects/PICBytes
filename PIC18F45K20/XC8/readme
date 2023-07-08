@@ -4,5 +4,6 @@ Compatible with following IDE and configuration :
 MPLAB X V6.05
 PIC18F-K_DFP v1.7.134
 XC8 V2.41
+MCC cLASSIC V5.0
 
 Note : The Zip file inside any which folder contains everything for that project. So just download the zip folder.
