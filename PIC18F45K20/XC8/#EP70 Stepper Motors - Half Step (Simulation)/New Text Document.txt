@@ -1,0 +1,20 @@
+Welcome to this revamped mini series called PICbytes,
+
+Here you will find various microcontroller tutorials using the PIC18F45K20 Microcontroller. 
+
+In this video we will find out how to use the stepper motor model in proteus.
+We will see how to do half step and full step sequences.
+
+Source Code and  Proteus Files : 
+
+#MPLABXC8
+#MPLABX 
+#EmbeddedProgramming
+#Microcontrollers 
+#ElectronicsTutorials
+
+More interesting and useful examples to come soon. 
+
+Until then,
+
+Goodbyeeee.
