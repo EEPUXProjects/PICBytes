@@ -1,0 +1,19 @@
+Welcome to this revamped mini series called PICbytes,
+
+Here you will find various microcontroller tutorials using the PIC18F45K20 Microcontroller. 
+
+In todays video we will find out how to transmit a string throught the USART. Files are available below for you to customize however you like.
+
+Source Code and  Proteus Files : 
+
+#MPLABXC8
+#MPLABX 
+#EmbeddedProgramming
+#Microcontrollers 
+#ElectronicsTutorials
+
+More interesting and useful examples to come soon. 
+
+Until then,
+
+Goodbyeeee.
