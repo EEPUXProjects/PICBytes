@@ -1,0 +1,378 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F45K20 ]
+[d frameptr 4065 ]
+"83 G:\Youtube_Activities\Extended Projects\2) PIC Tutorials\Example Code\#EP111TMP36 Temperature Sensor Part 2 (Simulation)\TMP36_Temperature_Example_Part_2.X\mcc_generated_files/adc.c
+[e E2717 . `uc
+channel_AN0 0
+channel_FVR 15
+]
+"63 G:\Youtube_Activities\Extended Projects\2) PIC Tutorials\Example Code\#EP111TMP36 Temperature Sensor Part 2 (Simulation)\TMP36_Temperature_Example_Part_2.X\main.c
+[e E3040 . `uc
+channel_AN0 0
+channel_FVR 15
+]
+"7 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"43 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"57 G:\Youtube_Activities\Extended Projects\2) PIC Tutorials\Example Code\#EP111TMP36 Temperature Sensor Part 2 (Simulation)\TMP36_Temperature_Example_Part_2.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"62 G:\Youtube_Activities\Extended Projects\2) PIC Tutorials\Example Code\#EP111TMP36 Temperature Sensor Part 2 (Simulation)\TMP36_Temperature_Example_Part_2.X\mcc_generated_files/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+"83
+[v _ADC_SelectChannel ADC_SelectChannel `(v  1 e 1 0 ]
+"91
+[v _ADC_StartConversion ADC_StartConversion `(v  1 e 1 0 ]
+"98
+[v _ADC_IsConversionDone ADC_IsConversionDone `(a  1 e 1 0 ]
+"104
+[v _ADC_GetConversionResult ADC_GetConversionResult `(us  1 e 2 0 ]
+"50 G:\Youtube_Activities\Extended Projects\2) PIC Tutorials\Example Code\#EP111TMP36 Temperature Sensor Part 2 (Simulation)\TMP36_Temperature_Example_Part_2.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+"58
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+"55 G:\Youtube_Activities\Extended Projects\2) PIC Tutorials\Example Code\#EP111TMP36 Temperature Sensor Part 2 (Simulation)\TMP36_Temperature_Example_Part_2.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"345 C:/Users/Usmaan/.mchp_packs/Microchip/PIC18F-K_DFP/1.3.84/xc8\pic\include\proc\pic18f45k20.h
+[v _WPUB WPUB `VEuc  1 e 1 @3964 ]
+"446
+[v _ANSEL ANSEL `VEuc  1 e 1 @3966 ]
+"508
+[v _ANSELH ANSELH `VEuc  1 e 1 @3967 ]
+"1532
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+[s S298 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+`uc 1 LATA7 1 0 :1:7 
+]
+"1559
+[s S307 . 1 `uc 1 LA0 1 0 :1:0 
+`uc 1 LA1 1 0 :1:1 
+`uc 1 LA2 1 0 :1:2 
+`uc 1 LA3 1 0 :1:3 
+`uc 1 LA4 1 0 :1:4 
+`uc 1 LA5 1 0 :1:5 
+`uc 1 LA6 1 0 :1:6 
+`uc 1 LA7 1 0 :1:7 
+]
+[u S316 . 1 `S298 1 . 1 0 `S307 1 . 1 0 ]
+[v _LATAbits LATAbits `VES316  1 e 1 @3977 ]
+"1644
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+[s S258 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"1671
+[s S267 . 1 `uc 1 LB0 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+`uc 1 LB2 1 0 :1:2 
+`uc 1 LB3 1 0 :1:3 
+`uc 1 LB4 1 0 :1:4 
+`uc 1 LB5 1 0 :1:5 
+`uc 1 LB6 1 0 :1:6 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S276 . 1 `S258 1 . 1 0 `S267 1 . 1 0 ]
+[v _LATBbits LATBbits `VES276  1 e 1 @3978 ]
+"1756
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"1868
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+"1980
+[v _LATE LATE `VEuc  1 e 1 @3981 ]
+"2032
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"2254
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"2476
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"2698
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"2920
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+"3072
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @3995 ]
+"5053
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
+"5124
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"5175
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+[s S33 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"5219
+[s S36 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+]
+[s S40 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+]
+[s S47 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S50 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S53 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[s S56 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[s S59 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S62 . 1 `S33 1 . 1 0 `S36 1 . 1 0 `S40 1 . 1 0 `S47 1 . 1 0 `S50 1 . 1 0 `S53 1 . 1 0 `S56 1 . 1 0 `S59 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES62  1 e 1 @4034 ]
+"5301
+[v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
+"5308
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+"6429
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+[s S147 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RBPU 1 0 :1:7 
+]
+"6972
+[s S150 . 1 `uc 1 RBIP 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 TMR0IP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INTEDG2 1 0 :1:4 
+`uc 1 INTEDG1 1 0 :1:5 
+`uc 1 INTEDG0 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+[s S159 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RBPU 1 0 :1:7 
+]
+[u S162 . 1 `S147 1 . 1 0 `S150 1 . 1 0 `S159 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES162  1 e 1 @4081 ]
+[s S182 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"7049
+[s S191 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S200 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S204 . 1 `S182 1 . 1 0 `S191 1 . 1 0 `S200 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES204  1 e 1 @4082 ]
+"42 G:\Youtube_Activities\Extended Projects\2) PIC Tutorials\Example Code\#EP111TMP36 Temperature Sensor Part 2 (Simulation)\TMP36_Temperature_Example_Part_2.X\main.c
+[v _First_Digit First_Digit `uc  1 e 1 0 ]
+[v _Second_Digit Second_Digit `uc  1 e 1 0 ]
+[v _Third_Digit Third_Digit `uc  1 e 1 0 ]
+[v _Fourth_Digit Fourth_Digit `uc  1 e 1 0 ]
+"45
+[v _Voltage Voltage `f  1 e 4 0 ]
+"46
+[v _TMP36_Reading TMP36_Reading `i  1 e 2 0 ]
+"54
+[v _Number_Mapping Number_Mapping `[10]uc  1 e 10 0 ]
+"57
+[v _main main `(v  1 e 1 0 ]
+{
+"107
+[v main@TMP36_Reading_Convert TMP36_Reading_Convert `i  1 a 2 64 ]
+"142
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 14 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 13 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 4 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 12 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 59 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 58 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 50 ]
+"70
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S680 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S685 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S688 . 4 `l 1 i 4 0 `d 1 f 4 0 `S680 1 fAsBytes 4 0 `S685 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S688  1 a 4 19 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 13 ]
+[s S756 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S759 . 2 `s 1 i 2 0 `us 1 n 2 0 `S756 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S759  1 a 2 23 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 18 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 17 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 12 ]
+"8
+[v ___flmul@b b `d  1 p 4 0 ]
+[v ___flmul@a a `d  1 p 4 4 ]
+"205
+} 0
+"11 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 44 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 37 ]
+"20
+[v ___fldiv@new_exp new_exp `s  1 a 2 42 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 49 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 48 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 41 ]
+"11
+[v ___fldiv@b b `d  1 p 4 25 ]
+[v ___fldiv@a a `d  1 p 4 29 ]
+"185
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
+"7
+[v ___awmod@dividend dividend `i  1 p 2 0 ]
+[v ___awmod@divisor divisor `i  1 p 2 2 ]
+"34
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 12 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 11 ]
+[v ___awdiv@counter counter `uc  1 a 1 10 ]
+"7
+[v ___awdiv@dividend dividend `i  1 p 2 6 ]
+[v ___awdiv@divisor divisor `i  1 p 2 8 ]
+"41
+} 0
+"50 G:\Youtube_Activities\Extended Projects\2) PIC Tutorials\Example Code\#EP111TMP36 Temperature Sensor Part 2 (Simulation)\TMP36_Temperature_Example_Part_2.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"56
+} 0
+"55 G:\Youtube_Activities\Extended Projects\2) PIC Tutorials\Example Code\#EP111TMP36 Temperature Sensor Part 2 (Simulation)\TMP36_Temperature_Example_Part_2.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"94
+} 0
+"58 G:\Youtube_Activities\Extended Projects\2) PIC Tutorials\Example Code\#EP111TMP36 Temperature Sensor Part 2 (Simulation)\TMP36_Temperature_Example_Part_2.X\mcc_generated_files/mcc.c
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+{
+"64
+} 0
+"62 G:\Youtube_Activities\Extended Projects\2) PIC Tutorials\Example Code\#EP111TMP36 Temperature Sensor Part 2 (Simulation)\TMP36_Temperature_Example_Part_2.X\mcc_generated_files/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+{
+"81
+} 0
+"91
+[v _ADC_StartConversion ADC_StartConversion `(v  1 e 1 0 ]
+{
+"95
+} 0
+"83
+[v _ADC_SelectChannel ADC_SelectChannel `(v  1 e 1 0 ]
+{
+[v ADC_SelectChannel@channel channel `E2717  1 a 1 wreg ]
+[v ADC_SelectChannel@channel channel `E2717  1 a 1 wreg ]
+"86
+[v ADC_SelectChannel@channel channel `E2717  1 a 1 1 ]
+"89
+} 0
+"98
+[v _ADC_IsConversionDone ADC_IsConversionDone `(a  1 e 1 0 ]
+{
+"102
+} 0
+"104
+[v _ADC_GetConversionResult ADC_GetConversionResult `(us  1 e 2 0 ]
+{
+"108
+} 0
