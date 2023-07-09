@@ -1,0 +1,20 @@
+Welcome to this revamped mini series called PICbytes,
+
+Here you will find various microcontroller tutorials using the PIC18F45K20 Microcontroller. 
+
+In todays video we will find out store up to 5 characters that have been entered into the serial USART terminal.
+Then have them echoed back to the user.
+
+Source Code and  Proteus Files : 
+
+#MPLABXC8
+#MPLABX 
+#EmbeddedProgramming
+#Microcontrollers 
+#ElectronicsTutorials
+
+More interesting and useful examples to come soon. 
+
+Until then,
+
+Goodbyeeee.
