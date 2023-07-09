@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>com.microchip.mplab.nbide.embedded.makeproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>Switch_Controlled_Six_Digit_Counter</name>
+            <name>8_Bit_Calculator_W_Sev_Seg</name>
+            <name>4_Bit_Calculator_W_Sev_Seg</name>
+            <name>4_Bit_Calculator_W_Sev_Seg</name>
+            <name>4_Bit_Calculator_P18F45k20_Optimised</name>
+            <name>4_Bit_Calculator_P18F45k20_Design_Process</name>
+            <creation-uuid>b4a2f29f-6b76-49b9-ac2c-2cbe143ffc78</creation-uuid>
+            <make-project-type>0</make-project-type>
+            <c-extensions>c</c-extensions>
+            <cpp-extensions/>
+            <header-extensions>h</header-extensions>
+            <asminc-extensions/>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <make-dep-projects/>
+            <sourceRootList/>
+            <confList>
+                <confElem>
+                    <name>default</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
+        </data>
+    </configuration>
+</project>
