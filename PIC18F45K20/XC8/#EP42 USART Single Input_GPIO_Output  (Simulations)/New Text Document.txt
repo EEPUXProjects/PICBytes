@@ -1,0 +1,22 @@
+Welcome to this revamped mini series called PICbytes,
+
+Here you will find various microcontroller tutorials using the PIC18F45K20 Microcontroller. 
+
+In todays video we will find out how to show an alternate way of outputting the result when you type in a character on the serial terminal.
+What we will be able to achieve is that we should be able to see the binary equivalent of the character on a bargraph display when being input into the terminal.
+
+Hint: For the letter "a". The binary sequence would be 01100001. Where the bits are in the order B7 to B0. Left to right.
+
+Source Code and  Proteus Files : 
+
+#MPLABXC8
+#MPLABX 
+#EmbeddedProgramming
+#Microcontrollers 
+#ElectronicsTutorials
+
+More interesting and useful examples to come soon. 
+
+Until then,
+
+Goodbyeeee.
