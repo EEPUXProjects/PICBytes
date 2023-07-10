@@ -1,0 +1,20 @@
+Welcome to this revamped mini series called PICbytes,
+
+Here you will find various microcontroller tutorials using the PIC18F45K20 Microcontroller. 
+
+In this video i will demonstrate a library i have created that combines the custom character functionality, 4 bit and 8 bit mode into a single example.
+Drawing on the last three videos we shall have a combined library for future projects.
+
+Source Code and  Proteus Files : 
+
+#MPLABXC8
+#MPLABX 
+#EmbeddedProgramming
+#Microcontrollers 
+#ElectronicsTutorials
+
+More interesting and useful examples to come soon. 
+
+Until then,
+
+Goodbyeeee.
