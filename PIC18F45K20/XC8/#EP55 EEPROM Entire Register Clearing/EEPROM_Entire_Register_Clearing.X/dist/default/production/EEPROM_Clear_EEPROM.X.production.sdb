@@ -1,0 +1,218 @@
+[p LITE_MODE AUTOSTATIC IEEE_DBL LFSROK EMI_WORD IEEE_FLT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F45K20 ]
+[d frameptr 4065 ]
+"63 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+[v ___flpack __flpack `(d  1 e 4 0 ]
+"88 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flsub.c
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"16 D:\CA\2) EEPROM\EEPROM 4 Entire Register Clearing\EEPROM_Clear_EEPROM.X\main.c
+[v _main main `(v  1 e 0 0 ]
+"50 D:\CA\2) EEPROM\EEPROM 4 Entire Register Clearing\EEPROM_Clear_EEPROM.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
+"57
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
+"59 D:\CA\2) EEPROM\EEPROM 4 Entire Register Clearing\EEPROM_Clear_EEPROM.X\mcc_generated_files/memory.c
+[v _FLASH_ReadByte FLASH_ReadByte `(uc  1 e 1 0 ]
+"94
+[v _FLASH_WriteBlock FLASH_WriteBlock `(c  1 e 1 0 ]
+"150
+[v _FLASH_EraseBlock FLASH_EraseBlock `(v  1 e 0 0 ]
+"173
+[v _DATAEE_WriteByte DATAEE_WriteByte `(v  1 e 0 0 ]
+"55 D:\CA\2) EEPROM\EEPROM 4 Entire Register Clearing\EEPROM_Clear_EEPROM.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
+"329 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k20.h
+[v _WPUB WPUB `VEuc  1 e 1 @3964 ]
+"428
+[v _ANSEL ANSEL `VEuc  1 e 1 @3966 ]
+"489
+[v _ANSELH ANSELH `VEuc  1 e 1 @3967 ]
+"1638
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+"1770
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+"1902
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"2034
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+"2166
+[v _LATE LATE `VEuc  1 e 1 @3981 ]
+"2268
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"2489
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"2710
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"2931
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"3152
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+"3303
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @3995 ]
+[s S170 . 1 `uc 1 CCP2IF 1 0 :1:0 
+`uc 1 TMR3IF 1 0 :1:1 
+`uc 1 HLVDIF 1 0 :1:2 
+`uc 1 BCLIF 1 0 :1:3 
+`uc 1 EEIF 1 0 :1:4 
+`uc 1 C2IF 1 0 :1:5 
+`uc 1 C1IF 1 0 :1:6 
+`uc 1 OSCFIF 1 0 :1:7 
+]
+"3713
+[s S179 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LVDIF 1 0 :1:2 
+]
+[s S182 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CMIF 1 0 :1:6 
+]
+[u S185 . 1 `S170 1 . 1 0 `S179 1 . 1 0 `S182 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES185  1 e 1 @4001 ]
+[s S135 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+`uc 1 FREE 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CFGS 1 0 :1:6 
+`uc 1 EEPGD 1 0 :1:7 
+]
+"3867
+[s S144 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 EEFS 1 0 :1:6 
+]
+[u S147 . 1 `S135 1 . 1 0 `S144 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES147  1 e 1 @4006 ]
+"3911
+[v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
+"3917
+[v _EEDATA EEDATA `VEuc  1 e 1 @4008 ]
+"3923
+[v _EEADR EEADR `VEuc  1 e 1 @4009 ]
+"6666
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+[s S273 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RBPU 1 0 :1:7 
+]
+"7184
+[s S276 . 1 `uc 1 RBIP 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 TMR0IP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INTEDG2 1 0 :1:4 
+`uc 1 INTEDG1 1 0 :1:5 
+`uc 1 INTEDG0 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+[s S285 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RBPU 1 0 :1:7 
+]
+[u S288 . 1 `S273 1 . 1 0 `S276 1 . 1 0 `S285 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES288  1 e 1 @4081 ]
+[s S43 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"7280
+[s S52 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S61 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[s S70 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S79 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S83 . 1 `S43 1 . 1 0 `S52 1 . 1 0 `S61 1 . 1 0 `S70 1 . 1 0 `S79 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES83  1 e 1 @4082 ]
+"7382
+[v _TABLAT TABLAT `VEuc  1 e 1 @4085 ]
+"7396
+[v _TBLPTRL TBLPTRL `VEuc  1 e 1 @4086 ]
+"7402
+[v _TBLPTRH TBLPTRH `VEuc  1 e 1 @4087 ]
+"7408
+[v _TBLPTRU TBLPTRU `VEuc  1 e 1 @4088 ]
+"8044
+[v _LATB0 LATB0 `VEb  1 e 0 @31824 ]
+"16 D:\CA\2) EEPROM\EEPROM 4 Entire Register Clearing\EEPROM_Clear_EEPROM.X\main.c
+[v _main main `(v  1 e 0 0 ]
+{
+"21
+[v main@Counter Counter `i  1 a 2 3 ]
+"28
+} 0
+"50 D:\CA\2) EEPROM\EEPROM 4 Entire Register Clearing\EEPROM_Clear_EEPROM.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
+{
+"55
+} 0
+"55 D:\CA\2) EEPROM\EEPROM 4 Entire Register Clearing\EEPROM_Clear_EEPROM.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
+{
+"94
+} 0
+"57 D:\CA\2) EEPROM\EEPROM 4 Entire Register Clearing\EEPROM_Clear_EEPROM.X\mcc_generated_files/mcc.c
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
+{
+"63
+} 0
+"173 D:\CA\2) EEPROM\EEPROM 4 Entire Register Clearing\EEPROM_Clear_EEPROM.X\mcc_generated_files/memory.c
+[v _DATAEE_WriteByte DATAEE_WriteByte `(v  1 e 0 0 ]
+{
+[v DATAEE_WriteByte@bAdd bAdd `uc  1 a 1 wreg ]
+"175
+[v DATAEE_WriteByte@GIEBitValue GIEBitValue `uc  1 a 1 2 ]
+"173
+[v DATAEE_WriteByte@bAdd bAdd `uc  1 a 1 wreg ]
+[v DATAEE_WriteByte@bData bData `uc  1 p 1 0 ]
+"175
+[v DATAEE_WriteByte@bAdd bAdd `uc  1 a 1 1 ]
+"193
+} 0
