@@ -1,2 +1,1 @@
-
-![Sharp GP2S120 Distance Sensor](https://github.com/EEPUXProjects/PICBytes/assets/50055478/268aa4cd-b7a1-4fd4-b021-4f034a2137e1)
+![Sharp GP2S120 Distance Sensor](https://github.com/EEPUXProjects/PICBytes/assets/50055478/8ee82193-eb51-4a87-ab3f-90a1e8b03044)
