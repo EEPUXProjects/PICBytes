@@ -1,0 +1,178 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F45K20 ]
+[d frameptr 4065 ]
+"4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"10 E:\MyProjects\Youtube_Activities\PIC Tutorials\2022\6) PWM (Simulation and Hardware)\PWM 2 Servo_Software_PWM\Servo_Software_PWM.X\main.c
+[v _servoRotate0 servoRotate0 `(v  1 e 1 0 ]
+"22
+[v _servoRotate90 servoRotate90 `(v  1 e 1 0 ]
+"34
+[v _servoRotate180 servoRotate180 `(v  1 e 1 0 ]
+"50
+[v _main main `(v  1 e 1 0 ]
+"50 E:\MyProjects\Youtube_Activities\PIC Tutorials\2022\6) PWM (Simulation and Hardware)\PWM 2 Servo_Software_PWM\Servo_Software_PWM.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+"57
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+"55 E:\MyProjects\Youtube_Activities\PIC Tutorials\2022\6) PWM (Simulation and Hardware)\PWM 2 Servo_Software_PWM\Servo_Software_PWM.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"346 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f45k20.h
+[v _WPUB WPUB `VEuc  1 e 1 @3964 ]
+"447
+[v _ANSEL ANSEL `VEuc  1 e 1 @3966 ]
+"509
+[v _ANSELH ANSELH `VEuc  1 e 1 @3967 ]
+"1533
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+"1645
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+[s S151 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"1672
+[s S160 . 1 `uc 1 LB0 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+`uc 1 LB2 1 0 :1:2 
+`uc 1 LB3 1 0 :1:3 
+`uc 1 LB4 1 0 :1:4 
+`uc 1 LB5 1 0 :1:5 
+`uc 1 LB6 1 0 :1:6 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S169 . 1 `S151 1 . 1 0 `S160 1 . 1 0 ]
+[v _LATBbits LATBbits `VES169  1 e 1 @3978 ]
+"1757
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"1869
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+"1981
+[v _LATE LATE `VEuc  1 e 1 @3981 ]
+"2033
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"2255
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"2477
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"2699
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"2921
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+"3073
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @3995 ]
+"6430
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+[s S49 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RBPU 1 0 :1:7 
+]
+"6973
+[s S52 . 1 `uc 1 RBIP 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 TMR0IP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INTEDG2 1 0 :1:4 
+`uc 1 INTEDG1 1 0 :1:5 
+`uc 1 INTEDG0 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+[s S61 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RBPU 1 0 :1:7 
+]
+[u S64 . 1 `S49 1 . 1 0 `S52 1 . 1 0 `S61 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES64  1 e 1 @4081 ]
+[s S84 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"7050
+[s S93 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S102 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S106 . 1 `S84 1 . 1 0 `S93 1 . 1 0 `S102 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES106  1 e 1 @4082 ]
+"50 E:\MyProjects\Youtube_Activities\PIC Tutorials\2022\6) PWM (Simulation and Hardware)\PWM 2 Servo_Software_PWM\Servo_Software_PWM.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"66
+} 0
+"22
+[v _servoRotate90 servoRotate90 `(v  1 e 1 0 ]
+{
+"24
+[v servoRotate90@i i `ui  1 a 2 1 ]
+"32
+} 0
+"34
+[v _servoRotate180 servoRotate180 `(v  1 e 1 0 ]
+{
+"36
+[v servoRotate180@i i `ui  1 a 2 1 ]
+"44
+} 0
+"10
+[v _servoRotate0 servoRotate0 `(v  1 e 1 0 ]
+{
+"12
+[v servoRotate0@i i `ui  1 a 2 1 ]
+"20
+} 0
+"50 E:\MyProjects\Youtube_Activities\PIC Tutorials\2022\6) PWM (Simulation and Hardware)\PWM 2 Servo_Software_PWM\Servo_Software_PWM.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"55
+} 0
+"55 E:\MyProjects\Youtube_Activities\PIC Tutorials\2022\6) PWM (Simulation and Hardware)\PWM 2 Servo_Software_PWM\Servo_Software_PWM.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"94
+} 0
+"57 E:\MyProjects\Youtube_Activities\PIC Tutorials\2022\6) PWM (Simulation and Hardware)\PWM 2 Servo_Software_PWM\Servo_Software_PWM.X\mcc_generated_files/mcc.c
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+{
+"63
+} 0
