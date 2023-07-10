@@ -1,0 +1,24 @@
+Welcome to this revamped mini series called PICbytes,
+
+Here you will find various microcontroller tutorials using the PIC18F45K20 Microcontroller. 
+
+In todays video we will simulate serial USART "RS232" communication between two master and slave microcontrollers.
+Previously we had used 8 data lines connecting two microcontrollers toghether in a parallel bus configuration.
+Resulting in their being some data output on the bargraph display connected to the slave. But this was inefficient and wasteful. 
+Now using only one wire we will see how this can be done using the serial communication instead. 
+
+Hint : In reality only the tx of the master needed to be connected to the rx of the slave. But in order to maintain completeness i connected them both.
+
+Source Code and  Proteus Files : 
+
+#MPLABXC8
+#MPLABX 
+#EmbeddedProgramming
+#Microcontrollers 
+#ElectronicsTutorials
+
+More interesting and useful examples to come soon. 
+
+Until then,
+
+Goodbyeeee.
