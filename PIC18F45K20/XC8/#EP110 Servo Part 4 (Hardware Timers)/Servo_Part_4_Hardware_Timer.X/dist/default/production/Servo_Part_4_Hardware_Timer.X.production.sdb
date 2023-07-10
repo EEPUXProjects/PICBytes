@@ -1,0 +1,354 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F45K20 ]
+[d frameptr 4065 ]
+"83 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/adc.c
+[e E2717 . `uc
+POT 0
+channel_FVR 15
+]
+"4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"19 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\main.c
+[v _map map `(l  1 e 4 0 ]
+"35
+[v _main main `(v  1 e 1 0 ]
+"64
+[v _OpenServo OpenServo `(v  1 e 1 0 ]
+"74
+[v _WriteServo WriteServo `(v  1 e 1 0 ]
+"80
+[v _InterruptServo InterruptServo `(v  1 e 1 0 ]
+"62 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+"52 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
+"58
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `IIH(v  1 e 1 0 ]
+"50 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+"60
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+"55 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"67 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+"122
+[v _TMR0_WriteTimer TMR0_WriteTimer `(v  1 e 1 0 ]
+"136
+[v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+"156
+[v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
+"160
+[v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
+"346 C:/Users/Usmaan/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f45k20.h
+[v _WPUB WPUB `VEuc  1 e 1 @3964 ]
+"447
+[v _ANSEL ANSEL `VEuc  1 e 1 @3966 ]
+"509
+[v _ANSELH ANSELH `VEuc  1 e 1 @3967 ]
+"789
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+"1533
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+"1645
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+"1757
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"1869
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+"1981
+[v _LATE LATE `VEuc  1 e 1 @3981 ]
+"2033
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"2255
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"2477
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"2699
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"2921
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+"3073
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @3995 ]
+"5054
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
+"5125
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"5176
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+[s S265 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"5220
+[s S268 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+]
+[s S272 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+]
+[s S279 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S282 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S285 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[s S288 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[s S291 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S294 . 1 `S265 1 . 1 0 `S268 1 . 1 0 `S272 1 . 1 0 `S279 1 . 1 0 `S282 1 . 1 0 `S285 1 . 1 0 `S288 1 . 1 0 `S291 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES294  1 e 1 @4034 ]
+"5302
+[v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
+"5309
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+[s S352 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+]
+"6042
+[s S354 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_POR 1 0 :1:1 
+]
+[s S357 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_PD 1 0 :1:2 
+]
+[s S360 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_TO 1 0 :1:3 
+]
+[s S363 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 NOT_RI 1 0 :1:4 
+]
+[s S366 . 1 `uc 1 nBOR 1 0 :1:0 
+`uc 1 nPOR 1 0 :1:1 
+`uc 1 nPD 1 0 :1:2 
+`uc 1 nTO 1 0 :1:3 
+`uc 1 nRI 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 SBOREN 1 0 :1:6 
+`uc 1 IPEN 1 0 :1:7 
+]
+[s S375 . 1 `uc 1 BOR 1 0 :1:0 
+`uc 1 POR 1 0 :1:1 
+`uc 1 PD 1 0 :1:2 
+`uc 1 TO 1 0 :1:3 
+`uc 1 RI 1 0 :1:4 
+]
+[u S381 . 1 `S352 1 . 1 0 `S354 1 . 1 0 `S357 1 . 1 0 `S360 1 . 1 0 `S363 1 . 1 0 `S366 1 . 1 0 `S375 1 . 1 0 ]
+[v _RCONbits RCONbits `VES381  1 e 1 @4048 ]
+"6430
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"6507
+[v _T0CON T0CON `VEuc  1 e 1 @4053 ]
+[s S25 . 1 `uc 1 T0PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 T08BIT 1 0 :1:6 
+`uc 1 TMR0ON 1 0 :1:7 
+]
+"6527
+[s S32 . 1 `uc 1 T0PS0 1 0 :1:0 
+`uc 1 T0PS1 1 0 :1:1 
+`uc 1 T0PS2 1 0 :1:2 
+]
+[u S36 . 1 `S25 1 . 1 0 `S32 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES36  1 e 1 @4053 ]
+"6584
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+"6591
+[v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
+[s S164 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RBPU 1 0 :1:7 
+]
+"6973
+[s S167 . 1 `uc 1 RBIP 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 TMR0IP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INTEDG2 1 0 :1:4 
+`uc 1 INTEDG1 1 0 :1:5 
+`uc 1 INTEDG0 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+[s S176 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RBPU 1 0 :1:7 
+]
+[u S179 . 1 `S164 1 . 1 0 `S167 1 . 1 0 `S176 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES179  1 e 1 @4081 ]
+[s S53 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"7050
+[s S62 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S71 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S75 . 1 `S53 1 . 1 0 `S62 1 . 1 0 `S71 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES75  1 e 1 @4082 ]
+"22 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\main.c
+[v _AngleServo AngleServo `[8]ui  1 e 16 0 ]
+"23
+[v _Selected_Servo Selected_Servo `i  1 e 2 0 ]
+"24
+[v _Current_Servo Current_Servo `i  1 e 2 0 ]
+"25
+[v _Angle Angle `i  1 e 2 0 ]
+"26
+[v _Direction Direction `i  1 e 2 0 ]
+"28
+[v _Calibrated_Angle Calibrated_Angle `ui  1 e 2 0 ]
+"30
+[v _Servo_1_Map Servo_1_Map `ui  1 e 2 0 ]
+"58 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/tmr0.c
+[v _TMR0_InterruptHandler TMR0_InterruptHandler `*.37(v  1 e 2 0 ]
+"60
+[v _timer0ReloadVal timer0ReloadVal `VEus  1 e 2 0 ]
+"35 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"60
+} 0
+"19
+[v _map map `(l  1 e 4 0 ]
+{
+[v map@x x `l  1 p 4 16 ]
+[v map@in_min in_min `l  1 p 4 20 ]
+[v map@in_max in_max `l  1 p 4 24 ]
+[v map@out_min out_min `l  1 p 4 28 ]
+[v map@out_max out_max `l  1 p 4 32 ]
+} 0
+"74
+[v _WriteServo WriteServo `(v  1 e 1 0 ]
+{
+[v WriteServo@n n `i  1 p 2 16 ]
+[v WriteServo@angle angle `i  1 p 2 18 ]
+"77
+} 0
+"50 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"58
+} 0
+"67 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+{
+"95
+} 0
+"156
+[v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v TMR0_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 16 ]
+"158
+} 0
+"55 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"94
+} 0
+"60 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/mcc.c
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+{
+"66
+} 0
+"52 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
+{
+"56
+} 0
+"62 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+{
+"81
+} 0
+"64 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\main.c
+[v _OpenServo OpenServo `(v  1 e 1 0 ]
+{
+[v OpenServo@count count `i  1 p 2 16 ]
+"71
+} 0
+"58 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `IIH(v  1 e 1 0 ]
+{
+"69
+} 0
+"136 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/tmr0.c
+[v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+{
+"153
+} 0
+"80 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\main.c
+[v _InterruptServo InterruptServo `(v  1 e 1 0 ]
+{
+"107
+} 0
+"160 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/tmr0.c
+[v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"163
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"122 E:\MyProjects\Servo_Part_4_Hardware_Timer.X\mcc_generated_files/tmr0.c
+[v _TMR0_WriteTimer TMR0_WriteTimer `(v  1 e 1 0 ]
+{
+[v TMR0_WriteTimer@timerVal timerVal `us  1 p 2 6 ]
+"127
+} 0
