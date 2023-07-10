@@ -1,0 +1,3327 @@
+
+
+Microchip MPLAB XC8 Assembler V2.36 build 20220127204148 
+                                                                                               Sat Dec 31 20:51:06 2022
+
+Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1 
+     1                           	processor	18F45K20
+     2                           	fnconf	rparam,??,?,0
+     3                           	pagewidth 120
+     4                           	opt	flic
+     5                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1,noexec
+     6                           	psect	nvCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     7                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     8                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     9                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1,lowdata,noexec
+    10                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+    11                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text1,global,reloc=2,class=CODE,delta=1,group=1
+    13                           	psect	text2,global,reloc=2,class=CODE,delta=1,group=2
+    14                           	psect	text3,global,reloc=2,class=CODE,delta=1,group=2
+    15                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text5,global,reloc=2,class=CODE,delta=1,group=2
+    17                           	psect	text6,global,reloc=2,class=CODE,delta=1,group=2
+    18                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    21                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    22                           	psect	text11,global,reloc=2,class=CODE,delta=1
+    23                           	psect	text12,global,reloc=2,class=CODE,delta=1
+    24                           	psect	text13,global,reloc=2,class=CODE,delta=1
+    25                           	psect	text14,global,reloc=2,class=CODE,delta=1
+    26                           	psect	text15,global,reloc=2,class=CODE,delta=1
+    27                           	psect	text16,global,reloc=2,class=CODE,delta=1
+    28                           	psect	text17,global,reloc=2,class=CODE,delta=1
+    29                           	psect	text18,global,reloc=2,class=CODE,delta=1
+    30                           	psect	text19,global,reloc=2,class=CODE,delta=1
+    31                           	psect	text20,global,reloc=2,class=CODE,delta=1
+    32                           	psect	text21,global,reloc=2,class=CODE,delta=1
+    33                           	psect	text22,global,reloc=2,class=CODE,delta=1
+    34                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    35                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    36                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=1,noexec
+    37                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=1,noexec
+    38  0000                     
+    39                           ; Version 2.40
+    40                           ; Generated 17/11/2021 GMT
+    41                           ; 
+    42                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    43                           ; All rights reserved.
+    44                           ; 
+    45                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    46                           ; 
+    47                           ; Redistribution and use in source and binary forms, with or without modification, are
+    48                           ; permitted provided that the following conditions are met:
+    49                           ; 
+    50                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    51                           ;        conditions and the following disclaimer.
+    52                           ; 
+    53                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    54                           ;        of conditions and the following disclaimer in the documentation and/or other
+    55                           ;        materials provided with the distribution. Publication is not required when
+    56                           ;        this file is used in an embedded application.
+    57                           ; 
+    58                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    59                           ;        software without specific prior written permission.
+    60                           ; 
+    61                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    62                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    63                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    64                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    65                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    66                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    67                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    68                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    69                           ; 
+    70                           ; 
+    71                           ; Code-generator required, PIC18F45K20 Definitions
+    72                           ; 
+    73                           ; SFR Addresses
+    74  0000                     
+    75 ;; Function _EUSART_DefaultFramingErrorHandler is unused but had its address taken
+    76  0000                     
+    77 ;; Function _EUSART_DefaultOverrunErrorHandler is unused but had its address taken
+    78  0000                     
+    79 ;; Function _EUSART_DefaultErrorHandler is unused but had its address taken
+    80  0000                     
+    81                           	psect	smallconst
+    82  000600                     __psmallconst:
+    83                           	callstack 0
+    84  000600  00                 	db	0
+    85  000601                     _dpowers:
+    86                           	callstack 0
+    87  000601  0001               	dw	1
+    88  000603  000A               	dw	10
+    89  000605  0064               	dw	100
+    90  000607  03E8               	dw	1000
+    91  000609  2710               	dw	10000
+    92  00060B                     __end_of_dpowers:
+    93                           	callstack 0
+    94  0000                     _CCPR2H	set	4028
+    95  0000                     _CCPR2L	set	4027
+    96  0000                     _CCP2CON	set	4026
+    97  0000                     _ADCON0	set	4034
+    98  0000                     _ADRESL	set	4035
+    99  0000                     _ADCON2	set	4032
+   100  0000                     _ADCON1	set	4033
+   101  0000                     _TRISD	set	3989
+   102  0000                     _TRISC	set	3988
+   103  0000                     _TRISB	set	3987
+   104  0000                     _LATC	set	3979
+   105  0000                     _LATB	set	3978
+   106  0000                     _CCPR1L	set	4030
+   107  0000                     _CCPR1H	set	4031
+   108  0000                     _PSTRCON	set	4025
+   109  0000                     _PWM1CON	set	4023
+   110  0000                     _CCP1CON	set	4029
+   111  0000                     _T2CON	set	4042
+   112  0000                     _PR2	set	4043
+   113  0000                     _TXREG	set	4013
+   114  0000                     _RCREG	set	4014
+   115  0000                     _SPBRG	set	4015
+   116  0000                     _TXSTA	set	4012
+   117  00060B                     STR_7:
+   118  00060B  53                 	db	83	;'S'
+   119  00060C  77                 	db	119	;'w'
+   120  00060D  69                 	db	105	;'i'
+   121  00060E  74                 	db	116	;'t'
+   122  00060F  63                 	db	99	;'c'
+   123  000610  68                 	db	104	;'h'
+   124  000611  20                 	db	32
+   125  000612  50                 	db	80	;'P'
+   126  000613  72                 	db	114	;'r'
+   127  000614  65                 	db	101	;'e'
+   128  000615  73                 	db	115	;'s'
+   129  000616  73                 	db	115	;'s'
+   130  000617  65                 	db	101	;'e'
+   131  000618  64                 	db	100	;'d'
+   132  000619  0D                 	db	13
+   133  00061A  0A                 	db	10
+   134  00061B  00                 	db	0
+   135  00061C                     STR_5:
+   136  00061C  54                 	db	84	;'T'
+   137  00061D  69                 	db	105	;'i'
+   138  00061E  6C                 	db	108	;'l'
+   139  00061F  74                 	db	116	;'t'
+   140  000620  20                 	db	32
+   141  000621  56                 	db	86	;'V'
+   142  000622  61                 	db	97	;'a'
+   143  000623  6C                 	db	108	;'l'
+   144  000624  75                 	db	117	;'u'
+   145  000625  65                 	db	101	;'e'
+   146  000626  20                 	db	32
+   147  000627  3A                 	db	58	;':'
+   148  000628  20                 	db	32
+   149  000629  00                 	db	0
+   150  00062A                     STR_2:
+   151  00062A  50                 	db	80	;'P'
+   152  00062B  61                 	db	97	;'a'
+   153  00062C  6E                 	db	110	;'n'
+   154  00062D  20                 	db	32
+   155  00062E  56                 	db	86	;'V'
+   156  00062F  61                 	db	97	;'a'
+   157  000630  6C                 	db	108	;'l'
+   158  000631  75                 	db	117	;'u'
+   159  000632  65                 	db	101	;'e'
+   160  000633  20                 	db	32
+   161  000634  3A                 	db	58	;':'
+   162  000635  20                 	db	32
+   163  000636  00                 	db	0
+   164  000637                     STR_8:
+   165  000637  28                 	db	40
+   166  000638  6E                 	db	110	;'n'
+   167  000639  75                 	db	117	;'u'
+   168  00063A  6C                 	db	108	;'l'
+   169  00063B  6C                 	db	108	;'l'
+   170  00063C  29                 	db	41
+   171  00063D  00                 	db	0
+   172  00063E                     STR_1:
+   173  00063E  25                 	db	37
+   174  00063F  73                 	db	115	;'s'
+   175  000640  25                 	db	37
+   176  000641  64                 	db	100	;'d'
+   177  000642  25                 	db	37
+   178  000643  73                 	db	115	;'s'
+   179  000644  00                 	db	0
+   180  000645  00                 	db	0	; dummy byte at the end
+   181  0000                     
+   182                           	psect	nvCOMRAM
+   183  000030                     __pnvCOMRAM:
+   184                           	callstack 0
+   185  000030                     _Pan_MAP:
+   186                           	callstack 0
+   187  000030                     	ds	2
+   188  000032                     _ADC_Result_1:
+   189                           	callstack 0
+   190  000032                     	ds	2
+   191  000034                     _EUSART_ErrorHandler:
+   192                           	callstack 0
+   193  000034                     	ds	2
+   194  000036                     _EUSART_OverrunErrorHandler:
+   195                           	callstack 0
+   196  000036                     	ds	2
+   197  000038                     _EUSART_FramingErrorHandler:
+   198                           	callstack 0
+   199  000038                     	ds	2
+   200  0000                     _ADCON0bits	set	4034
+   201  0000                     _T2CONbits	set	4042
+   202  0000                     _RCSTAbits	set	4011
+   203  0000                     _TXSTAbits	set	4012
+   204  0000                     _WPUB	set	3964
+   205  0000                     _ANSEL	set	3966
+   206  0000                     _LATA	set	3977
+   207  0000                     _LATD	set	3980
+   208  0000                     _LATE	set	3981
+   209  0000                     _OSCTUNE	set	3995
+   210  0000                     _PIR1bits	set	3998
+   211  0000                     _RCSTA	set	4011
+   212  0000                     _BAUDCON	set	4024
+   213  0000                     _ECCP1AS	set	4022
+   214  0000                     _SPBRGH	set	4016
+   215  0000                     _OSCCON	set	4051
+   216  0000                     _TMR2	set	4044
+   217  0000                     _INTCON2bits	set	4081
+   218  0000                     _TRISA	set	3986
+   219  0000                     _TRISE	set	3990
+   220  0000                     _PORTBbits	set	3969
+   221  0000                     _ANSELH	set	3967
+   222  0000                     _INTCONbits	set	4082
+   223  0000                     _ADRESH	set	4036
+   224                           
+   225                           ; #config settings
+   226                           
+   227                           	psect	cinit
+   228  000E56                     __pcinit:
+   229                           	callstack 0
+   230  000E56                     start_initialization:
+   231                           	callstack 0
+   232  000E56                     __initialization:
+   233                           	callstack 0
+   234                           
+   235                           ; Clear objects allocated to BANK0 (50 bytes)
+   236  000E56  EE00  F060         	lfsr	0,__pbssBANK0
+   237  000E5A  0E32               	movlw	50
+   238  000E5C                     clear_0:
+   239  000E5C  6AEE               	clrf	postinc0,c
+   240  000E5E  06E8               	decf	wreg,f,c
+   241  000E60  E1FD               	bnz	clear_0
+   242                           
+   243                           ; Clear objects allocated to COMRAM (7 bytes)
+   244  000E62  EE00  F03A         	lfsr	0,__pbssCOMRAM
+   245  000E66  0E07               	movlw	7
+   246  000E68                     clear_1:
+   247  000E68  6AEE               	clrf	postinc0,c
+   248  000E6A  06E8               	decf	wreg,f,c
+   249  000E6C  E1FD               	bnz	clear_1
+   250  000E6E                     end_of_initialization:
+   251                           	callstack 0
+   252  000E6E                     __end_of__initialization:
+   253                           	callstack 0
+   254  000E6E  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   255  000E70  6EF8               	movwf	tblptru,c
+   256  000E72  0100               	movlb	0
+   257  000E74  EF47  F004         	goto	_main	;jump to C main() function
+   258                           
+   259                           	psect	bssCOMRAM
+   260  00003A                     __pbssCOMRAM:
+   261                           	callstack 0
+   262  00003A                     _Tilt_MAP:
+   263                           	callstack 0
+   264  00003A                     	ds	2
+   265  00003C                     _ADC_Result_2:
+   266                           	callstack 0
+   267  00003C                     	ds	2
+   268  00003E                     _ADC_InterruptHandler:
+   269                           	callstack 0
+   270  00003E                     	ds	2
+   271  000040                     _eusartRxLastError:
+   272                           	callstack 0
+   273  000040                     	ds	1
+   274                           
+   275                           	psect	bssBANK0
+   276  000060                     __pbssBANK0:
+   277                           	callstack 0
+   278  000060                     _xvalueASCII:
+   279                           	callstack 0
+   280  000060                     	ds	50
+   281                           
+   282                           	psect	cstackCOMRAM
+   283  000001                     __pcstackCOMRAM:
+   284                           	callstack 0
+   285  000001                     ?_ADC_GetConversion:
+   286                           	callstack 0
+   287  000001                     ?___lwdiv:
+   288                           	callstack 0
+   289  000001                     ?___lmul:
+   290                           	callstack 0
+   291  000001                     EUSART_Write@txData:
+   292                           	callstack 0
+   293  000001                     EUSART_SetFramingErrorHandler@interruptHandler:
+   294                           	callstack 0
+   295  000001                     EUSART_SetOverrunErrorHandler@interruptHandler:
+   296                           	callstack 0
+   297  000001                     EUSART_SetErrorHandler@interruptHandler:
+   298                           	callstack 0
+   299  000001                     EPWM1_LoadDutyValue@dutyValue:
+   300                           	callstack 0
+   301  000001                     PWM2_LoadDutyValue@dutyValue:
+   302                           	callstack 0
+   303  000001                     ___lwdiv@dividend:
+   304                           	callstack 0
+   305  000001                     ___lmul@multiplier:
+   306                           	callstack 0
+   307                           
+   308                           ; 4 bytes @ 0x0
+   309  000001                     	ds	1
+   310  000002                     SendUsartString@str:
+   311                           	callstack 0
+   312                           
+   313                           ; 2 bytes @ 0x1
+   314  000002                     	ds	1
+   315  000003                     ??_EPWM1_LoadDutyValue:
+   316  000003                     ??_ADC_GetConversion:
+   317  000003                     ??_PWM2_LoadDutyValue:
+   318  000003                     ___lwdiv@divisor:
+   319                           	callstack 0
+   320                           
+   321                           ; 2 bytes @ 0x2
+   322  000003                     	ds	1
+   323  000004                     
+   324                           ; 1 bytes @ 0x3
+   325  000004                     	ds	1
+   326  000005                     ADC_GetConversion@channel:
+   327                           	callstack 0
+   328  000005                     ___lwdiv@quotient:
+   329                           	callstack 0
+   330  000005                     ___lmul@multiplicand:
+   331                           	callstack 0
+   332                           
+   333                           ; 4 bytes @ 0x4
+   334  000005                     	ds	2
+   335  000007                     ___lwdiv@counter:
+   336                           	callstack 0
+   337                           
+   338                           ; 1 bytes @ 0x6
+   339  000007                     	ds	1
+   340  000008                     ?___lwmod:
+   341                           	callstack 0
+   342  000008                     ___lwmod@dividend:
+   343                           	callstack 0
+   344                           
+   345                           ; 2 bytes @ 0x7
+   346  000008                     	ds	1
+   347  000009                     ___lmul@product:
+   348                           	callstack 0
+   349                           
+   350                           ; 4 bytes @ 0x8
+   351  000009                     	ds	1
+   352  00000A                     ___lwmod@divisor:
+   353                           	callstack 0
+   354                           
+   355                           ; 2 bytes @ 0x9
+   356  00000A                     	ds	2
+   357  00000C                     ___lwmod@counter:
+   358                           	callstack 0
+   359                           
+   360                           ; 1 bytes @ 0xB
+   361  00000C                     	ds	1
+   362  00000D                     ?_sprintf:
+   363                           	callstack 0
+   364  00000D                     ?___aldiv:
+   365                           	callstack 0
+   366  00000D                     sprintf@sp:
+   367                           	callstack 0
+   368  00000D                     ___aldiv@dividend:
+   369                           	callstack 0
+   370                           
+   371                           ; 4 bytes @ 0xC
+   372  00000D                     	ds	2
+   373  00000F                     sprintf@f:
+   374                           	callstack 0
+   375                           
+   376                           ; 2 bytes @ 0xE
+   377  00000F                     	ds	2
+   378  000011                     ___aldiv@divisor:
+   379                           	callstack 0
+   380                           
+   381                           ; 4 bytes @ 0x10
+   382  000011                     	ds	4
+   383  000015                     ___aldiv@counter:
+   384                           	callstack 0
+   385                           
+   386                           ; 1 bytes @ 0x14
+   387  000015                     	ds	1
+   388  000016                     ___aldiv@sign:
+   389                           	callstack 0
+   390                           
+   391                           ; 1 bytes @ 0x15
+   392  000016                     	ds	1
+   393  000017                     ??_sprintf:
+   394  000017                     ___aldiv@quotient:
+   395                           	callstack 0
+   396                           
+   397                           ; 4 bytes @ 0x16
+   398  000017                     	ds	1
+   399  000018                     sprintf@flag:
+   400                           	callstack 0
+   401                           
+   402                           ; 1 bytes @ 0x17
+   403  000018                     	ds	1
+   404  000019                     sprintf@prec:
+   405                           	callstack 0
+   406                           
+   407                           ; 1 bytes @ 0x18
+   408  000019                     	ds	1
+   409  00001A                     sprintf@ap:
+   410                           	callstack 0
+   411                           
+   412                           ; 2 bytes @ 0x19
+   413  00001A                     	ds	1
+   414  00001B                     ?_map:
+   415                           	callstack 0
+   416  00001B                     map@x:
+   417                           	callstack 0
+   418                           
+   419                           ; 4 bytes @ 0x1A
+   420  00001B                     	ds	1
+   421  00001C                     sprintf@cp:
+   422                           	callstack 0
+   423                           
+   424                           ; 2 bytes @ 0x1B
+   425  00001C                     	ds	2
+   426  00001E                     sprintf@val:
+   427                           	callstack 0
+   428                           
+   429                           ; 2 bytes @ 0x1D
+   430  00001E                     	ds	1
+   431  00001F                     map@in_min:
+   432                           	callstack 0
+   433                           
+   434                           ; 4 bytes @ 0x1E
+   435  00001F                     	ds	1
+   436  000020                     sprintf@c:
+   437                           	callstack 0
+   438                           
+   439                           ; 1 bytes @ 0x1F
+   440  000020                     	ds	3
+   441  000023                     map@in_max:
+   442                           	callstack 0
+   443                           
+   444                           ; 4 bytes @ 0x22
+   445  000023                     	ds	4
+   446  000027                     map@out_min:
+   447                           	callstack 0
+   448                           
+   449                           ; 4 bytes @ 0x26
+   450  000027                     	ds	4
+   451  00002B                     map@out_max:
+   452                           	callstack 0
+   453                           
+   454                           ; 4 bytes @ 0x2A
+   455  00002B                     	ds	4
+   456  00002F                     ??_main:
+   457                           
+   458                           ; 1 bytes @ 0x2E
+   459  00002F                     	ds	1
+   460                           
+   461 ;;
+   462 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   463 ;;
+   464 ;; *************** function _main *****************
+   465 ;; Defined at:
+   466 ;;		line 25 in file "main.c"
+   467 ;; Parameters:    Size  Location     Type
+   468 ;;		None
+   469 ;; Auto vars:     Size  Location     Type
+   470 ;;		None
+   471 ;; Return value:  Size  Location     Type
+   472 ;;                  1    wreg      void 
+   473 ;; Registers used:
+   474 ;;		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+   475 ;; Tracked objects:
+   476 ;;		On entry : 0/0
+   477 ;;		On exit  : 0/0
+   478 ;;		Unchanged: 0/0
+   479 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   480 ;;      Params:         0       0       0       0       0       0       0
+   481 ;;      Locals:         0       0       0       0       0       0       0
+   482 ;;      Temps:          1       0       0       0       0       0       0
+   483 ;;      Totals:         1       0       0       0       0       0       0
+   484 ;;Total ram usage:        1 bytes
+   485 ;; Hardware stack levels required when called: 3
+   486 ;; This function calls:
+   487 ;;		_ADC_GetConversion
+   488 ;;		_EPWM1_LoadDutyValue
+   489 ;;		_PWM2_LoadDutyValue
+   490 ;;		_SYSTEM_Initialize
+   491 ;;		_SendUsartString
+   492 ;;		_map
+   493 ;;		_sprintf
+   494 ;; This function is called by:
+   495 ;;		Startup code after reset
+   496 ;; This function uses a non-reentrant model
+   497 ;;
+   498                           
+   499                           	psect	text0
+   500  00088E                     __ptext0:
+   501                           	callstack 0
+   502  00088E                     _main:
+   503                           	callstack 28
+   504  00088E                     
+   505                           ;main.c: 28: SYSTEM_Initialize();
+   506  00088E  EC3C  F007         	call	_SYSTEM_Initialize	;wreg free
+   507  000892                     l285:
+   508                           
+   509                           ;main.c: 31: ADC_Result_1 = ADC_GetConversion(1);
+   510  000892  0E01               	movlw	1
+   511  000894  ECC6  F006         	call	_ADC_GetConversion
+   512  000898  C001  F032         	movff	?_ADC_GetConversion,_ADC_Result_1
+   513  00089C  C002  F033         	movff	?_ADC_GetConversion+1,_ADC_Result_1+1
+   514                           
+   515                           ;main.c: 32: Pan_MAP = map(ADC_Result_1, 0, 1023, 31, 63);
+   516  0008A0  C032  F01B         	movff	_ADC_Result_1,map@x
+   517  0008A4  C033  F01C         	movff	_ADC_Result_1+1,map@x+1
+   518  0008A8  6A1D               	clrf	(map@x+2)^0,c
+   519  0008AA  6A1E               	clrf	(map@x+3)^0,c
+   520  0008AC  0E00               	movlw	0
+   521  0008AE  6E1F               	movwf	map@in_min^0,c
+   522  0008B0  0E00               	movlw	0
+   523  0008B2  6E20               	movwf	(map@in_min+1)^0,c
+   524  0008B4  0E00               	movlw	0
+   525  0008B6  6E21               	movwf	(map@in_min+2)^0,c
+   526  0008B8  0E00               	movlw	0
+   527  0008BA  6E22               	movwf	(map@in_min+3)^0,c
+   528  0008BC  0EFF               	movlw	255
+   529  0008BE  6E23               	movwf	map@in_max^0,c
+   530  0008C0  0E03               	movlw	3
+   531  0008C2  6E24               	movwf	(map@in_max+1)^0,c
+   532  0008C4  0E00               	movlw	0
+   533  0008C6  6E25               	movwf	(map@in_max+2)^0,c
+   534  0008C8  0E00               	movlw	0
+   535  0008CA  6E26               	movwf	(map@in_max+3)^0,c
+   536  0008CC  0E1F               	movlw	31
+   537  0008CE  6E27               	movwf	map@out_min^0,c
+   538  0008D0  0E00               	movlw	0
+   539  0008D2  6E28               	movwf	(map@out_min+1)^0,c
+   540  0008D4  0E00               	movlw	0
+   541  0008D6  6E29               	movwf	(map@out_min+2)^0,c
+   542  0008D8  0E00               	movlw	0
+   543  0008DA  6E2A               	movwf	(map@out_min+3)^0,c
+   544  0008DC  0E3F               	movlw	63
+   545  0008DE  6E2B               	movwf	map@out_max^0,c
+   546  0008E0  0E00               	movlw	0
+   547  0008E2  6E2C               	movwf	(map@out_max+1)^0,c
+   548  0008E4  0E00               	movlw	0
+   549  0008E6  6E2D               	movwf	(map@out_max+2)^0,c
+   550  0008E8  0E00               	movlw	0
+   551  0008EA  6E2E               	movwf	(map@out_max+3)^0,c
+   552  0008EC  EC9A  F005         	call	_map	;wreg free
+   553  0008F0  C01B  F030         	movff	?_map,_Pan_MAP
+   554  0008F4  C01C  F031         	movff	?_map+1,_Pan_MAP+1
+   555                           
+   556                           ;main.c: 33: PWM2_LoadDutyValue(Pan_MAP );
+   557  0008F8  C030  F001         	movff	_Pan_MAP,PWM2_LoadDutyValue@dutyValue
+   558  0008FC  C031  F002         	movff	_Pan_MAP+1,PWM2_LoadDutyValue@dutyValue+1
+   559  000900  ECFB  F006         	call	_PWM2_LoadDutyValue	;wreg free
+   560  000904                     
+   561                           ;main.c: 34: sprintf(xvalueASCII,"%s%d%s","Pan Value : ",Pan_MAP,"\r\n");
+   562  000904  0E60               	movlw	low _xvalueASCII
+   563  000906  6E0D               	movwf	sprintf@sp^0,c
+   564  000908  0E00               	movlw	high _xvalueASCII
+   565  00090A  6E0E               	movwf	(sprintf@sp+1)^0,c
+   566  00090C  0E3E               	movlw	low STR_1
+   567  00090E  6E0F               	movwf	sprintf@f^0,c
+   568  000910  0E06               	movlw	high STR_1
+   569  000912  6E10               	movwf	(sprintf@f+1)^0,c
+   570  000914  0E2A               	movlw	low STR_2
+   571  000916  6E11               	movwf	(?_sprintf+4)^0,c
+   572  000918  0E06               	movlw	high STR_2
+   573  00091A  6E12               	movwf	(?_sprintf+5)^0,c
+   574  00091C  C030  F013         	movff	_Pan_MAP,?_sprintf+6
+   575  000920  C031  F014         	movff	_Pan_MAP+1,?_sprintf+7
+   576  000924  0E19               	movlw	low (STR_7+14)
+   577  000926  6E15               	movwf	(?_sprintf+8)^0,c
+   578  000928  0E06               	movlw	high (STR_7+14)
+   579  00092A  6E16               	movwf	(?_sprintf+9)^0,c
+   580  00092C  EC23  F003         	call	_sprintf	;wreg free
+   581  000930                     
+   582                           ;main.c: 35: SendUsartString(xvalueASCII);
+   583  000930  0E60               	movlw	low _xvalueASCII
+   584  000932  6E02               	movwf	SendUsartString@str^0,c
+   585  000934  0E00               	movlw	high _xvalueASCII
+   586  000936  6E03               	movwf	(SendUsartString@str+1)^0,c
+   587  000938  EC78  F006         	call	_SendUsartString	;wreg free
+   588  00093C                     
+   589                           ;main.c: 36: _delay((unsigned long)((1000)*(500000/4000.0)));
+   590  00093C  0EA3               	movlw	163
+   591  00093E  6E2F               	movwf	??_main^0,c
+   592  000940  0E55               	movlw	85
+   593  000942                     u687:
+   594  000942  2EE8               	decfsz	wreg,f,c
+   595  000944  D7FE               	bra	u687
+   596  000946  2E2F               	decfsz	??_main^0,f,c
+   597  000948  D7FC               	bra	u687
+   598  00094A  F000               	nop	
+   599  00094C                     
+   600                           ;main.c: 37: ADC_Result_2 = ADC_GetConversion(0);
+   601  00094C  0E00               	movlw	0
+   602  00094E  ECC6  F006         	call	_ADC_GetConversion
+   603  000952  C001  F03C         	movff	?_ADC_GetConversion,_ADC_Result_2
+   604  000956  C002  F03D         	movff	?_ADC_GetConversion+1,_ADC_Result_2+1
+   605  00095A                     
+   606                           ;main.c: 38: Tilt_MAP = map(ADC_Result_2, 0, 1023, 31, 63);
+   607  00095A  C03C  F01B         	movff	_ADC_Result_2,map@x
+   608  00095E  C03D  F01C         	movff	_ADC_Result_2+1,map@x+1
+   609  000962  6A1D               	clrf	(map@x+2)^0,c
+   610  000964  6A1E               	clrf	(map@x+3)^0,c
+   611  000966  0E00               	movlw	0
+   612  000968  6E1F               	movwf	map@in_min^0,c
+   613  00096A  0E00               	movlw	0
+   614  00096C  6E20               	movwf	(map@in_min+1)^0,c
+   615  00096E  0E00               	movlw	0
+   616  000970  6E21               	movwf	(map@in_min+2)^0,c
+   617  000972  0E00               	movlw	0
+   618  000974  6E22               	movwf	(map@in_min+3)^0,c
+   619  000976  0EFF               	movlw	255
+   620  000978  6E23               	movwf	map@in_max^0,c
+   621  00097A  0E03               	movlw	3
+   622  00097C  6E24               	movwf	(map@in_max+1)^0,c
+   623  00097E  0E00               	movlw	0
+   624  000980  6E25               	movwf	(map@in_max+2)^0,c
+   625  000982  0E00               	movlw	0
+   626  000984  6E26               	movwf	(map@in_max+3)^0,c
+   627  000986  0E1F               	movlw	31
+   628  000988  6E27               	movwf	map@out_min^0,c
+   629  00098A  0E00               	movlw	0
+   630  00098C  6E28               	movwf	(map@out_min+1)^0,c
+   631  00098E  0E00               	movlw	0
+   632  000990  6E29               	movwf	(map@out_min+2)^0,c
+   633  000992  0E00               	movlw	0
+   634  000994  6E2A               	movwf	(map@out_min+3)^0,c
+   635  000996  0E3F               	movlw	63
+   636  000998  6E2B               	movwf	map@out_max^0,c
+   637  00099A  0E00               	movlw	0
+   638  00099C  6E2C               	movwf	(map@out_max+1)^0,c
+   639  00099E  0E00               	movlw	0
+   640  0009A0  6E2D               	movwf	(map@out_max+2)^0,c
+   641  0009A2  0E00               	movlw	0
+   642  0009A4  6E2E               	movwf	(map@out_max+3)^0,c
+   643  0009A6  EC9A  F005         	call	_map	;wreg free
+   644  0009AA  C01B  F03A         	movff	?_map,_Tilt_MAP
+   645  0009AE  C01C  F03B         	movff	?_map+1,_Tilt_MAP+1
+   646  0009B2                     
+   647                           ;main.c: 39: EPWM1_LoadDutyValue(Tilt_MAP );
+   648  0009B2  C03A  F001         	movff	_Tilt_MAP,EPWM1_LoadDutyValue@dutyValue
+   649  0009B6  C03B  F002         	movff	_Tilt_MAP+1,EPWM1_LoadDutyValue@dutyValue+1
+   650  0009BA  EC13  F007         	call	_EPWM1_LoadDutyValue	;wreg free
+   651  0009BE                     
+   652                           ;main.c: 40: sprintf(xvalueASCII,"%s%d%s","Tilt Value : ",Tilt_MAP,"\r\n");
+   653  0009BE  0E60               	movlw	low _xvalueASCII
+   654  0009C0  6E0D               	movwf	sprintf@sp^0,c
+   655  0009C2  0E00               	movlw	high _xvalueASCII
+   656  0009C4  6E0E               	movwf	(sprintf@sp+1)^0,c
+   657  0009C6  0E3E               	movlw	low STR_1
+   658  0009C8  6E0F               	movwf	sprintf@f^0,c
+   659  0009CA  0E06               	movlw	high STR_1
+   660  0009CC  6E10               	movwf	(sprintf@f+1)^0,c
+   661  0009CE  0E1C               	movlw	low STR_5
+   662  0009D0  6E11               	movwf	(?_sprintf+4)^0,c
+   663  0009D2  0E06               	movlw	high STR_5
+   664  0009D4  6E12               	movwf	(?_sprintf+5)^0,c
+   665  0009D6  C03A  F013         	movff	_Tilt_MAP,?_sprintf+6
+   666  0009DA  C03B  F014         	movff	_Tilt_MAP+1,?_sprintf+7
+   667  0009DE  0E19               	movlw	low (STR_7+14)
+   668  0009E0  6E15               	movwf	(?_sprintf+8)^0,c
+   669  0009E2  0E06               	movlw	high (STR_7+14)
+   670  0009E4  6E16               	movwf	(?_sprintf+9)^0,c
+   671  0009E6  EC23  F003         	call	_sprintf	;wreg free
+   672  0009EA                     
+   673                           ;main.c: 41: SendUsartString(xvalueASCII);
+   674  0009EA  0E60               	movlw	low _xvalueASCII
+   675  0009EC  6E02               	movwf	SendUsartString@str^0,c
+   676  0009EE  0E00               	movlw	high _xvalueASCII
+   677  0009F0  6E03               	movwf	(SendUsartString@str+1)^0,c
+   678  0009F2  EC78  F006         	call	_SendUsartString	;wreg free
+   679                           
+   680                           ;main.c: 42: _delay((unsigned long)((1000)*(500000/4000.0)));
+   681  0009F6  0EA3               	movlw	163
+   682  0009F8  6E2F               	movwf	??_main^0,c
+   683  0009FA  0E55               	movlw	85
+   684  0009FC                     u697:
+   685  0009FC  2EE8               	decfsz	wreg,f,c
+   686  0009FE  D7FE               	bra	u697
+   687  000A00  2E2F               	decfsz	??_main^0,f,c
+   688  000A02  D7FC               	bra	u697
+   689  000A04  F000               	nop	
+   690  000A06                     
+   691                           ;main.c: 43: if (PORTBbits.RB0 == 0){
+   692  000A06  B081               	btfsc	129,0,c	;volatile
+   693  000A08  EF08  F005         	goto	u671
+   694  000A0C  EF0A  F005         	goto	u670
+   695  000A10                     u671:
+   696  000A10  EF49  F004         	goto	l285
+   697  000A14                     u670:
+   698  000A14                     
+   699                           ;main.c: 44: SendUsartString("Switch Pressed\r\n");
+   700  000A14  0E0B               	movlw	low STR_7
+   701  000A16  6E02               	movwf	SendUsartString@str^0,c
+   702  000A18  0E06               	movlw	high STR_7
+   703  000A1A  6E03               	movwf	(SendUsartString@str+1)^0,c
+   704  000A1C  EC78  F006         	call	_SendUsartString	;wreg free
+   705  000A20  EF49  F004         	goto	l285
+   706  000A24  EF00  F000         	goto	start
+   707  000A28                     __end_of_main:
+   708                           	callstack 0
+   709                           
+   710 ;; *************** function _sprintf *****************
+   711 ;; Defined at:
+   712 ;;		line 505 in file "C:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\common\doprnt.c"
+   713 ;; Parameters:    Size  Location     Type
+   714 ;;  sp              2   12[COMRAM] PTR unsigned char 
+   715 ;;		 -> xvalueASCII(50), 
+   716 ;;  f               2   14[COMRAM] PTR const unsigned char 
+   717 ;;		 -> STR_4(7), STR_1(7), 
+   718 ;; Auto vars:     Size  Location     Type
+   719 ;;  tmpval          4    0        struct .
+   720 ;;  val             2   29[COMRAM] unsigned int 
+   721 ;;  cp              2   27[COMRAM] PTR const unsigned char 
+   722 ;;		 -> STR_8(7), ?_sprintf(2), STR_6(3), STR_5(14), 
+   723 ;;		 -> STR_3(3), STR_2(13), 
+   724 ;;  ap              2   25[COMRAM] PTR void [1]
+   725 ;;		 -> ?_sprintf(2), 
+   726 ;;  len             2    0        unsigned int 
+   727 ;;  c               1   31[COMRAM] unsigned char 
+   728 ;;  prec            1   24[COMRAM] char 
+   729 ;;  flag            1   23[COMRAM] unsigned char 
+   730 ;; Return value:  Size  Location     Type
+   731 ;;                  2   12[COMRAM] int 
+   732 ;; Registers used:
+   733 ;;		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+   734 ;; Tracked objects:
+   735 ;;		On entry : 0/0
+   736 ;;		On exit  : 0/0
+   737 ;;		Unchanged: 0/0
+   738 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   739 ;;      Params:        10       0       0       0       0       0       0
+   740 ;;      Locals:         9       0       0       0       0       0       0
+   741 ;;      Temps:          1       0       0       0       0       0       0
+   742 ;;      Totals:        20       0       0       0       0       0       0
+   743 ;;Total ram usage:       20 bytes
+   744 ;; Hardware stack levels used: 1
+   745 ;; Hardware stack levels required when called: 1
+   746 ;; This function calls:
+   747 ;;		___lwdiv
+   748 ;;		___lwmod
+   749 ;; This function is called by:
+   750 ;;		_main
+   751 ;; This function uses a non-reentrant model
+   752 ;;
+   753                           
+   754                           	psect	text1
+   755  000646                     __ptext1:
+   756                           	callstack 0
+   757  000646                     _sprintf:
+   758                           	callstack 29
+   759  000646                     
+   760                           ;doprnt.c: 507: va_list ap;;doprnt.c: 512: char c;;doprnt.c: 521: signed char prec;;dopr
+      +                          nt.c: 525: unsigned char flag;;doprnt.c: 540: union {;doprnt.c: 541: unsigned long vd;;d
+      +                          oprnt.c: 542: double integ;;doprnt.c: 543: } tmpval;;doprnt.c: 545: unsigned int val;;do
+      +                          prnt.c: 546: unsigned len;;doprnt.c: 547: const char * cp;;doprnt.c: 550: *ap = __va_sta
+      +                          rt();
+   761  000646  0E11               	movlw	low (?_sprintf+4)
+   762  000648  6E1A               	movwf	sprintf@ap^0,c
+   763  00064A  0E00               	movlw	high (?_sprintf+4)
+   764  00064C  6E1B               	movwf	(sprintf@ap+1)^0,c
+   765                           
+   766                           ;doprnt.c: 553: while((c = *f++)) {
+   767  00064E  EF2F  F004         	goto	l1635
+   768  000652                     l1567:
+   769                           
+   770                           ;doprnt.c: 555: if(c != '%')
+   771  000652  0E25               	movlw	37
+   772  000654  1820               	xorwf	sprintf@c^0,w,c
+   773  000656  B4D8               	btfsc	status,2,c
+   774  000658  EF30  F003         	goto	u531
+   775  00065C  EF32  F003         	goto	u530
+   776  000660                     u531:
+   777  000660  EF3C  F003         	goto	l1573
+   778  000664                     u530:
+   779  000664                     
+   780                           ;doprnt.c: 557: {;doprnt.c: 558: ((*sp++ = (c)));
+   781  000664  C00D  FFD9         	movff	sprintf@sp,fsr2l
+   782  000668  C00E  FFDA         	movff	sprintf@sp+1,fsr2h
+   783  00066C  C020  FFDF         	movff	sprintf@c,indf2
+   784  000670  4A0D               	infsnz	sprintf@sp^0,f,c
+   785  000672  2A0E               	incf	(sprintf@sp+1)^0,f,c
+   786                           
+   787                           ;doprnt.c: 559: continue;
+   788  000674  EF2F  F004         	goto	l1635
+   789  000678                     l1573:
+   790                           
+   791                           ;doprnt.c: 560: };doprnt.c: 565: flag = 0;
+   792  000678  0E00               	movlw	0
+   793  00067A  6E18               	movwf	sprintf@flag^0,c
+   794                           
+   795                           ;doprnt.c: 661: switch(c = *f++) {
+   796  00067C  EF8E  F003         	goto	l1593
+   797  000680                     l1575:
+   798                           
+   799                           ;doprnt.c: 760: cp = (*(const char * *)__va_arg((*(const char * **)ap), (const char *)0)
+      +                          );
+   800  000680  C01A  FFD9         	movff	sprintf@ap,fsr2l
+   801  000684  C01B  FFDA         	movff	sprintf@ap+1,fsr2h
+   802  000688  CFDE F01C          	movff	postinc2,sprintf@cp
+   803  00068C  CFDD F01D          	movff	postdec2,sprintf@cp+1
+   804  000690  0E02               	movlw	2
+   805  000692  261A               	addwf	sprintf@ap^0,f,c
+   806  000694  0E00               	movlw	0
+   807  000696  221B               	addwfc	(sprintf@ap+1)^0,f,c
+   808  000698                     
+   809                           ;doprnt.c: 766: if(!cp)
+   810  000698  501C               	movf	sprintf@cp^0,w,c
+   811  00069A  101D               	iorwf	(sprintf@cp+1)^0,w,c
+   812  00069C  A4D8               	btfss	status,2,c
+   813  00069E  EF53  F003         	goto	u541
+   814  0006A2  EF55  F003         	goto	u540
+   815  0006A6                     u541:
+   816  0006A6  EF74  F003         	goto	l1589
+   817  0006AA                     u540:
+   818  0006AA                     
+   819                           ;doprnt.c: 767: cp = "(null)";
+   820  0006AA  0E37               	movlw	low STR_8
+   821  0006AC  6E1C               	movwf	sprintf@cp^0,c
+   822  0006AE  0E06               	movlw	high STR_8
+   823  0006B0  6E1D               	movwf	(sprintf@cp+1)^0,c
+   824  0006B2  EF74  F003         	goto	l1589
+   825  0006B6                     l1583:
+   826                           
+   827                           ;doprnt.c: 804: ((*sp++ = (*cp++)));
+   828  0006B6  C01C  FFF6         	movff	sprintf@cp,tblptrl
+   829  0006BA  C01D  FFF7         	movff	sprintf@cp+1,tblptrh
+   830  0006BE  6AF8               	clrf	tblptru,c
+   831  0006C0  C00D  FFD9         	movff	sprintf@sp,fsr2l
+   832  0006C4  C00E  FFDA         	movff	sprintf@sp+1,fsr2h
+   833  0006C8  0E05               	movlw	(high __ramtop+-1)
+   834  0006CA  64F7               	cpfsgt	tblptrh,c
+   835  0006CC  D003               	bra	u557
+   836  0006CE  0008               	tblrd		*
+   837  0006D0  50F5               	movf	tablat,w,c
+   838  0006D2  D005               	bra	u550
+   839  0006D4                     u557:
+   840  0006D4  CFF6 FFE9          	movff	tblptrl,fsr0l
+   841  0006D8  CFF7 FFEA          	movff	tblptrh,fsr0h
+   842  0006DC  50EF               	movf	indf0,w,c
+   843  0006DE                     u550:
+   844  0006DE  6EDF               	movwf	indf2,c
+   845  0006E0  4A1C               	infsnz	sprintf@cp^0,f,c
+   846  0006E2  2A1D               	incf	(sprintf@cp+1)^0,f,c
+   847  0006E4  4A0D               	infsnz	sprintf@sp^0,f,c
+   848  0006E6  2A0E               	incf	(sprintf@sp+1)^0,f,c
+   849  0006E8                     l1589:
+   850  0006E8  C01C  FFF6         	movff	sprintf@cp,tblptrl
+   851  0006EC  C01D  FFF7         	movff	sprintf@cp+1,tblptrh
+   852  0006F0  6AF8               	clrf	tblptru,c
+   853  0006F2  0E05               	movlw	(high __ramtop+-1)
+   854  0006F4  64F7               	cpfsgt	tblptrh,c
+   855  0006F6  D003               	bra	u567
+   856  0006F8  0008               	tblrd		*
+   857  0006FA  50F5               	movf	tablat,w,c
+   858  0006FC  D005               	bra	u560
+   859  0006FE                     u567:
+   860  0006FE  CFF6 FFE9          	movff	tblptrl,fsr0l
+   861  000702  CFF7 FFEA          	movff	tblptrh,fsr0h
+   862  000706  50EF               	movf	indf0,w,c
+   863  000708                     u560:
+   864  000708  0900               	iorlw	0
+   865  00070A  A4D8               	btfss	status,2,c
+   866  00070C  EF8A  F003         	goto	u571
+   867  000710  EF8C  F003         	goto	u570
+   868  000714                     u571:
+   869  000714  EF5B  F003         	goto	l1583
+   870  000718                     u570:
+   871  000718  EF2F  F004         	goto	l1635
+   872  00071C                     l1593:
+   873  00071C  C00F  FFF6         	movff	sprintf@f,tblptrl
+   874  000720  C010  FFF7         	movff	sprintf@f+1,tblptrh
+   875  000724  4A0F               	infsnz	sprintf@f^0,f,c
+   876  000726  2A10               	incf	(sprintf@f+1)^0,f,c
+   877  000728                     	if	0	;tblptru may be non-zero
+   878  000728                     	endif
+   879  000728                     	if	0	;tblptru may be non-zero
+   880  000728                     	endif
+   881  000728  0008               	tblrd		*
+   882  00072A  CFF5 F020          	movff	tablat,sprintf@c
+   883  00072E  5020               	movf	sprintf@c^0,w,c
+   884                           
+   885                           ; Switch size 1, requested type "simple"
+   886                           ; Number of cases is 4, Range of values is 0 to 115
+   887                           ; switch strategies available:
+   888                           ; Name         Instructions Cycles
+   889                           ; simple_byte           13     7 (average)
+   890                           ;	Chosen strategy is simple_byte
+   891  000730  0A00               	xorlw	0	; case 0
+   892  000732  B4D8               	btfsc	status,2,c
+   893  000734  EF40  F004         	goto	l1637
+   894  000738  0A64               	xorlw	100	; case 100
+   895  00073A  B4D8               	btfsc	status,2,c
+   896  00073C  EFAA  F003         	goto	l1595
+   897  000740  0A0D               	xorlw	13	; case 105
+   898  000742  B4D8               	btfsc	status,2,c
+   899  000744  EFAA  F003         	goto	l1595
+   900  000748  0A1A               	xorlw	26	; case 115
+   901  00074A  B4D8               	btfsc	status,2,c
+   902  00074C  EF40  F003         	goto	l1575
+   903  000750  EF2F  F004         	goto	l1635
+   904  000754                     l1595:
+   905                           
+   906                           ;doprnt.c: 1279: {;doprnt.c: 1285: val = (unsigned int)(*(int *)__va_arg((*(int **)ap), 
+      +                          (int)0));
+   907  000754  C01A  FFD9         	movff	sprintf@ap,fsr2l
+   908  000758  C01B  FFDA         	movff	sprintf@ap+1,fsr2h
+   909  00075C  CFDE F01E          	movff	postinc2,sprintf@val
+   910  000760  CFDD F01F          	movff	postdec2,sprintf@val+1
+   911  000764  0E02               	movlw	2
+   912  000766  261A               	addwf	sprintf@ap^0,f,c
+   913  000768  0E00               	movlw	0
+   914  00076A  221B               	addwfc	(sprintf@ap+1)^0,f,c
+   915  00076C                     
+   916                           ;doprnt.c: 1287: if((int)val < 0) {
+   917  00076C  BE1F               	btfsc	(sprintf@val+1)^0,7,c
+   918  00076E  EFBD  F003         	goto	u580
+   919  000772  EFBB  F003         	goto	u581
+   920  000776                     u581:
+   921  000776  EFC3  F003         	goto	l1605
+   922  00077A                     u580:
+   923  00077A                     
+   924                           ;doprnt.c: 1288: flag |= 0x03;
+   925  00077A  0E03               	movlw	3
+   926  00077C  1218               	iorwf	sprintf@flag^0,f,c
+   927  00077E                     
+   928                           ;doprnt.c: 1289: val = -val;
+   929  00077E  6C1E               	negf	sprintf@val^0,c
+   930  000780  1E1F               	comf	(sprintf@val+1)^0,f,c
+   931  000782  B0D8               	btfsc	status,0,c
+   932  000784  2A1F               	incf	(sprintf@val+1)^0,f,c
+   933  000786                     l1605:
+   934                           
+   935                           ;doprnt.c: 1290: };doprnt.c: 1292: };doprnt.c: 1331: for(c = 1 ; c != sizeof dpowers/siz
+      +                          eof dpowers[0] ; c++)
+   936  000786  0E01               	movlw	1
+   937  000788  6E20               	movwf	sprintf@c^0,c
+   938  00078A                     l1611:
+   939                           
+   940                           ;doprnt.c: 1332: if(val < dpowers[c])
+   941  00078A  5020               	movf	sprintf@c^0,w,c
+   942  00078C  0D02               	mullw	2
+   943  00078E  0E01               	movlw	low _dpowers
+   944  000790  24F3               	addwf	243,w,c
+   945  000792  6EF6               	movwf	tblptrl,c
+   946  000794  0E06               	movlw	high _dpowers
+   947  000796  20F4               	addwfc	244,w,c
+   948  000798  6EF7               	movwf	tblptrh,c
+   949  00079A                     	if	0	;There are less than 3 active tblptr bytes
+   950  00079A                     	endif
+   951  00079A  0009               	tblrd		*+
+   952  00079C  50F5               	movf	tablat,w,c
+   953  00079E  5C1E               	subwf	sprintf@val^0,w,c
+   954  0007A0  0009               	tblrd		*+
+   955  0007A2  50F5               	movf	tablat,w,c
+   956  0007A4  581F               	subwfb	(sprintf@val+1)^0,w,c
+   957  0007A6  B0D8               	btfsc	status,0,c
+   958  0007A8  EFD8  F003         	goto	u591
+   959  0007AC  EFDA  F003         	goto	u590
+   960  0007B0                     u591:
+   961  0007B0  EFDC  F003         	goto	l1615
+   962  0007B4                     u590:
+   963  0007B4  EFE6  F003         	goto	l1619
+   964  0007B8                     l1615:
+   965  0007B8  2A20               	incf	sprintf@c^0,f,c
+   966  0007BA  0E05               	movlw	5
+   967  0007BC  1820               	xorwf	sprintf@c^0,w,c
+   968  0007BE  A4D8               	btfss	status,2,c
+   969  0007C0  EFE4  F003         	goto	u601
+   970  0007C4  EFE6  F003         	goto	u600
+   971  0007C8                     u601:
+   972  0007C8  EFC5  F003         	goto	l1611
+   973  0007CC                     u600:
+   974  0007CC                     l1619:
+   975                           
+   976                           ;doprnt.c: 1448: {;doprnt.c: 1464: if(flag & 0x03)
+   977  0007CC  C018  F017         	movff	sprintf@flag,??_sprintf
+   978  0007D0  0E03               	movlw	3
+   979  0007D2  1617               	andwf	??_sprintf^0,f,c
+   980  0007D4  B4D8               	btfsc	status,2,c
+   981  0007D6  EFEF  F003         	goto	u611
+   982  0007DA  EFF1  F003         	goto	u610
+   983  0007DE                     u611:
+   984  0007DE  EFF9  F003         	goto	l1625
+   985  0007E2                     u610:
+   986  0007E2                     
+   987                           ;doprnt.c: 1465: ((*sp++ = ('-')));
+   988  0007E2  C00D  FFD9         	movff	sprintf@sp,fsr2l
+   989  0007E6  C00E  FFDA         	movff	sprintf@sp+1,fsr2h
+   990  0007EA  0E2D               	movlw	45
+   991  0007EC  6EDF               	movwf	indf2,c
+   992  0007EE  4A0D               	infsnz	sprintf@sp^0,f,c
+   993  0007F0  2A0E               	incf	(sprintf@sp+1)^0,f,c
+   994  0007F2                     l1625:
+   995                           
+   996                           ;doprnt.c: 1495: };doprnt.c: 1498: prec = c;
+   997  0007F2  C020  F019         	movff	sprintf@c,sprintf@prec
+   998                           
+   999                           ;doprnt.c: 1500: while(prec--) {
+  1000  0007F6  EF26  F004         	goto	l1633
+  1001  0007FA                     l1627:
+  1002                           
+  1003                           ;doprnt.c: 1504: {;doprnt.c: 1515: c = (val / dpowers[(unsigned char)prec]) % 10 + '0';
+  1004  0007FA  5019               	movf	sprintf@prec^0,w,c
+  1005  0007FC  0D02               	mullw	2
+  1006  0007FE  0E01               	movlw	low _dpowers
+  1007  000800  24F3               	addwf	243,w,c
+  1008  000802  6EF6               	movwf	tblptrl,c
+  1009  000804  0E06               	movlw	high _dpowers
+  1010  000806  20F4               	addwfc	244,w,c
+  1011  000808  6EF7               	movwf	tblptrh,c
+  1012  00080A                     	if	0	;There are less than 3 active tblptr bytes
+  1013  00080A                     	endif
+  1014  00080A  0009               	tblrd		*+
+  1015  00080C  CFF5 F003          	movff	tablat,___lwdiv@divisor
+  1016  000810  000A               	tblrd		*-
+  1017  000812  CFF5 F004          	movff	tablat,___lwdiv@divisor+1
+  1018  000816  C01E  F001         	movff	sprintf@val,___lwdiv@dividend
+  1019  00081A  C01F  F002         	movff	sprintf@val+1,___lwdiv@dividend+1
+  1020  00081E  ECD7  F005         	call	___lwdiv	;wreg free
+  1021  000822  C001  F008         	movff	?___lwdiv,___lwmod@dividend
+  1022  000826  C002  F009         	movff	?___lwdiv+1,___lwmod@dividend+1
+  1023  00082A  0E00               	movlw	0
+  1024  00082C  6E0B               	movwf	(___lwmod@divisor+1)^0,c
+  1025  00082E  0E0A               	movlw	10
+  1026  000830  6E0A               	movwf	___lwmod@divisor^0,c
+  1027  000832  EC46  F006         	call	___lwmod	;wreg free
+  1028  000836  5008               	movf	?___lwmod^0,w,c
+  1029  000838  0F30               	addlw	48
+  1030  00083A  6E20               	movwf	sprintf@c^0,c
+  1031  00083C                     
+  1032                           ;doprnt.c: 1549: };doprnt.c: 1550: ((*sp++ = (c)));
+  1033  00083C  C00D  FFD9         	movff	sprintf@sp,fsr2l
+  1034  000840  C00E  FFDA         	movff	sprintf@sp+1,fsr2h
+  1035  000844  C020  FFDF         	movff	sprintf@c,indf2
+  1036  000848  4A0D               	infsnz	sprintf@sp^0,f,c
+  1037  00084A  2A0E               	incf	(sprintf@sp+1)^0,f,c
+  1038  00084C                     l1633:
+  1039  00084C  0619               	decf	sprintf@prec^0,f,c
+  1040  00084E  2819               	incf	sprintf@prec^0,w,c
+  1041  000850  A4D8               	btfss	status,2,c
+  1042  000852  EF2D  F004         	goto	u621
+  1043  000856  EF2F  F004         	goto	u620
+  1044  00085A                     u621:
+  1045  00085A  EFFD  F003         	goto	l1627
+  1046  00085E                     u620:
+  1047  00085E                     l1635:
+  1048  00085E  C00F  FFF6         	movff	sprintf@f,tblptrl
+  1049  000862  C010  FFF7         	movff	sprintf@f+1,tblptrh
+  1050  000866  4A0F               	infsnz	sprintf@f^0,f,c
+  1051  000868  2A10               	incf	(sprintf@f+1)^0,f,c
+  1052  00086A                     	if	0	;tblptru may be non-zero
+  1053  00086A                     	endif
+  1054  00086A                     	if	0	;tblptru may be non-zero
+  1055  00086A                     	endif
+  1056  00086A  0008               	tblrd		*
+  1057  00086C  CFF5 F020          	movff	tablat,sprintf@c
+  1058  000870  5020               	movf	sprintf@c^0,w,c
+  1059  000872  A4D8               	btfss	status,2,c
+  1060  000874  EF3E  F004         	goto	u631
+  1061  000878  EF40  F004         	goto	u630
+  1062  00087C                     u631:
+  1063  00087C  EF29  F003         	goto	l1567
+  1064  000880                     u630:
+  1065  000880                     l1637:
+  1066                           
+  1067                           ;doprnt.c: 1564: *sp = 0;
+  1068  000880  C00D  FFD9         	movff	sprintf@sp,fsr2l
+  1069  000884  C00E  FFDA         	movff	sprintf@sp+1,fsr2h
+  1070  000888  0E00               	movlw	0
+  1071  00088A  6EDF               	movwf	indf2,c
+  1072  00088C  0012               	return		;funcret
+  1073  00088E                     __end_of_sprintf:
+  1074                           	callstack 0
+  1075                           
+  1076 ;; *************** function ___lwmod *****************
+  1077 ;; Defined at:
+  1078 ;;		line 7 in file "C:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\common\lwmod.c"
+  1079 ;; Parameters:    Size  Location     Type
+  1080 ;;  dividend        2    7[COMRAM] unsigned int 
+  1081 ;;  divisor         2    9[COMRAM] unsigned int 
+  1082 ;; Auto vars:     Size  Location     Type
+  1083 ;;  counter         1   11[COMRAM] unsigned char 
+  1084 ;; Return value:  Size  Location     Type
+  1085 ;;                  2    7[COMRAM] unsigned int 
+  1086 ;; Registers used:
+  1087 ;;		wreg, status,2, status,0
+  1088 ;; Tracked objects:
+  1089 ;;		On entry : 0/0
+  1090 ;;		On exit  : 0/0
+  1091 ;;		Unchanged: 0/0
+  1092 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1093 ;;      Params:         4       0       0       0       0       0       0
+  1094 ;;      Locals:         1       0       0       0       0       0       0
+  1095 ;;      Temps:          0       0       0       0       0       0       0
+  1096 ;;      Totals:         5       0       0       0       0       0       0
+  1097 ;;Total ram usage:        5 bytes
+  1098 ;; Hardware stack levels used: 1
+  1099 ;; This function calls:
+  1100 ;;		Nothing
+  1101 ;; This function is called by:
+  1102 ;;		_sprintf
+  1103 ;; This function uses a non-reentrant model
+  1104 ;;
+  1105                           
+  1106                           	psect	text2
+  1107  000C8C                     __ptext2:
+  1108                           	callstack 0
+  1109  000C8C                     ___lwmod:
+  1110                           	callstack 29
+  1111  000C8C  500A               	movf	___lwmod@divisor^0,w,c
+  1112  000C8E  100B               	iorwf	(___lwmod@divisor+1)^0,w,c
+  1113  000C90  B4D8               	btfsc	status,2,c
+  1114  000C92  EF4D  F006         	goto	u491
+  1115  000C96  EF4F  F006         	goto	u490
+  1116  000C9A                     u491:
+  1117  000C9A  EF73  F006         	goto	l823
+  1118  000C9E                     u490:
+  1119  000C9E  0E01               	movlw	1
+  1120  000CA0  6E0C               	movwf	___lwmod@counter^0,c
+  1121  000CA2  EF57  F006         	goto	l1533
+  1122  000CA6                     l1531:
+  1123  000CA6  90D8               	bcf	status,0,c
+  1124  000CA8  360A               	rlcf	___lwmod@divisor^0,f,c
+  1125  000CAA  360B               	rlcf	(___lwmod@divisor+1)^0,f,c
+  1126  000CAC  2A0C               	incf	___lwmod@counter^0,f,c
+  1127  000CAE                     l1533:
+  1128  000CAE  AE0B               	btfss	(___lwmod@divisor+1)^0,7,c
+  1129  000CB0  EF5C  F006         	goto	u501
+  1130  000CB4  EF5E  F006         	goto	u500
+  1131  000CB8                     u501:
+  1132  000CB8  EF53  F006         	goto	l1531
+  1133  000CBC                     u500:
+  1134  000CBC                     l1535:
+  1135  000CBC  500A               	movf	___lwmod@divisor^0,w,c
+  1136  000CBE  5C08               	subwf	___lwmod@dividend^0,w,c
+  1137  000CC0  500B               	movf	(___lwmod@divisor+1)^0,w,c
+  1138  000CC2  5809               	subwfb	(___lwmod@dividend+1)^0,w,c
+  1139  000CC4  A0D8               	btfss	status,0,c
+  1140  000CC6  EF67  F006         	goto	u511
+  1141  000CCA  EF69  F006         	goto	u510
+  1142  000CCE                     u511:
+  1143  000CCE  EF6D  F006         	goto	l1539
+  1144  000CD2                     u510:
+  1145  000CD2  500A               	movf	___lwmod@divisor^0,w,c
+  1146  000CD4  5E08               	subwf	___lwmod@dividend^0,f,c
+  1147  000CD6  500B               	movf	(___lwmod@divisor+1)^0,w,c
+  1148  000CD8  5A09               	subwfb	(___lwmod@dividend+1)^0,f,c
+  1149  000CDA                     l1539:
+  1150  000CDA  90D8               	bcf	status,0,c
+  1151  000CDC  320B               	rrcf	(___lwmod@divisor+1)^0,f,c
+  1152  000CDE  320A               	rrcf	___lwmod@divisor^0,f,c
+  1153  000CE0  2E0C               	decfsz	___lwmod@counter^0,f,c
+  1154  000CE2  EF5E  F006         	goto	l1535
+  1155  000CE6                     l823:
+  1156  000CE6  C008  F008         	movff	___lwmod@dividend,?___lwmod
+  1157  000CEA  C009  F009         	movff	___lwmod@dividend+1,?___lwmod+1
+  1158  000CEE  0012               	return		;funcret
+  1159  000CF0                     __end_of___lwmod:
+  1160                           	callstack 0
+  1161                           
+  1162 ;; *************** function ___lwdiv *****************
+  1163 ;; Defined at:
+  1164 ;;		line 7 in file "C:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\common\lwdiv.c"
+  1165 ;; Parameters:    Size  Location     Type
+  1166 ;;  dividend        2    0[COMRAM] unsigned int 
+  1167 ;;  divisor         2    2[COMRAM] unsigned int 
+  1168 ;; Auto vars:     Size  Location     Type
+  1169 ;;  quotient        2    4[COMRAM] unsigned int 
+  1170 ;;  counter         1    6[COMRAM] unsigned char 
+  1171 ;; Return value:  Size  Location     Type
+  1172 ;;                  2    0[COMRAM] unsigned int 
+  1173 ;; Registers used:
+  1174 ;;		wreg, status,2, status,0
+  1175 ;; Tracked objects:
+  1176 ;;		On entry : 0/0
+  1177 ;;		On exit  : 0/0
+  1178 ;;		Unchanged: 0/0
+  1179 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1180 ;;      Params:         4       0       0       0       0       0       0
+  1181 ;;      Locals:         3       0       0       0       0       0       0
+  1182 ;;      Temps:          0       0       0       0       0       0       0
+  1183 ;;      Totals:         7       0       0       0       0       0       0
+  1184 ;;Total ram usage:        7 bytes
+  1185 ;; Hardware stack levels used: 1
+  1186 ;; This function calls:
+  1187 ;;		Nothing
+  1188 ;; This function is called by:
+  1189 ;;		_sprintf
+  1190 ;; This function uses a non-reentrant model
+  1191 ;;
+  1192                           
+  1193                           	psect	text3
+  1194  000BAE                     __ptext3:
+  1195                           	callstack 0
+  1196  000BAE                     ___lwdiv:
+  1197                           	callstack 29
+  1198  000BAE  0E00               	movlw	0
+  1199  000BB0  6E06               	movwf	(___lwdiv@quotient+1)^0,c
+  1200  000BB2  0E00               	movlw	0
+  1201  000BB4  6E05               	movwf	___lwdiv@quotient^0,c
+  1202  000BB6  5003               	movf	___lwdiv@divisor^0,w,c
+  1203  000BB8  1004               	iorwf	(___lwdiv@divisor+1)^0,w,c
+  1204  000BBA  B4D8               	btfsc	status,2,c
+  1205  000BBC  EFE2  F005         	goto	u461
+  1206  000BC0  EFE4  F005         	goto	u460
+  1207  000BC4                     u461:
+  1208  000BC4  EF0C  F006         	goto	l813
+  1209  000BC8                     u460:
+  1210  000BC8  0E01               	movlw	1
+  1211  000BCA  6E07               	movwf	___lwdiv@counter^0,c
+  1212  000BCC  EFEC  F005         	goto	l1513
+  1213  000BD0                     l1511:
+  1214  000BD0  90D8               	bcf	status,0,c
+  1215  000BD2  3603               	rlcf	___lwdiv@divisor^0,f,c
+  1216  000BD4  3604               	rlcf	(___lwdiv@divisor+1)^0,f,c
+  1217  000BD6  2A07               	incf	___lwdiv@counter^0,f,c
+  1218  000BD8                     l1513:
+  1219  000BD8  AE04               	btfss	(___lwdiv@divisor+1)^0,7,c
+  1220  000BDA  EFF1  F005         	goto	u471
+  1221  000BDE  EFF3  F005         	goto	u470
+  1222  000BE2                     u471:
+  1223  000BE2  EFE8  F005         	goto	l1511
+  1224  000BE6                     u470:
+  1225  000BE6                     l1515:
+  1226  000BE6  90D8               	bcf	status,0,c
+  1227  000BE8  3605               	rlcf	___lwdiv@quotient^0,f,c
+  1228  000BEA  3606               	rlcf	(___lwdiv@quotient+1)^0,f,c
+  1229  000BEC  5003               	movf	___lwdiv@divisor^0,w,c
+  1230  000BEE  5C01               	subwf	___lwdiv@dividend^0,w,c
+  1231  000BF0  5004               	movf	(___lwdiv@divisor+1)^0,w,c
+  1232  000BF2  5802               	subwfb	(___lwdiv@dividend+1)^0,w,c
+  1233  000BF4  A0D8               	btfss	status,0,c
+  1234  000BF6  EFFF  F005         	goto	u481
+  1235  000BFA  EF01  F006         	goto	u480
+  1236  000BFE                     u481:
+  1237  000BFE  EF06  F006         	goto	l1523
+  1238  000C02                     u480:
+  1239  000C02  5003               	movf	___lwdiv@divisor^0,w,c
+  1240  000C04  5E01               	subwf	___lwdiv@dividend^0,f,c
+  1241  000C06  5004               	movf	(___lwdiv@divisor+1)^0,w,c
+  1242  000C08  5A02               	subwfb	(___lwdiv@dividend+1)^0,f,c
+  1243  000C0A  8005               	bsf	___lwdiv@quotient^0,0,c
+  1244  000C0C                     l1523:
+  1245  000C0C  90D8               	bcf	status,0,c
+  1246  000C0E  3204               	rrcf	(___lwdiv@divisor+1)^0,f,c
+  1247  000C10  3203               	rrcf	___lwdiv@divisor^0,f,c
+  1248  000C12  2E07               	decfsz	___lwdiv@counter^0,f,c
+  1249  000C14  EFF3  F005         	goto	l1515
+  1250  000C18                     l813:
+  1251  000C18  C005  F001         	movff	___lwdiv@quotient,?___lwdiv
+  1252  000C1C  C006  F002         	movff	___lwdiv@quotient+1,?___lwdiv+1
+  1253  000C20  0012               	return		;funcret
+  1254  000C22                     __end_of___lwdiv:
+  1255                           	callstack 0
+  1256                           
+  1257 ;; *************** function _map *****************
+  1258 ;; Defined at:
+  1259 ;;		line 55 in file "main.c"
+  1260 ;; Parameters:    Size  Location     Type
+  1261 ;;  x               4   26[COMRAM] long 
+  1262 ;;  in_min          4   30[COMRAM] long 
+  1263 ;;  in_max          4   34[COMRAM] long 
+  1264 ;;  out_min         4   38[COMRAM] long 
+  1265 ;;  out_max         4   42[COMRAM] long 
+  1266 ;; Auto vars:     Size  Location     Type
+  1267 ;;		None
+  1268 ;; Return value:  Size  Location     Type
+  1269 ;;                  4   26[COMRAM] long 
+  1270 ;; Registers used:
+  1271 ;;		wreg, status,2, status,0, cstack
+  1272 ;; Tracked objects:
+  1273 ;;		On entry : 0/0
+  1274 ;;		On exit  : 0/0
+  1275 ;;		Unchanged: 0/0
+  1276 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1277 ;;      Params:        20       0       0       0       0       0       0
+  1278 ;;      Locals:         0       0       0       0       0       0       0
+  1279 ;;      Temps:          0       0       0       0       0       0       0
+  1280 ;;      Totals:        20       0       0       0       0       0       0
+  1281 ;;Total ram usage:       20 bytes
+  1282 ;; Hardware stack levels used: 1
+  1283 ;; Hardware stack levels required when called: 1
+  1284 ;; This function calls:
+  1285 ;;		___aldiv
+  1286 ;;		___lmul
+  1287 ;; This function is called by:
+  1288 ;;		_main
+  1289 ;; This function uses a non-reentrant model
+  1290 ;;
+  1291                           
+  1292                           	psect	text4
+  1293  000B34                     __ptext4:
+  1294                           	callstack 0
+  1295  000B34                     _map:
+  1296                           	callstack 29
+  1297  000B34                     
+  1298                           ;main.c: 57: return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+  1299  000B34  501F               	movf	map@in_min^0,w,c
+  1300  000B36  5C1B               	subwf	map@x^0,w,c
+  1301  000B38  6E01               	movwf	___lmul@multiplier^0,c
+  1302  000B3A  5020               	movf	(map@in_min+1)^0,w,c
+  1303  000B3C  581C               	subwfb	(map@x+1)^0,w,c
+  1304  000B3E  6E02               	movwf	(___lmul@multiplier+1)^0,c
+  1305  000B40  5021               	movf	(map@in_min+2)^0,w,c
+  1306  000B42  581D               	subwfb	(map@x+2)^0,w,c
+  1307  000B44  6E03               	movwf	(___lmul@multiplier+2)^0,c
+  1308  000B46  5022               	movf	(map@in_min+3)^0,w,c
+  1309  000B48  581E               	subwfb	(map@x+3)^0,w,c
+  1310  000B4A  6E04               	movwf	(___lmul@multiplier+3)^0,c
+  1311  000B4C  5027               	movf	map@out_min^0,w,c
+  1312  000B4E  5C2B               	subwf	map@out_max^0,w,c
+  1313  000B50  6E05               	movwf	___lmul@multiplicand^0,c
+  1314  000B52  5028               	movf	(map@out_min+1)^0,w,c
+  1315  000B54  582C               	subwfb	(map@out_max+1)^0,w,c
+  1316  000B56  6E06               	movwf	(___lmul@multiplicand+1)^0,c
+  1317  000B58  5029               	movf	(map@out_min+2)^0,w,c
+  1318  000B5A  582D               	subwfb	(map@out_max+2)^0,w,c
+  1319  000B5C  6E07               	movwf	(___lmul@multiplicand+2)^0,c
+  1320  000B5E  502A               	movf	(map@out_min+3)^0,w,c
+  1321  000B60  582E               	subwfb	(map@out_max+3)^0,w,c
+  1322  000B62  6E08               	movwf	(___lmul@multiplicand+3)^0,c
+  1323  000B64  EC11  F006         	call	___lmul	;wreg free
+  1324  000B68  C001  F00D         	movff	?___lmul,___aldiv@dividend
+  1325  000B6C  C002  F00E         	movff	?___lmul+1,___aldiv@dividend+1
+  1326  000B70  C003  F00F         	movff	?___lmul+2,___aldiv@dividend+2
+  1327  000B74  C004  F010         	movff	?___lmul+3,___aldiv@dividend+3
+  1328  000B78  501F               	movf	map@in_min^0,w,c
+  1329  000B7A  5C23               	subwf	map@in_max^0,w,c
+  1330  000B7C  6E11               	movwf	___aldiv@divisor^0,c
+  1331  000B7E  5020               	movf	(map@in_min+1)^0,w,c
+  1332  000B80  5824               	subwfb	(map@in_max+1)^0,w,c
+  1333  000B82  6E12               	movwf	(___aldiv@divisor+1)^0,c
+  1334  000B84  5021               	movf	(map@in_min+2)^0,w,c
+  1335  000B86  5825               	subwfb	(map@in_max+2)^0,w,c
+  1336  000B88  6E13               	movwf	(___aldiv@divisor+2)^0,c
+  1337  000B8A  5022               	movf	(map@in_min+3)^0,w,c
+  1338  000B8C  5826               	subwfb	(map@in_max+3)^0,w,c
+  1339  000B8E  6E14               	movwf	(___aldiv@divisor+3)^0,c
+  1340  000B90  EC14  F005         	call	___aldiv	;wreg free
+  1341  000B94  5027               	movf	map@out_min^0,w,c
+  1342  000B96  240D               	addwf	?___aldiv^0,w,c
+  1343  000B98  6E1B               	movwf	?_map^0,c
+  1344  000B9A  5028               	movf	(map@out_min+1)^0,w,c
+  1345  000B9C  200E               	addwfc	(?___aldiv+1)^0,w,c
+  1346  000B9E  6E1C               	movwf	(?_map+1)^0,c
+  1347  000BA0  5029               	movf	(map@out_min+2)^0,w,c
+  1348  000BA2  200F               	addwfc	(?___aldiv+2)^0,w,c
+  1349  000BA4  6E1D               	movwf	(?_map+2)^0,c
+  1350  000BA6  502A               	movf	(map@out_min+3)^0,w,c
+  1351  000BA8  2010               	addwfc	(?___aldiv+3)^0,w,c
+  1352  000BAA  6E1E               	movwf	(?_map+3)^0,c
+  1353  000BAC  0012               	return		;funcret
+  1354  000BAE                     __end_of_map:
+  1355                           	callstack 0
+  1356                           
+  1357 ;; *************** function ___lmul *****************
+  1358 ;; Defined at:
+  1359 ;;		line 15 in file "C:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\common\Umul32.c"
+  1360 ;; Parameters:    Size  Location     Type
+  1361 ;;  multiplier      4    0[COMRAM] unsigned long 
+  1362 ;;  multiplicand    4    4[COMRAM] unsigned long 
+  1363 ;; Auto vars:     Size  Location     Type
+  1364 ;;  product         4    8[COMRAM] unsigned long 
+  1365 ;; Return value:  Size  Location     Type
+  1366 ;;                  4    0[COMRAM] unsigned long 
+  1367 ;; Registers used:
+  1368 ;;		wreg, status,2, status,0
+  1369 ;; Tracked objects:
+  1370 ;;		On entry : 0/0
+  1371 ;;		On exit  : 0/0
+  1372 ;;		Unchanged: 0/0
+  1373 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1374 ;;      Params:         8       0       0       0       0       0       0
+  1375 ;;      Locals:         4       0       0       0       0       0       0
+  1376 ;;      Temps:          0       0       0       0       0       0       0
+  1377 ;;      Totals:        12       0       0       0       0       0       0
+  1378 ;;Total ram usage:       12 bytes
+  1379 ;; Hardware stack levels used: 1
+  1380 ;; This function calls:
+  1381 ;;		Nothing
+  1382 ;; This function is called by:
+  1383 ;;		_map
+  1384 ;; This function uses a non-reentrant model
+  1385 ;;
+  1386                           
+  1387                           	psect	text5
+  1388  000C22                     __ptext5:
+  1389                           	callstack 0
+  1390  000C22                     ___lmul:
+  1391                           	callstack 29
+  1392  000C22  0E00               	movlw	0
+  1393  000C24  6E09               	movwf	___lmul@product^0,c
+  1394  000C26  0E00               	movlw	0
+  1395  000C28  6E0A               	movwf	(___lmul@product+1)^0,c
+  1396  000C2A  0E00               	movlw	0
+  1397  000C2C  6E0B               	movwf	(___lmul@product+2)^0,c
+  1398  000C2E  0E00               	movlw	0
+  1399  000C30  6E0C               	movwf	(___lmul@product+3)^0,c
+  1400  000C32                     l1453:
+  1401  000C32  A001               	btfss	___lmul@multiplier^0,0,c
+  1402  000C34  EF1E  F006         	goto	u381
+  1403  000C38  EF20  F006         	goto	u380
+  1404  000C3C                     u381:
+  1405  000C3C  EF28  F006         	goto	l1457
+  1406  000C40                     u380:
+  1407  000C40  5005               	movf	___lmul@multiplicand^0,w,c
+  1408  000C42  2609               	addwf	___lmul@product^0,f,c
+  1409  000C44  5006               	movf	(___lmul@multiplicand+1)^0,w,c
+  1410  000C46  220A               	addwfc	(___lmul@product+1)^0,f,c
+  1411  000C48  5007               	movf	(___lmul@multiplicand+2)^0,w,c
+  1412  000C4A  220B               	addwfc	(___lmul@product+2)^0,f,c
+  1413  000C4C  5008               	movf	(___lmul@multiplicand+3)^0,w,c
+  1414  000C4E  220C               	addwfc	(___lmul@product+3)^0,f,c
+  1415  000C50                     l1457:
+  1416  000C50  90D8               	bcf	status,0,c
+  1417  000C52  3605               	rlcf	___lmul@multiplicand^0,f,c
+  1418  000C54  3606               	rlcf	(___lmul@multiplicand+1)^0,f,c
+  1419  000C56  3607               	rlcf	(___lmul@multiplicand+2)^0,f,c
+  1420  000C58  3608               	rlcf	(___lmul@multiplicand+3)^0,f,c
+  1421  000C5A  90D8               	bcf	status,0,c
+  1422  000C5C  3204               	rrcf	(___lmul@multiplier+3)^0,f,c
+  1423  000C5E  3203               	rrcf	(___lmul@multiplier+2)^0,f,c
+  1424  000C60  3202               	rrcf	(___lmul@multiplier+1)^0,f,c
+  1425  000C62  3201               	rrcf	___lmul@multiplier^0,f,c
+  1426  000C64  5001               	movf	___lmul@multiplier^0,w,c
+  1427  000C66  1002               	iorwf	(___lmul@multiplier+1)^0,w,c
+  1428  000C68  1003               	iorwf	(___lmul@multiplier+2)^0,w,c
+  1429  000C6A  1004               	iorwf	(___lmul@multiplier+3)^0,w,c
+  1430  000C6C  A4D8               	btfss	status,2,c
+  1431  000C6E  EF3B  F006         	goto	u391
+  1432  000C72  EF3D  F006         	goto	u390
+  1433  000C76                     u391:
+  1434  000C76  EF19  F006         	goto	l1453
+  1435  000C7A                     u390:
+  1436  000C7A  C009  F001         	movff	___lmul@product,?___lmul
+  1437  000C7E  C00A  F002         	movff	___lmul@product+1,?___lmul+1
+  1438  000C82  C00B  F003         	movff	___lmul@product+2,?___lmul+2
+  1439  000C86  C00C  F004         	movff	___lmul@product+3,?___lmul+3
+  1440  000C8A  0012               	return		;funcret
+  1441  000C8C                     __end_of___lmul:
+  1442                           	callstack 0
+  1443                           
+  1444 ;; *************** function ___aldiv *****************
+  1445 ;; Defined at:
+  1446 ;;		line 7 in file "C:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\common\aldiv.c"
+  1447 ;; Parameters:    Size  Location     Type
+  1448 ;;  dividend        4   12[COMRAM] long 
+  1449 ;;  divisor         4   16[COMRAM] long 
+  1450 ;; Auto vars:     Size  Location     Type
+  1451 ;;  quotient        4   22[COMRAM] long 
+  1452 ;;  sign            1   21[COMRAM] unsigned char 
+  1453 ;;  counter         1   20[COMRAM] unsigned char 
+  1454 ;; Return value:  Size  Location     Type
+  1455 ;;                  4   12[COMRAM] long 
+  1456 ;; Registers used:
+  1457 ;;		wreg, status,2, status,0
+  1458 ;; Tracked objects:
+  1459 ;;		On entry : 0/0
+  1460 ;;		On exit  : 0/0
+  1461 ;;		Unchanged: 0/0
+  1462 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1463 ;;      Params:         8       0       0       0       0       0       0
+  1464 ;;      Locals:         6       0       0       0       0       0       0
+  1465 ;;      Temps:          0       0       0       0       0       0       0
+  1466 ;;      Totals:        14       0       0       0       0       0       0
+  1467 ;;Total ram usage:       14 bytes
+  1468 ;; Hardware stack levels used: 1
+  1469 ;; This function calls:
+  1470 ;;		Nothing
+  1471 ;; This function is called by:
+  1472 ;;		_map
+  1473 ;; This function uses a non-reentrant model
+  1474 ;;
+  1475                           
+  1476                           	psect	text6
+  1477  000A28                     __ptext6:
+  1478                           	callstack 0
+  1479  000A28                     ___aldiv:
+  1480                           	callstack 29
+  1481  000A28  0E00               	movlw	0
+  1482  000A2A  6E16               	movwf	___aldiv@sign^0,c
+  1483  000A2C  BE14               	btfsc	(___aldiv@divisor+3)^0,7,c
+  1484  000A2E  EF1D  F005         	goto	u400
+  1485  000A32  EF1B  F005         	goto	u401
+  1486  000A36                     u401:
+  1487  000A36  EF27  F005         	goto	l1469
+  1488  000A3A                     u400:
+  1489  000A3A  1E14               	comf	(___aldiv@divisor+3)^0,f,c
+  1490  000A3C  1E13               	comf	(___aldiv@divisor+2)^0,f,c
+  1491  000A3E  1E12               	comf	(___aldiv@divisor+1)^0,f,c
+  1492  000A40  6C11               	negf	___aldiv@divisor^0,c
+  1493  000A42  0E00               	movlw	0
+  1494  000A44  2212               	addwfc	(___aldiv@divisor+1)^0,f,c
+  1495  000A46  2213               	addwfc	(___aldiv@divisor+2)^0,f,c
+  1496  000A48  2214               	addwfc	(___aldiv@divisor+3)^0,f,c
+  1497  000A4A  0E01               	movlw	1
+  1498  000A4C  6E16               	movwf	___aldiv@sign^0,c
+  1499  000A4E                     l1469:
+  1500  000A4E  BE10               	btfsc	(___aldiv@dividend+3)^0,7,c
+  1501  000A50  EF2E  F005         	goto	u410
+  1502  000A54  EF2C  F005         	goto	u411
+  1503  000A58                     u411:
+  1504  000A58  EF38  F005         	goto	l1475
+  1505  000A5C                     u410:
+  1506  000A5C  1E10               	comf	(___aldiv@dividend+3)^0,f,c
+  1507  000A5E  1E0F               	comf	(___aldiv@dividend+2)^0,f,c
+  1508  000A60  1E0E               	comf	(___aldiv@dividend+1)^0,f,c
+  1509  000A62  6C0D               	negf	___aldiv@dividend^0,c
+  1510  000A64  0E00               	movlw	0
+  1511  000A66  220E               	addwfc	(___aldiv@dividend+1)^0,f,c
+  1512  000A68  220F               	addwfc	(___aldiv@dividend+2)^0,f,c
+  1513  000A6A  2210               	addwfc	(___aldiv@dividend+3)^0,f,c
+  1514  000A6C  0E01               	movlw	1
+  1515  000A6E  1A16               	xorwf	___aldiv@sign^0,f,c
+  1516  000A70                     l1475:
+  1517  000A70  0E00               	movlw	0
+  1518  000A72  6E17               	movwf	___aldiv@quotient^0,c
+  1519  000A74  0E00               	movlw	0
+  1520  000A76  6E18               	movwf	(___aldiv@quotient+1)^0,c
+  1521  000A78  0E00               	movlw	0
+  1522  000A7A  6E19               	movwf	(___aldiv@quotient+2)^0,c
+  1523  000A7C  0E00               	movlw	0
+  1524  000A7E  6E1A               	movwf	(___aldiv@quotient+3)^0,c
+  1525  000A80  5011               	movf	___aldiv@divisor^0,w,c
+  1526  000A82  1012               	iorwf	(___aldiv@divisor+1)^0,w,c
+  1527  000A84  1013               	iorwf	(___aldiv@divisor+2)^0,w,c
+  1528  000A86  1014               	iorwf	(___aldiv@divisor+3)^0,w,c
+  1529  000A88  B4D8               	btfsc	status,2,c
+  1530  000A8A  EF49  F005         	goto	u421
+  1531  000A8E  EF4B  F005         	goto	u420
+  1532  000A92                     u421:
+  1533  000A92  EF81  F005         	goto	l1497
+  1534  000A96                     u420:
+  1535  000A96  0E01               	movlw	1
+  1536  000A98  6E15               	movwf	___aldiv@counter^0,c
+  1537  000A9A  EF55  F005         	goto	l1483
+  1538  000A9E                     l1481:
+  1539  000A9E  90D8               	bcf	status,0,c
+  1540  000AA0  3611               	rlcf	___aldiv@divisor^0,f,c
+  1541  000AA2  3612               	rlcf	(___aldiv@divisor+1)^0,f,c
+  1542  000AA4  3613               	rlcf	(___aldiv@divisor+2)^0,f,c
+  1543  000AA6  3614               	rlcf	(___aldiv@divisor+3)^0,f,c
+  1544  000AA8  2A15               	incf	___aldiv@counter^0,f,c
+  1545  000AAA                     l1483:
+  1546  000AAA  AE14               	btfss	(___aldiv@divisor+3)^0,7,c
+  1547  000AAC  EF5A  F005         	goto	u431
+  1548  000AB0  EF5C  F005         	goto	u430
+  1549  000AB4                     u431:
+  1550  000AB4  EF4F  F005         	goto	l1481
+  1551  000AB8                     u430:
+  1552  000AB8                     l1485:
+  1553  000AB8  90D8               	bcf	status,0,c
+  1554  000ABA  3617               	rlcf	___aldiv@quotient^0,f,c
+  1555  000ABC  3618               	rlcf	(___aldiv@quotient+1)^0,f,c
+  1556  000ABE  3619               	rlcf	(___aldiv@quotient+2)^0,f,c
+  1557  000AC0  361A               	rlcf	(___aldiv@quotient+3)^0,f,c
+  1558  000AC2  5011               	movf	___aldiv@divisor^0,w,c
+  1559  000AC4  5C0D               	subwf	___aldiv@dividend^0,w,c
+  1560  000AC6  5012               	movf	(___aldiv@divisor+1)^0,w,c
+  1561  000AC8  580E               	subwfb	(___aldiv@dividend+1)^0,w,c
+  1562  000ACA  5013               	movf	(___aldiv@divisor+2)^0,w,c
+  1563  000ACC  580F               	subwfb	(___aldiv@dividend+2)^0,w,c
+  1564  000ACE  5014               	movf	(___aldiv@divisor+3)^0,w,c
+  1565  000AD0  5810               	subwfb	(___aldiv@dividend+3)^0,w,c
+  1566  000AD2  A0D8               	btfss	status,0,c
+  1567  000AD4  EF6E  F005         	goto	u441
+  1568  000AD8  EF70  F005         	goto	u440
+  1569  000ADC                     u441:
+  1570  000ADC  EF79  F005         	goto	l1493
+  1571  000AE0                     u440:
+  1572  000AE0  5011               	movf	___aldiv@divisor^0,w,c
+  1573  000AE2  5E0D               	subwf	___aldiv@dividend^0,f,c
+  1574  000AE4  5012               	movf	(___aldiv@divisor+1)^0,w,c
+  1575  000AE6  5A0E               	subwfb	(___aldiv@dividend+1)^0,f,c
+  1576  000AE8  5013               	movf	(___aldiv@divisor+2)^0,w,c
+  1577  000AEA  5A0F               	subwfb	(___aldiv@dividend+2)^0,f,c
+  1578  000AEC  5014               	movf	(___aldiv@divisor+3)^0,w,c
+  1579  000AEE  5A10               	subwfb	(___aldiv@dividend+3)^0,f,c
+  1580  000AF0  8017               	bsf	___aldiv@quotient^0,0,c
+  1581  000AF2                     l1493:
+  1582  000AF2  90D8               	bcf	status,0,c
+  1583  000AF4  3214               	rrcf	(___aldiv@divisor+3)^0,f,c
+  1584  000AF6  3213               	rrcf	(___aldiv@divisor+2)^0,f,c
+  1585  000AF8  3212               	rrcf	(___aldiv@divisor+1)^0,f,c
+  1586  000AFA  3211               	rrcf	___aldiv@divisor^0,f,c
+  1587  000AFC  2E15               	decfsz	___aldiv@counter^0,f,c
+  1588  000AFE  EF5C  F005         	goto	l1485
+  1589  000B02                     l1497:
+  1590  000B02  5016               	movf	___aldiv@sign^0,w,c
+  1591  000B04  B4D8               	btfsc	status,2,c
+  1592  000B06  EF87  F005         	goto	u451
+  1593  000B0A  EF89  F005         	goto	u450
+  1594  000B0E                     u451:
+  1595  000B0E  EF91  F005         	goto	l1501
+  1596  000B12                     u450:
+  1597  000B12  1E1A               	comf	(___aldiv@quotient+3)^0,f,c
+  1598  000B14  1E19               	comf	(___aldiv@quotient+2)^0,f,c
+  1599  000B16  1E18               	comf	(___aldiv@quotient+1)^0,f,c
+  1600  000B18  6C17               	negf	___aldiv@quotient^0,c
+  1601  000B1A  0E00               	movlw	0
+  1602  000B1C  2218               	addwfc	(___aldiv@quotient+1)^0,f,c
+  1603  000B1E  2219               	addwfc	(___aldiv@quotient+2)^0,f,c
+  1604  000B20  221A               	addwfc	(___aldiv@quotient+3)^0,f,c
+  1605  000B22                     l1501:
+  1606  000B22  C017  F00D         	movff	___aldiv@quotient,?___aldiv
+  1607  000B26  C018  F00E         	movff	___aldiv@quotient+1,?___aldiv+1
+  1608  000B2A  C019  F00F         	movff	___aldiv@quotient+2,?___aldiv+2
+  1609  000B2E  C01A  F010         	movff	___aldiv@quotient+3,?___aldiv+3
+  1610  000B32  0012               	return		;funcret
+  1611  000B34                     __end_of___aldiv:
+  1612                           	callstack 0
+  1613                           
+  1614 ;; *************** function _SendUsartString *****************
+  1615 ;; Defined at:
+  1616 ;;		line 49 in file "main.c"
+  1617 ;; Parameters:    Size  Location     Type
+  1618 ;;  str             2    1[COMRAM] PTR unsigned char 
+  1619 ;;		 -> STR_7(17), xvalueASCII(50), 
+  1620 ;; Auto vars:     Size  Location     Type
+  1621 ;;		None
+  1622 ;; Return value:  Size  Location     Type
+  1623 ;;                  1    wreg      void 
+  1624 ;; Registers used:
+  1625 ;;		wreg, fsr0l, fsr0h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+  1626 ;; Tracked objects:
+  1627 ;;		On entry : 0/0
+  1628 ;;		On exit  : 0/0
+  1629 ;;		Unchanged: 0/0
+  1630 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1631 ;;      Params:         2       0       0       0       0       0       0
+  1632 ;;      Locals:         0       0       0       0       0       0       0
+  1633 ;;      Temps:          0       0       0       0       0       0       0
+  1634 ;;      Totals:         2       0       0       0       0       0       0
+  1635 ;;Total ram usage:        2 bytes
+  1636 ;; Hardware stack levels used: 1
+  1637 ;; Hardware stack levels required when called: 1
+  1638 ;; This function calls:
+  1639 ;;		_EUSART_Write
+  1640 ;; This function is called by:
+  1641 ;;		_main
+  1642 ;; This function uses a non-reentrant model
+  1643 ;;
+  1644                           
+  1645                           	psect	text7
+  1646  000CF0                     __ptext7:
+  1647                           	callstack 0
+  1648  000CF0                     _SendUsartString:
+  1649                           	callstack 29
+  1650  000CF0                     
+  1651                           ;main.c: 50: while (*str)
+  1652  000CF0  EF8E  F006         	goto	l1647
+  1653  000CF4                     l1643:
+  1654                           
+  1655                           ;main.c: 51: EUSART_Write(*str++);
+  1656  000CF4  C002  FFF6         	movff	SendUsartString@str,tblptrl
+  1657  000CF8  C003  FFF7         	movff	SendUsartString@str+1,tblptrh
+  1658  000CFC  6AF8               	clrf	tblptru,c
+  1659  000CFE  0E05               	movlw	(high __ramtop+-1)
+  1660  000D00  64F7               	cpfsgt	tblptrh,c
+  1661  000D02  D003               	bra	u647
+  1662  000D04  0008               	tblrd		*
+  1663  000D06  50F5               	movf	tablat,w,c
+  1664  000D08  D005               	bra	u640
+  1665  000D0A                     u647:
+  1666  000D0A  CFF6 FFE9          	movff	tblptrl,fsr0l
+  1667  000D0E  CFF7 FFEA          	movff	tblptrh,fsr0h
+  1668  000D12  50EF               	movf	indf0,w,c
+  1669  000D14                     u640:
+  1670  000D14  EC58  F007         	call	_EUSART_Write
+  1671  000D18  4A02               	infsnz	SendUsartString@str^0,f,c
+  1672  000D1A  2A03               	incf	(SendUsartString@str+1)^0,f,c
+  1673  000D1C                     l1647:
+  1674  000D1C  C002  FFF6         	movff	SendUsartString@str,tblptrl
+  1675  000D20  C003  FFF7         	movff	SendUsartString@str+1,tblptrh
+  1676  000D24  6AF8               	clrf	tblptru,c
+  1677  000D26  0E05               	movlw	(high __ramtop+-1)
+  1678  000D28  64F7               	cpfsgt	tblptrh,c
+  1679  000D2A  D003               	bra	u657
+  1680  000D2C  0008               	tblrd		*
+  1681  000D2E  50F5               	movf	tablat,w,c
+  1682  000D30  D005               	bra	u650
+  1683  000D32                     u657:
+  1684  000D32  CFF6 FFE9          	movff	tblptrl,fsr0l
+  1685  000D36  CFF7 FFEA          	movff	tblptrh,fsr0h
+  1686  000D3A  50EF               	movf	indf0,w,c
+  1687  000D3C                     u650:
+  1688  000D3C  0900               	iorlw	0
+  1689  000D3E  A4D8               	btfss	status,2,c
+  1690  000D40  EFA4  F006         	goto	u661
+  1691  000D44  EFA6  F006         	goto	u660
+  1692  000D48                     u661:
+  1693  000D48  EF7A  F006         	goto	l1643
+  1694  000D4C                     u660:
+  1695  000D4C  0012               	return		;funcret
+  1696  000D4E                     __end_of_SendUsartString:
+  1697                           	callstack 0
+  1698                           
+  1699 ;; *************** function _EUSART_Write *****************
+  1700 ;; Defined at:
+  1701 ;;		line 132 in file "mcc_generated_files/eusart.c"
+  1702 ;; Parameters:    Size  Location     Type
+  1703 ;;  txData          1    wreg     unsigned char 
+  1704 ;; Auto vars:     Size  Location     Type
+  1705 ;;  txData          1    0[COMRAM] unsigned char 
+  1706 ;; Return value:  Size  Location     Type
+  1707 ;;                  1    wreg      void 
+  1708 ;; Registers used:
+  1709 ;;		wreg
+  1710 ;; Tracked objects:
+  1711 ;;		On entry : 0/0
+  1712 ;;		On exit  : 0/0
+  1713 ;;		Unchanged: 0/0
+  1714 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1715 ;;      Params:         0       0       0       0       0       0       0
+  1716 ;;      Locals:         1       0       0       0       0       0       0
+  1717 ;;      Temps:          0       0       0       0       0       0       0
+  1718 ;;      Totals:         1       0       0       0       0       0       0
+  1719 ;;Total ram usage:        1 bytes
+  1720 ;; Hardware stack levels used: 1
+  1721 ;; This function calls:
+  1722 ;;		Nothing
+  1723 ;; This function is called by:
+  1724 ;;		_SendUsartString
+  1725 ;; This function uses a non-reentrant model
+  1726 ;;
+  1727                           
+  1728                           	psect	text8
+  1729  000EB0                     __ptext8:
+  1730                           	callstack 0
+  1731  000EB0                     _EUSART_Write:
+  1732                           	callstack 29
+  1733                           
+  1734                           ;incstack = 0
+  1735                           ;EUSART_Write@txData stored from wreg
+  1736  000EB0  6E01               	movwf	EUSART_Write@txData^0,c
+  1737  000EB2                     l67:
+  1738  000EB2  A89E               	btfss	158,4,c	;volatile
+  1739  000EB4  EF5E  F007         	goto	u371
+  1740  000EB8  EF60  F007         	goto	u370
+  1741  000EBC                     u371:
+  1742  000EBC  EF59  F007         	goto	l67
+  1743  000EC0                     u370:
+  1744  000EC0                     
+  1745                           ;eusart.c: 136: };eusart.c: 138: TXREG = txData;
+  1746  000EC0  C001  FFAD         	movff	EUSART_Write@txData,4013	;volatile
+  1747  000EC4  0012               	return		;funcret
+  1748  000EC6                     __end_of_EUSART_Write:
+  1749                           	callstack 0
+  1750                           
+  1751 ;; *************** function _SYSTEM_Initialize *****************
+  1752 ;; Defined at:
+  1753 ;;		line 50 in file "mcc_generated_files/mcc.c"
+  1754 ;; Parameters:    Size  Location     Type
+  1755 ;;		None
+  1756 ;; Auto vars:     Size  Location     Type
+  1757 ;;		None
+  1758 ;; Return value:  Size  Location     Type
+  1759 ;;                  1    wreg      void 
+  1760 ;; Registers used:
+  1761 ;;		wreg, status,2, status,0, cstack
+  1762 ;; Tracked objects:
+  1763 ;;		On entry : 0/0
+  1764 ;;		On exit  : 0/0
+  1765 ;;		Unchanged: 0/0
+  1766 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1767 ;;      Params:         0       0       0       0       0       0       0
+  1768 ;;      Locals:         0       0       0       0       0       0       0
+  1769 ;;      Temps:          0       0       0       0       0       0       0
+  1770 ;;      Totals:         0       0       0       0       0       0       0
+  1771 ;;Total ram usage:        0 bytes
+  1772 ;; Hardware stack levels used: 1
+  1773 ;; Hardware stack levels required when called: 2
+  1774 ;; This function calls:
+  1775 ;;		_ADC_Initialize
+  1776 ;;		_EPWM1_Initialize
+  1777 ;;		_EUSART_Initialize
+  1778 ;;		_OSCILLATOR_Initialize
+  1779 ;;		_PIN_MANAGER_Initialize
+  1780 ;;		_PWM2_Initialize
+  1781 ;;		_TMR2_Initialize
+  1782 ;; This function is called by:
+  1783 ;;		_main
+  1784 ;; This function uses a non-reentrant model
+  1785 ;;
+  1786                           
+  1787                           	psect	text9
+  1788  000E78                     __ptext9:
+  1789                           	callstack 0
+  1790  000E78                     _SYSTEM_Initialize:
+  1791                           	callstack 28
+  1792  000E78                     
+  1793                           ;mcc.c: 53: PIN_MANAGER_Initialize();
+  1794  000E78  ECE3  F006         	call	_PIN_MANAGER_Initialize	;wreg free
+  1795                           
+  1796                           ;mcc.c: 54: OSCILLATOR_Initialize();
+  1797  000E7C  EC7D  F007         	call	_OSCILLATOR_Initialize	;wreg free
+  1798                           
+  1799                           ;mcc.c: 55: PWM2_Initialize();
+  1800  000E80  EC76  F007         	call	_PWM2_Initialize	;wreg free
+  1801                           
+  1802                           ;mcc.c: 56: ADC_Initialize();
+  1803  000E84  EC63  F007         	call	_ADC_Initialize	;wreg free
+  1804                           
+  1805                           ;mcc.c: 57: EPWM1_Initialize();
+  1806  000E88  EC4B  F007         	call	_EPWM1_Initialize	;wreg free
+  1807                           
+  1808                           ;mcc.c: 58: TMR2_Initialize();
+  1809  000E8C  EC6E  F007         	call	_TMR2_Initialize	;wreg free
+  1810  000E90                     
+  1811                           ;mcc.c: 59: EUSART_Initialize();
+  1812  000E90  ECA7  F006         	call	_EUSART_Initialize	;wreg free
+  1813  000E94  0012               	return		;funcret
+  1814  000E96                     __end_of_SYSTEM_Initialize:
+  1815                           	callstack 0
+  1816                           
+  1817 ;; *************** function _TMR2_Initialize *****************
+  1818 ;; Defined at:
+  1819 ;;		line 62 in file "mcc_generated_files/tmr2.c"
+  1820 ;; Parameters:    Size  Location     Type
+  1821 ;;		None
+  1822 ;; Auto vars:     Size  Location     Type
+  1823 ;;		None
+  1824 ;; Return value:  Size  Location     Type
+  1825 ;;                  1    wreg      void 
+  1826 ;; Registers used:
+  1827 ;;		wreg, status,2
+  1828 ;; Tracked objects:
+  1829 ;;		On entry : 0/0
+  1830 ;;		On exit  : 0/0
+  1831 ;;		Unchanged: 0/0
+  1832 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1833 ;;      Params:         0       0       0       0       0       0       0
+  1834 ;;      Locals:         0       0       0       0       0       0       0
+  1835 ;;      Temps:          0       0       0       0       0       0       0
+  1836 ;;      Totals:         0       0       0       0       0       0       0
+  1837 ;;Total ram usage:        0 bytes
+  1838 ;; Hardware stack levels used: 1
+  1839 ;; This function calls:
+  1840 ;;		Nothing
+  1841 ;; This function is called by:
+  1842 ;;		_SYSTEM_Initialize
+  1843 ;; This function uses a non-reentrant model
+  1844 ;;
+  1845                           
+  1846                           	psect	text10
+  1847  000EDC                     __ptext10:
+  1848                           	callstack 0
+  1849  000EDC                     _TMR2_Initialize:
+  1850                           	callstack 29
+  1851  000EDC                     
+  1852                           ;tmr2.c: 67: PR2 = 0x9B;
+  1853  000EDC  0E9B               	movlw	155
+  1854  000EDE  6ECB               	movwf	203,c	;volatile
+  1855                           
+  1856                           ;tmr2.c: 70: TMR2 = 0x00;
+  1857  000EE0  0E00               	movlw	0
+  1858  000EE2  6ECC               	movwf	204,c	;volatile
+  1859  000EE4                     
+  1860                           ;tmr2.c: 73: PIR1bits.TMR2IF = 0;
+  1861  000EE4  929E               	bcf	158,1,c	;volatile
+  1862                           
+  1863                           ;tmr2.c: 76: T2CON = 0x06;
+  1864  000EE6  0E06               	movlw	6
+  1865  000EE8  6ECA               	movwf	202,c	;volatile
+  1866  000EEA  0012               	return		;funcret
+  1867  000EEC                     __end_of_TMR2_Initialize:
+  1868                           	callstack 0
+  1869                           
+  1870 ;; *************** function _PWM2_Initialize *****************
+  1871 ;; Defined at:
+  1872 ;;		line 64 in file "mcc_generated_files/pwm2.c"
+  1873 ;; Parameters:    Size  Location     Type
+  1874 ;;		None
+  1875 ;; Auto vars:     Size  Location     Type
+  1876 ;;		None
+  1877 ;; Return value:  Size  Location     Type
+  1878 ;;                  1    wreg      void 
+  1879 ;; Registers used:
+  1880 ;;		wreg, status,2
+  1881 ;; Tracked objects:
+  1882 ;;		On entry : 0/0
+  1883 ;;		On exit  : 0/0
+  1884 ;;		Unchanged: 0/0
+  1885 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1886 ;;      Params:         0       0       0       0       0       0       0
+  1887 ;;      Locals:         0       0       0       0       0       0       0
+  1888 ;;      Temps:          0       0       0       0       0       0       0
+  1889 ;;      Totals:         0       0       0       0       0       0       0
+  1890 ;;Total ram usage:        0 bytes
+  1891 ;; Hardware stack levels used: 1
+  1892 ;; This function calls:
+  1893 ;;		Nothing
+  1894 ;; This function is called by:
+  1895 ;;		_SYSTEM_Initialize
+  1896 ;; This function uses a non-reentrant model
+  1897 ;;
+  1898                           
+  1899                           	psect	text11
+  1900  000EEC                     __ptext11:
+  1901                           	callstack 0
+  1902  000EEC                     _PWM2_Initialize:
+  1903                           	callstack 29
+  1904  000EEC                     
+  1905                           ;pwm2.c: 69: CCP2CON = 0x3C;
+  1906  000EEC  0E3C               	movlw	60
+  1907  000EEE  6EBA               	movwf	186,c	;volatile
+  1908                           
+  1909                           ;pwm2.c: 72: CCPR2L = 0x4D;
+  1910  000EF0  0E4D               	movlw	77
+  1911  000EF2  6EBB               	movwf	187,c	;volatile
+  1912                           
+  1913                           ;pwm2.c: 75: CCPR2H = 0x00;
+  1914  000EF4  0E00               	movlw	0
+  1915  000EF6  6EBC               	movwf	188,c	;volatile
+  1916  000EF8  0012               	return		;funcret
+  1917  000EFA                     __end_of_PWM2_Initialize:
+  1918                           	callstack 0
+  1919                           
+  1920 ;; *************** function _PIN_MANAGER_Initialize *****************
+  1921 ;; Defined at:
+  1922 ;;		line 55 in file "mcc_generated_files/pin_manager.c"
+  1923 ;; Parameters:    Size  Location     Type
+  1924 ;;		None
+  1925 ;; Auto vars:     Size  Location     Type
+  1926 ;;		None
+  1927 ;; Return value:  Size  Location     Type
+  1928 ;;                  1    wreg      void 
+  1929 ;; Registers used:
+  1930 ;;		wreg, status,2
+  1931 ;; Tracked objects:
+  1932 ;;		On entry : 0/0
+  1933 ;;		On exit  : 0/0
+  1934 ;;		Unchanged: 0/0
+  1935 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1936 ;;      Params:         0       0       0       0       0       0       0
+  1937 ;;      Locals:         0       0       0       0       0       0       0
+  1938 ;;      Temps:          0       0       0       0       0       0       0
+  1939 ;;      Totals:         0       0       0       0       0       0       0
+  1940 ;;Total ram usage:        0 bytes
+  1941 ;; Hardware stack levels used: 1
+  1942 ;; This function calls:
+  1943 ;;		Nothing
+  1944 ;; This function is called by:
+  1945 ;;		_SYSTEM_Initialize
+  1946 ;; This function uses a non-reentrant model
+  1947 ;;
+  1948                           
+  1949                           	psect	text12
+  1950  000DC6                     __ptext12:
+  1951                           	callstack 0
+  1952  000DC6                     _PIN_MANAGER_Initialize:
+  1953                           	callstack 29
+  1954  000DC6                     
+  1955                           ;pin_manager.c: 60: LATE = 0x00;
+  1956  000DC6  0E00               	movlw	0
+  1957  000DC8  6E8D               	movwf	141,c	;volatile
+  1958                           
+  1959                           ;pin_manager.c: 61: LATD = 0x00;
+  1960  000DCA  0E00               	movlw	0
+  1961  000DCC  6E8C               	movwf	140,c	;volatile
+  1962                           
+  1963                           ;pin_manager.c: 62: LATA = 0x00;
+  1964  000DCE  0E00               	movlw	0
+  1965  000DD0  6E89               	movwf	137,c	;volatile
+  1966                           
+  1967                           ;pin_manager.c: 63: LATB = 0x00;
+  1968  000DD2  0E00               	movlw	0
+  1969  000DD4  6E8A               	movwf	138,c	;volatile
+  1970                           
+  1971                           ;pin_manager.c: 64: LATC = 0x00;
+  1972  000DD6  0E00               	movlw	0
+  1973  000DD8  6E8B               	movwf	139,c	;volatile
+  1974                           
+  1975                           ;pin_manager.c: 69: TRISE = 0x07;
+  1976  000DDA  0E07               	movlw	7
+  1977  000DDC  6E96               	movwf	150,c	;volatile
+  1978  000DDE                     
+  1979                           ;pin_manager.c: 70: TRISA = 0xFF;
+  1980  000DDE  6892               	setf	146,c	;volatile
+  1981  000DE0                     
+  1982                           ;pin_manager.c: 71: TRISB = 0xFF;
+  1983  000DE0  6893               	setf	147,c	;volatile
+  1984                           
+  1985                           ;pin_manager.c: 72: TRISC = 0xB9;
+  1986  000DE2  0EB9               	movlw	185
+  1987  000DE4  6E94               	movwf	148,c	;volatile
+  1988  000DE6                     
+  1989                           ;pin_manager.c: 73: TRISD = 0xFF;
+  1990  000DE6  6895               	setf	149,c	;volatile
+  1991  000DE8                     
+  1992                           ;pin_manager.c: 78: ANSEL = 0xFF;
+  1993  000DE8  687E               	setf	126,c	;volatile
+  1994                           
+  1995                           ;pin_manager.c: 79: ANSELH = 0x0F;
+  1996  000DEA  0E0F               	movlw	15
+  1997  000DEC  6E7F               	movwf	127,c	;volatile
+  1998                           
+  1999                           ;pin_manager.c: 84: WPUB = 0x01;
+  2000  000DEE  0E01               	movlw	1
+  2001  000DF0  6E7C               	movwf	124,c	;volatile
+  2002  000DF2                     
+  2003                           ;pin_manager.c: 85: INTCON2bits.nRBPU = 0;
+  2004  000DF2  9EF1               	bcf	241,7,c	;volatile
+  2005  000DF4  0012               	return		;funcret
+  2006  000DF6                     __end_of_PIN_MANAGER_Initialize:
+  2007                           	callstack 0
+  2008                           
+  2009 ;; *************** function _OSCILLATOR_Initialize *****************
+  2010 ;; Defined at:
+  2011 ;;		line 62 in file "mcc_generated_files/mcc.c"
+  2012 ;; Parameters:    Size  Location     Type
+  2013 ;;		None
+  2014 ;; Auto vars:     Size  Location     Type
+  2015 ;;		None
+  2016 ;; Return value:  Size  Location     Type
+  2017 ;;                  1    wreg      void 
+  2018 ;; Registers used:
+  2019 ;;		wreg, status,2
+  2020 ;; Tracked objects:
+  2021 ;;		On entry : 0/0
+  2022 ;;		On exit  : 0/0
+  2023 ;;		Unchanged: 0/0
+  2024 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  2025 ;;      Params:         0       0       0       0       0       0       0
+  2026 ;;      Locals:         0       0       0       0       0       0       0
+  2027 ;;      Temps:          0       0       0       0       0       0       0
+  2028 ;;      Totals:         0       0       0       0       0       0       0
+  2029 ;;Total ram usage:        0 bytes
+  2030 ;; Hardware stack levels used: 1
+  2031 ;; This function calls:
+  2032 ;;		Nothing
+  2033 ;; This function is called by:
+  2034 ;;		_SYSTEM_Initialize
+  2035 ;; This function uses a non-reentrant model
+  2036 ;;
+  2037                           
+  2038                           	psect	text13
+  2039  000EFA                     __ptext13:
+  2040                           	callstack 0
+  2041  000EFA                     _OSCILLATOR_Initialize:
+  2042                           	callstack 29
+  2043  000EFA                     
+  2044                           ;mcc.c: 65: OSCCON = 0x22;
+  2045  000EFA  0E22               	movlw	34
+  2046  000EFC  6ED3               	movwf	211,c	;volatile
+  2047                           
+  2048                           ;mcc.c: 67: OSCTUNE = 0x00;
+  2049  000EFE  0E00               	movlw	0
+  2050  000F00  6E9B               	movwf	155,c	;volatile
+  2051  000F02  0012               	return		;funcret
+  2052  000F04                     __end_of_OSCILLATOR_Initialize:
+  2053                           	callstack 0
+  2054                           
+  2055 ;; *************** function _EUSART_Initialize *****************
+  2056 ;; Defined at:
+  2057 ;;		line 66 in file "mcc_generated_files/eusart.c"
+  2058 ;; Parameters:    Size  Location     Type
+  2059 ;;		None
+  2060 ;; Auto vars:     Size  Location     Type
+  2061 ;;		None
+  2062 ;; Return value:  Size  Location     Type
+  2063 ;;                  1    wreg      void 
+  2064 ;; Registers used:
+  2065 ;;		wreg, status,2, status,0, cstack
+  2066 ;; Tracked objects:
+  2067 ;;		On entry : 0/0
+  2068 ;;		On exit  : 0/0
+  2069 ;;		Unchanged: 0/0
+  2070 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  2071 ;;      Params:         0       0       0       0       0       0       0
+  2072 ;;      Locals:         0       0       0       0       0       0       0
+  2073 ;;      Temps:          0       0       0       0       0       0       0
+  2074 ;;      Totals:         0       0       0       0       0       0       0
+  2075 ;;Total ram usage:        0 bytes
+  2076 ;; Hardware stack levels used: 1
+  2077 ;; Hardware stack levels required when called: 1
+  2078 ;; This function calls:
+  2079 ;;		_EUSART_SetErrorHandler
+  2080 ;;		_EUSART_SetFramingErrorHandler
+  2081 ;;		_EUSART_SetOverrunErrorHandler
+  2082 ;; This function is called by:
+  2083 ;;		_SYSTEM_Initialize
+  2084 ;; This function uses a non-reentrant model
+  2085 ;;
+  2086                           
+  2087                           	psect	text14
+  2088  000D4E                     __ptext14:
+  2089                           	callstack 0
+  2090  000D4E                     _EUSART_Initialize:
+  2091                           	callstack 28
+  2092  000D4E                     
+  2093                           ;eusart.c: 71: BAUDCON = 0x08;
+  2094  000D4E  0E08               	movlw	8
+  2095  000D50  6EB8               	movwf	184,c	;volatile
+  2096                           
+  2097                           ;eusart.c: 74: RCSTA = 0x90;
+  2098  000D52  0E90               	movlw	144
+  2099  000D54  6EAB               	movwf	171,c	;volatile
+  2100                           
+  2101                           ;eusart.c: 77: TXSTA = 0x24;
+  2102  000D56  0E24               	movlw	36
+  2103  000D58  6EAC               	movwf	172,c	;volatile
+  2104                           
+  2105                           ;eusart.c: 80: SPBRG = 0x0C;
+  2106  000D5A  0E0C               	movlw	12
+  2107  000D5C  6EAF               	movwf	175,c	;volatile
+  2108                           
+  2109                           ;eusart.c: 83: SPBRGH = 0x00;
+  2110  000D5E  0E00               	movlw	0
+  2111  000D60  6EB0               	movwf	176,c	;volatile
+  2112  000D62                     
+  2113                           ;eusart.c: 86: EUSART_SetFramingErrorHandler(EUSART_DefaultFramingErrorHandler);
+  2114  000D62  0E00               	movlw	0
+  2115  000D64  6E01               	movwf	EUSART_SetFramingErrorHandler@interruptHandler^0,c
+  2116  000D66  0E00               	movlw	0
+  2117  000D68  6E02               	movwf	(EUSART_SetFramingErrorHandler@interruptHandler+1)^0,c
+  2118  000D6A  EC87  F007         	call	_EUSART_SetFramingErrorHandler	;wreg free
+  2119  000D6E                     
+  2120                           ;eusart.c: 87: EUSART_SetOverrunErrorHandler(EUSART_DefaultOverrunErrorHandler);
+  2121  000D6E  0E00               	movlw	0
+  2122  000D70  6E01               	movwf	EUSART_SetOverrunErrorHandler@interruptHandler^0,c
+  2123  000D72  0E00               	movlw	0
+  2124  000D74  6E02               	movwf	(EUSART_SetOverrunErrorHandler@interruptHandler+1)^0,c
+  2125  000D76  EC82  F007         	call	_EUSART_SetOverrunErrorHandler	;wreg free
+  2126  000D7A                     
+  2127                           ;eusart.c: 88: EUSART_SetErrorHandler(EUSART_DefaultErrorHandler);
+  2128  000D7A  0E00               	movlw	0
+  2129  000D7C  6E01               	movwf	EUSART_SetErrorHandler@interruptHandler^0,c
+  2130  000D7E  0E00               	movlw	0
+  2131  000D80  6E02               	movwf	(EUSART_SetErrorHandler@interruptHandler+1)^0,c
+  2132  000D82  EC8C  F007         	call	_EUSART_SetErrorHandler	;wreg free
+  2133  000D86                     
+  2134                           ;eusart.c: 90: eusartRxLastError.status = 0;
+  2135  000D86  0E00               	movlw	0
+  2136  000D88  6E40               	movwf	_eusartRxLastError^0,c	;volatile
+  2137  000D8A  0012               	return		;funcret
+  2138  000D8C                     __end_of_EUSART_Initialize:
+  2139                           	callstack 0
+  2140                           
+  2141 ;; *************** function _EUSART_SetOverrunErrorHandler *****************
+  2142 ;; Defined at:
+  2143 ;;		line 161 in file "mcc_generated_files/eusart.c"
+  2144 ;; Parameters:    Size  Location     Type
+  2145 ;;  interruptHan    2    0[COMRAM] PTR FTN()void 
+  2146 ;;		 -> EUSART_DefaultOverrunErrorHandler(1), 
+  2147 ;; Auto vars:     Size  Location     Type
+  2148 ;;		None
+  2149 ;; Return value:  Size  Location     Type
+  2150 ;;                  1    wreg      void 
+  2151 ;; Registers used:
+  2152 ;;		wreg, status,2, status,0
+  2153 ;; Tracked objects:
+  2154 ;;		On entry : 0/0
+  2155 ;;		On exit  : 0/0
+  2156 ;;		Unchanged: 0/0
+  2157 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  2158 ;;      Params:         2       0       0       0       0       0       0
+  2159 ;;      Locals:         0       0       0       0       0       0       0
+  2160 ;;      Temps:          0       0       0       0       0       0       0
+  2161 ;;      Totals:         2       0       0       0       0       0       0
+  2162 ;;Total ram usage:        2 bytes
+  2163 ;; Hardware stack levels used: 1
+  2164 ;; This function calls:
+  2165 ;;		Nothing
+  2166 ;; This function is called by:
+  2167 ;;		_EUSART_Initialize
+  2168 ;; This function uses a non-reentrant model
+  2169 ;;
+  2170                           
+  2171                           	psect	text15
+  2172  000F04                     __ptext15:
+  2173                           	callstack 0
+  2174  000F04                     _EUSART_SetOverrunErrorHandler:
+  2175                           	callstack 28
+  2176  000F04                     
+  2177                           ;eusart.c: 162: EUSART_OverrunErrorHandler = interruptHandler;
+  2178  000F04  C001  F036         	movff	EUSART_SetOverrunErrorHandler@interruptHandler,_EUSART_OverrunErrorHandler
+  2179  000F08  C002  F037         	movff	EUSART_SetOverrunErrorHandler@interruptHandler+1,_EUSART_OverrunErrorHandler+1
+  2180  000F0C  0012               	return		;funcret
+  2181  000F0E                     __end_of_EUSART_SetOverrunErrorHandler:
+  2182                           	callstack 0
+  2183                           
+  2184 ;; *************** function _EUSART_SetFramingErrorHandler *****************
+  2185 ;; Defined at:
+  2186 ;;		line 157 in file "mcc_generated_files/eusart.c"
+  2187 ;; Parameters:    Size  Location     Type
+  2188 ;;  interruptHan    2    0[COMRAM] PTR FTN()void 
+  2189 ;;		 -> EUSART_DefaultFramingErrorHandler(1), 
+  2190 ;; Auto vars:     Size  Location     Type
+  2191 ;;		None
+  2192 ;; Return value:  Size  Location     Type
+  2193 ;;                  1    wreg      void 
+  2194 ;; Registers used:
+  2195 ;;		wreg, status,2, status,0
+  2196 ;; Tracked objects:
+  2197 ;;		On entry : 0/0
+  2198 ;;		On exit  : 0/0
+  2199 ;;		Unchanged: 0/0
+  2200 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  2201 ;;      Params:         2       0       0       0       0       0       0
+  2202 ;;      Locals:         0       0       0       0       0       0       0
+  2203 ;;      Temps:          0       0       0       0       0       0       0
+  2204 ;;      Totals:         2       0       0       0       0       0       0
+  2205 ;;Total ram usage:        2 bytes
+  2206 ;; Hardware stack levels used: 1
+  2207 ;; This function calls:
+  2208 ;;		Nothing
+  2209 ;; This function is called by:
+  2210 ;;		_EUSART_Initialize
+  2211 ;; This function uses a non-reentrant model
+  2212 ;;
+  2213                           
+  2214                           	psect	text16
+  2215  000F0E                     __ptext16:
+  2216                           	callstack 0
+  2217  000F0E                     _EUSART_SetFramingErrorHandler:
+  2218                           	callstack 28
+  2219  000F0E                     
+  2220                           ;eusart.c: 158: EUSART_FramingErrorHandler = interruptHandler;
+  2221  000F0E  C001  F038         	movff	EUSART_SetFramingErrorHandler@interruptHandler,_EUSART_FramingErrorHandler
+  2222  000F12  C002  F039         	movff	EUSART_SetFramingErrorHandler@interruptHandler+1,_EUSART_FramingErrorHandler+1
+  2223  000F16  0012               	return		;funcret
+  2224  000F18                     __end_of_EUSART_SetFramingErrorHandler:
+  2225                           	callstack 0
+  2226                           
+  2227 ;; *************** function _EUSART_SetErrorHandler *****************
+  2228 ;; Defined at:
+  2229 ;;		line 165 in file "mcc_generated_files/eusart.c"
+  2230 ;; Parameters:    Size  Location     Type
+  2231 ;;  interruptHan    2    0[COMRAM] PTR FTN()void 
+  2232 ;;		 -> EUSART_DefaultErrorHandler(1), 
+  2233 ;; Auto vars:     Size  Location     Type
+  2234 ;;		None
+  2235 ;; Return value:  Size  Location     Type
+  2236 ;;                  1    wreg      void 
+  2237 ;; Registers used:
+  2238 ;;		wreg, status,2, status,0
+  2239 ;; Tracked objects:
+  2240 ;;		On entry : 0/0
+  2241 ;;		On exit  : 0/0
+  2242 ;;		Unchanged: 0/0
+  2243 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  2244 ;;      Params:         2       0       0       0       0       0       0
+  2245 ;;      Locals:         0       0       0       0       0       0       0
+  2246 ;;      Temps:          0       0       0       0       0       0       0
+  2247 ;;      Totals:         2       0       0       0       0       0       0
+  2248 ;;Total ram usage:        2 bytes
+  2249 ;; Hardware stack levels used: 1
+  2250 ;; This function calls:
+  2251 ;;		Nothing
+  2252 ;; This function is called by:
+  2253 ;;		_EUSART_Initialize
+  2254 ;; This function uses a non-reentrant model
+  2255 ;;
+  2256                           
+  2257                           	psect	text17
+  2258  000F18                     __ptext17:
+  2259                           	callstack 0
+  2260  000F18                     _EUSART_SetErrorHandler:
+  2261                           	callstack 28
+  2262  000F18                     
+  2263                           ;eusart.c: 166: EUSART_ErrorHandler = interruptHandler;
+  2264  000F18  C001  F034         	movff	EUSART_SetErrorHandler@interruptHandler,_EUSART_ErrorHandler
+  2265  000F1C  C002  F035         	movff	EUSART_SetErrorHandler@interruptHandler+1,_EUSART_ErrorHandler+1
+  2266  000F20  0012               	return		;funcret
+  2267  000F22                     __end_of_EUSART_SetErrorHandler:
+  2268                           	callstack 0
+  2269                           
+  2270 ;; *************** function _EPWM1_Initialize *****************
+  2271 ;; Defined at:
+  2272 ;;		line 64 in file "mcc_generated_files/epwm1.c"
+  2273 ;; Parameters:    Size  Location     Type
+  2274 ;;		None
+  2275 ;; Auto vars:     Size  Location     Type
+  2276 ;;		None
+  2277 ;; Return value:  Size  Location     Type
+  2278 ;;                  1    wreg      void 
+  2279 ;; Registers used:
+  2280 ;;		wreg, status,2
+  2281 ;; Tracked objects:
+  2282 ;;		On entry : 0/0
+  2283 ;;		On exit  : 0/0
+  2284 ;;		Unchanged: 0/0
+  2285 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  2286 ;;      Params:         0       0       0       0       0       0       0
+  2287 ;;      Locals:         0       0       0       0       0       0       0
+  2288 ;;      Temps:          0       0       0       0       0       0       0
+  2289 ;;      Totals:         0       0       0       0       0       0       0
+  2290 ;;Total ram usage:        0 bytes
+  2291 ;; Hardware stack levels used: 1
+  2292 ;; This function calls:
+  2293 ;;		Nothing
+  2294 ;; This function is called by:
+  2295 ;;		_SYSTEM_Initialize
+  2296 ;; This function uses a non-reentrant model
+  2297 ;;
+  2298                           
+  2299                           	psect	text18
+  2300  000E96                     __ptext18:
+  2301                           	callstack 0
+  2302  000E96                     _EPWM1_Initialize:
+  2303                           	callstack 29
+  2304  000E96                     
+  2305                           ;epwm1.c: 69: CCP1CON = 0x3C;
+  2306  000E96  0E3C               	movlw	60
+  2307  000E98  6EBD               	movwf	189,c	;volatile
+  2308                           
+  2309                           ;epwm1.c: 72: ECCP1AS = 0x00;
+  2310  000E9A  0E00               	movlw	0
+  2311  000E9C  6EB6               	movwf	182,c	;volatile
+  2312                           
+  2313                           ;epwm1.c: 75: PWM1CON = 0x80;
+  2314  000E9E  0E80               	movlw	128
+  2315  000EA0  6EB7               	movwf	183,c	;volatile
+  2316                           
+  2317                           ;epwm1.c: 78: PSTRCON = 0x01;
+  2318  000EA2  0E01               	movlw	1
+  2319  000EA4  6EB9               	movwf	185,c	;volatile
+  2320                           
+  2321                           ;epwm1.c: 81: CCPR1H = 0x00;
+  2322  000EA6  0E00               	movlw	0
+  2323  000EA8  6EBF               	movwf	191,c	;volatile
+  2324                           
+  2325                           ;epwm1.c: 84: CCPR1L = 0x9B;
+  2326  000EAA  0E9B               	movlw	155
+  2327  000EAC  6EBE               	movwf	190,c	;volatile
+  2328  000EAE  0012               	return		;funcret
+  2329  000EB0                     __end_of_EPWM1_Initialize:
+  2330                           	callstack 0
+  2331                           
+  2332 ;; *************** function _ADC_Initialize *****************
+  2333 ;; Defined at:
+  2334 ;;		line 62 in file "mcc_generated_files/adc.c"
+  2335 ;; Parameters:    Size  Location     Type
+  2336 ;;		None
+  2337 ;; Auto vars:     Size  Location     Type
+  2338 ;;		None
+  2339 ;; Return value:  Size  Location     Type
+  2340 ;;                  1    wreg      void 
+  2341 ;; Registers used:
+  2342 ;;		wreg, status,2
+  2343 ;; Tracked objects:
+  2344 ;;		On entry : 0/0
+  2345 ;;		On exit  : 0/0
+  2346 ;;		Unchanged: 0/0
+  2347 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  2348 ;;      Params:         0       0       0       0       0       0       0
+  2349 ;;      Locals:         0       0       0       0       0       0       0
+  2350 ;;      Temps:          0       0       0       0       0       0       0
+  2351 ;;      Totals:         0       0       0       0       0       0       0
+  2352 ;;Total ram usage:        0 bytes
+  2353 ;; Hardware stack levels used: 1
+  2354 ;; This function calls:
+  2355 ;;		Nothing
+  2356 ;; This function is called by:
+  2357 ;;		_SYSTEM_Initialize
+  2358 ;; This function uses a non-reentrant model
+  2359 ;;
+  2360                           
+  2361                           	psect	text19
+  2362  000EC6                     __ptext19:
+  2363                           	callstack 0
+  2364  000EC6                     _ADC_Initialize:
+  2365                           	callstack 29
+  2366  000EC6                     
+  2367                           ;adc.c: 67: ADCON1 = 0x00;
+  2368  000EC6  0E00               	movlw	0
+  2369  000EC8  6EC1               	movwf	193,c	;volatile
+  2370                           
+  2371                           ;adc.c: 70: ADCON2 = 0xB8;
+  2372  000ECA  0EB8               	movlw	184
+  2373  000ECC  6EC0               	movwf	192,c	;volatile
+  2374                           
+  2375                           ;adc.c: 73: ADRESL = 0x00;
+  2376  000ECE  0E00               	movlw	0
+  2377  000ED0  6EC3               	movwf	195,c	;volatile
+  2378                           
+  2379                           ;adc.c: 76: ADRESH = 0x00;
+  2380  000ED2  0E00               	movlw	0
+  2381  000ED4  6EC4               	movwf	196,c	;volatile
+  2382                           
+  2383                           ;adc.c: 79: ADCON0 = 0x01;
+  2384  000ED6  0E01               	movlw	1
+  2385  000ED8  6EC2               	movwf	194,c	;volatile
+  2386  000EDA  0012               	return		;funcret
+  2387  000EDC                     __end_of_ADC_Initialize:
+  2388                           	callstack 0
+  2389                           
+  2390 ;; *************** function _PWM2_LoadDutyValue *****************
+  2391 ;; Defined at:
+  2392 ;;		line 80 in file "mcc_generated_files/pwm2.c"
+  2393 ;; Parameters:    Size  Location     Type
+  2394 ;;  dutyValue       2    0[COMRAM] unsigned int 
+  2395 ;; Auto vars:     Size  Location     Type
+  2396 ;;		None
+  2397 ;; Return value:  Size  Location     Type
+  2398 ;;                  1    wreg      void 
+  2399 ;; Registers used:
+  2400 ;;		wreg, status,2, status,0
+  2401 ;; Tracked objects:
+  2402 ;;		On entry : 0/0
+  2403 ;;		On exit  : 0/0
+  2404 ;;		Unchanged: 0/0
+  2405 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  2406 ;;      Params:         2       0       0       0       0       0       0
+  2407 ;;      Locals:         0       0       0       0       0       0       0
+  2408 ;;      Temps:          2       0       0       0       0       0       0
+  2409 ;;      Totals:         4       0       0       0       0       0       0
+  2410 ;;Total ram usage:        4 bytes
+  2411 ;; Hardware stack levels used: 1
+  2412 ;; This function calls:
+  2413 ;;		Nothing
+  2414 ;; This function is called by:
+  2415 ;;		_main
+  2416 ;; This function uses a non-reentrant model
+  2417 ;;
+  2418                           
+  2419                           	psect	text20
+  2420  000DF6                     __ptext20:
+  2421                           	callstack 0
+  2422  000DF6                     _PWM2_LoadDutyValue:
+  2423                           	callstack 30
+  2424  000DF6                     
+  2425                           ;pwm2.c: 83: CCPR2L = ((dutyValue & 0x03FC)>>2);
+  2426  000DF6  C001  F003         	movff	PWM2_LoadDutyValue@dutyValue,??_PWM2_LoadDutyValue
+  2427  000DFA  C002  F004         	movff	PWM2_LoadDutyValue@dutyValue+1,??_PWM2_LoadDutyValue+1
+  2428  000DFE  90D8               	bcf	status,0,c
+  2429  000E00  3204               	rrcf	(??_PWM2_LoadDutyValue+1)^0,f,c
+  2430  000E02  3203               	rrcf	??_PWM2_LoadDutyValue^0,f,c
+  2431  000E04  90D8               	bcf	status,0,c
+  2432  000E06  3204               	rrcf	(??_PWM2_LoadDutyValue+1)^0,f,c
+  2433  000E08  3203               	rrcf	??_PWM2_LoadDutyValue^0,f,c
+  2434  000E0A  5003               	movf	??_PWM2_LoadDutyValue^0,w,c
+  2435  000E0C  6EBB               	movwf	187,c	;volatile
+  2436                           
+  2437                           ;pwm2.c: 86: CCP2CON = ((uint8_t)(CCP2CON & 0xCF) | ((dutyValue & 0x0003)<<4));
+  2438  000E0E  C001  F003         	movff	PWM2_LoadDutyValue@dutyValue,??_PWM2_LoadDutyValue
+  2439  000E12  0E03               	movlw	3
+  2440  000E14  1603               	andwf	??_PWM2_LoadDutyValue^0,f,c
+  2441  000E16  3A03               	swapf	??_PWM2_LoadDutyValue^0,f,c
+  2442  000E18  0EF0               	movlw	240
+  2443  000E1A  1603               	andwf	??_PWM2_LoadDutyValue^0,f,c
+  2444  000E1C  50BA               	movf	186,w,c	;volatile
+  2445  000E1E  0BCF               	andlw	207
+  2446  000E20  1003               	iorwf	??_PWM2_LoadDutyValue^0,w,c
+  2447  000E22  6EBA               	movwf	186,c	;volatile
+  2448  000E24  0012               	return		;funcret
+  2449  000E26                     __end_of_PWM2_LoadDutyValue:
+  2450                           	callstack 0
+  2451                           
+  2452 ;; *************** function _EPWM1_LoadDutyValue *****************
+  2453 ;; Defined at:
+  2454 ;;		line 88 in file "mcc_generated_files/epwm1.c"
+  2455 ;; Parameters:    Size  Location     Type
+  2456 ;;  dutyValue       2    0[COMRAM] unsigned int 
+  2457 ;; Auto vars:     Size  Location     Type
+  2458 ;;		None
+  2459 ;; Return value:  Size  Location     Type
+  2460 ;;                  1    wreg      void 
+  2461 ;; Registers used:
+  2462 ;;		wreg, status,2, status,0
+  2463 ;; Tracked objects:
+  2464 ;;		On entry : 0/0
+  2465 ;;		On exit  : 0/0
+  2466 ;;		Unchanged: 0/0
+  2467 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  2468 ;;      Params:         2       0       0       0       0       0       0
+  2469 ;;      Locals:         0       0       0       0       0       0       0
+  2470 ;;      Temps:          2       0       0       0       0       0       0
+  2471 ;;      Totals:         4       0       0       0       0       0       0
+  2472 ;;Total ram usage:        4 bytes
+  2473 ;; Hardware stack levels used: 1
+  2474 ;; This function calls:
+  2475 ;;		Nothing
+  2476 ;; This function is called by:
+  2477 ;;		_main
+  2478 ;; This function uses a non-reentrant model
+  2479 ;;
+  2480                           
+  2481                           	psect	text21
+  2482  000E26                     __ptext21:
+  2483                           	callstack 0
+  2484  000E26                     _EPWM1_LoadDutyValue:
+  2485                           	callstack 30
+  2486  000E26                     
+  2487                           ;epwm1.c: 91: CCPR1L = ((dutyValue & 0x03FC)>>2);
+  2488  000E26  C001  F003         	movff	EPWM1_LoadDutyValue@dutyValue,??_EPWM1_LoadDutyValue
+  2489  000E2A  C002  F004         	movff	EPWM1_LoadDutyValue@dutyValue+1,??_EPWM1_LoadDutyValue+1
+  2490  000E2E  90D8               	bcf	status,0,c
+  2491  000E30  3204               	rrcf	(??_EPWM1_LoadDutyValue+1)^0,f,c
+  2492  000E32  3203               	rrcf	??_EPWM1_LoadDutyValue^0,f,c
+  2493  000E34  90D8               	bcf	status,0,c
+  2494  000E36  3204               	rrcf	(??_EPWM1_LoadDutyValue+1)^0,f,c
+  2495  000E38  3203               	rrcf	??_EPWM1_LoadDutyValue^0,f,c
+  2496  000E3A  5003               	movf	??_EPWM1_LoadDutyValue^0,w,c
+  2497  000E3C  6EBE               	movwf	190,c	;volatile
+  2498                           
+  2499                           ;epwm1.c: 94: CCP1CON = ((uint8_t)(CCP1CON & 0xCF) | ((dutyValue & 0x0003)<<4));
+  2500  000E3E  C001  F003         	movff	EPWM1_LoadDutyValue@dutyValue,??_EPWM1_LoadDutyValue
+  2501  000E42  0E03               	movlw	3
+  2502  000E44  1603               	andwf	??_EPWM1_LoadDutyValue^0,f,c
+  2503  000E46  3A03               	swapf	??_EPWM1_LoadDutyValue^0,f,c
+  2504  000E48  0EF0               	movlw	240
+  2505  000E4A  1603               	andwf	??_EPWM1_LoadDutyValue^0,f,c
+  2506  000E4C  50BD               	movf	189,w,c	;volatile
+  2507  000E4E  0BCF               	andlw	207
+  2508  000E50  1003               	iorwf	??_EPWM1_LoadDutyValue^0,w,c
+  2509  000E52  6EBD               	movwf	189,c	;volatile
+  2510  000E54  0012               	return		;funcret
+  2511  000E56                     __end_of_EPWM1_LoadDutyValue:
+  2512                           	callstack 0
+  2513                           
+  2514 ;; *************** function _ADC_GetConversion *****************
+  2515 ;; Defined at:
+  2516 ;;		line 110 in file "mcc_generated_files/adc.c"
+  2517 ;; Parameters:    Size  Location     Type
+  2518 ;;  channel         1    wreg     enum E2566
+  2519 ;; Auto vars:     Size  Location     Type
+  2520 ;;  channel         1    4[COMRAM] enum E2566
+  2521 ;; Return value:  Size  Location     Type
+  2522 ;;                  2    0[COMRAM] unsigned int 
+  2523 ;; Registers used:
+  2524 ;;		wreg, status,2, status,0
+  2525 ;; Tracked objects:
+  2526 ;;		On entry : 0/0
+  2527 ;;		On exit  : 0/0
+  2528 ;;		Unchanged: 0/0
+  2529 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  2530 ;;      Params:         2       0       0       0       0       0       0
+  2531 ;;      Locals:         1       0       0       0       0       0       0
+  2532 ;;      Temps:          2       0       0       0       0       0       0
+  2533 ;;      Totals:         5       0       0       0       0       0       0
+  2534 ;;Total ram usage:        5 bytes
+  2535 ;; Hardware stack levels used: 1
+  2536 ;; This function calls:
+  2537 ;;		Nothing
+  2538 ;; This function is called by:
+  2539 ;;		_main
+  2540 ;; This function uses a non-reentrant model
+  2541 ;;
+  2542                           
+  2543                           	psect	text22
+  2544  000D8C                     __ptext22:
+  2545                           	callstack 0
+  2546  000D8C                     _ADC_GetConversion:
+  2547                           	callstack 30
+  2548                           
+  2549                           ;incstack = 0
+  2550                           ;ADC_GetConversion@channel stored from wreg
+  2551  000D8C  6E05               	movwf	ADC_GetConversion@channel^0,c
+  2552  000D8E                     
+  2553                           ;adc.c: 113: ADCON0bits.CHS = channel;
+  2554  000D8E  C005  F003         	movff	ADC_GetConversion@channel,??_ADC_GetConversion
+  2555  000D92  4603               	rlncf	??_ADC_GetConversion^0,f,c
+  2556  000D94  4603               	rlncf	??_ADC_GetConversion^0,f,c
+  2557  000D96  50C2               	movf	194,w,c	;volatile
+  2558  000D98  1803               	xorwf	??_ADC_GetConversion^0,w,c
+  2559  000D9A  0BC3               	andlw	-61
+  2560  000D9C  1803               	xorwf	??_ADC_GetConversion^0,w,c
+  2561  000D9E  6EC2               	movwf	194,c	;volatile
+  2562  000DA0                     
+  2563                           ;adc.c: 116: ADCON0bits.ADON = 1;
+  2564  000DA0  80C2               	bsf	194,0,c	;volatile
+  2565  000DA2                     
+  2566                           ;adc.c: 119: ADCON0bits.GO_nDONE = 1;
+  2567  000DA2  82C2               	bsf	194,1,c	;volatile
+  2568  000DA4                     l232:
+  2569  000DA4  B2C2               	btfsc	194,1,c	;volatile
+  2570  000DA6  EFD7  F006         	goto	u521
+  2571  000DAA  EFD9  F006         	goto	u520
+  2572  000DAE                     u521:
+  2573  000DAE  EFD2  F006         	goto	l232
+  2574  000DB2                     u520:
+  2575  000DB2                     
+  2576                           ;adc.c: 124: };adc.c: 127: return ((adc_result_t)((ADRESH << 8) + ADRESL));
+  2577  000DB2  50C4               	movf	196,w,c	;volatile
+  2578  000DB4  6E04               	movwf	(??_ADC_GetConversion+1)^0,c
+  2579  000DB6  6A03               	clrf	??_ADC_GetConversion^0,c
+  2580  000DB8  50C3               	movf	195,w,c	;volatile
+  2581  000DBA  2403               	addwf	??_ADC_GetConversion^0,w,c
+  2582  000DBC  6E01               	movwf	?_ADC_GetConversion^0,c
+  2583  000DBE  0E00               	movlw	0
+  2584  000DC0  2004               	addwfc	(??_ADC_GetConversion+1)^0,w,c
+  2585  000DC2  6E02               	movwf	(?_ADC_GetConversion+1)^0,c
+  2586  000DC4  0012               	return		;funcret
+  2587  000DC6                     __end_of_ADC_GetConversion:
+  2588                           	callstack 0
+  2589                           
+  2590                           	psect	rparam
+  2591  0000                     
+  2592                           	psect	idloc
+  2593                           
+  2594                           ;Config register IDLOC0 @ 0x200000
+  2595                           ;	unspecified, using default values
+  2596  200000                     	org	2097152
+  2597  200000  FF                 	db	255
+  2598                           
+  2599                           ;Config register IDLOC1 @ 0x200001
+  2600                           ;	unspecified, using default values
+  2601  200001                     	org	2097153
+  2602  200001  FF                 	db	255
+  2603                           
+  2604                           ;Config register IDLOC2 @ 0x200002
+  2605                           ;	unspecified, using default values
+  2606  200002                     	org	2097154
+  2607  200002  FF                 	db	255
+  2608                           
+  2609                           ;Config register IDLOC3 @ 0x200003
+  2610                           ;	unspecified, using default values
+  2611  200003                     	org	2097155
+  2612  200003  FF                 	db	255
+  2613                           
+  2614                           ;Config register IDLOC4 @ 0x200004
+  2615                           ;	unspecified, using default values
+  2616  200004                     	org	2097156
+  2617  200004  FF                 	db	255
+  2618                           
+  2619                           ;Config register IDLOC5 @ 0x200005
+  2620                           ;	unspecified, using default values
+  2621  200005                     	org	2097157
+  2622  200005  FF                 	db	255
+  2623                           
+  2624                           ;Config register IDLOC6 @ 0x200006
+  2625                           ;	unspecified, using default values
+  2626  200006                     	org	2097158
+  2627  200006  FF                 	db	255
+  2628                           
+  2629                           ;Config register IDLOC7 @ 0x200007
+  2630                           ;	unspecified, using default values
+  2631  200007                     	org	2097159
+  2632  200007  FF                 	db	255
+  2633                           
+  2634                           	psect	config
+  2635                           
+  2636                           ; Padding undefined space
+  2637  300000                     	org	3145728
+  2638  300000  FF                 	db	255
+  2639                           
+  2640                           ;Config register CONFIG1H @ 0x300001
+  2641                           ;	Oscillator Selection bits
+  2642                           ;	FOSC = INTIO67, Internal oscillator block, port function on RA6 and RA7
+  2643                           ;	Fail-Safe Clock Monitor Enable bit
+  2644                           ;	FCMEN = OFF, Fail-Safe Clock Monitor disabled
+  2645                           ;	Internal/External Oscillator Switchover bit
+  2646                           ;	IESO = OFF, Oscillator Switchover mode disabled
+  2647  300001                     	org	3145729
+  2648  300001  08                 	db	8
+  2649                           
+  2650                           ;Config register CONFIG2L @ 0x300002
+  2651                           ;	Power-up Timer Enable bit
+  2652                           ;	PWRT = OFF, PWRT disabled
+  2653                           ;	Brown-out Reset Enable bits
+  2654                           ;	BOREN = SBORDIS, Brown-out Reset enabled in hardware only (SBOREN is disabled)
+  2655                           ;	Brown Out Reset Voltage bits
+  2656                           ;	BORV = 18, VBOR set to 1.8 V nominal
+  2657  300002                     	org	3145730
+  2658  300002  1F                 	db	31
+  2659                           
+  2660                           ;Config register CONFIG2H @ 0x300003
+  2661                           ;	Watchdog Timer Enable bit
+  2662                           ;	WDTEN = OFF, WDT is controlled by SWDTEN bit of the WDTCON register
+  2663                           ;	Watchdog Timer Postscale Select bits
+  2664                           ;	WDTPS = 32768, 1:32768
+  2665  300003                     	org	3145731
+  2666  300003  1E                 	db	30
+  2667                           
+  2668                           ; Padding undefined space
+  2669  300004                     	org	3145732
+  2670  300004  FF                 	db	255
+  2671                           
+  2672                           ;Config register CONFIG3H @ 0x300005
+  2673                           ;	CCP2 MUX bit
+  2674                           ;	CCP2MX = PORTC, CCP2 input/output is multiplexed with RC1
+  2675                           ;	PORTB A/D Enable bit
+  2676                           ;	PBADEN = ON, PORTB<4:0> pins are configured as analog input channels on Reset
+  2677                           ;	Low-Power Timer1 Oscillator Enable bit
+  2678                           ;	LPT1OSC = OFF, Timer1 configured for higher power operation
+  2679                           ;	HFINTOSC Fast Start-up
+  2680                           ;	HFOFST = ON, HFINTOSC starts clocking the CPU without waiting for the oscillator to st
+      +                          ablize.
+  2681                           ;	MCLR Pin Enable bit
+  2682                           ;	MCLRE = ON, MCLR pin enabled; RE3 input pin disabled
+  2683  300005                     	org	3145733
+  2684  300005  8B                 	db	139
+  2685                           
+  2686                           ;Config register CONFIG4L @ 0x300006
+  2687                           ;	Stack Full/Underflow Reset Enable bit
+  2688                           ;	STVREN = ON, Stack full/underflow will cause Reset
+  2689                           ;	Single-Supply ICSP Enable bit
+  2690                           ;	LVP = OFF, Single-Supply ICSP disabled
+  2691                           ;	Extended Instruction Set Enable bit
+  2692                           ;	XINST = OFF, Instruction set extension and Indexed Addressing mode disabled (Legacy mo
+      +                          de)
+  2693                           ;	Background Debugger Enable bit
+  2694                           ;	DEBUG = OFF, Background debugger disabled, RB6 and RB7 configured as general purpose I
+      +                          /O pins
+  2695  300006                     	org	3145734
+  2696  300006  81                 	db	129
+  2697                           
+  2698                           ; Padding undefined space
+  2699  300007                     	org	3145735
+  2700  300007  FF                 	db	255
+  2701                           
+  2702                           ;Config register CONFIG5L @ 0x300008
+  2703                           ;	Code Protection Block 0
+  2704                           ;	CP0 = OFF, Block 0 (000800-001FFFh) not code-protected
+  2705                           ;	Code Protection Block 1
+  2706                           ;	CP1 = OFF, Block 1 (002000-003FFFh) not code-protected
+  2707                           ;	Code Protection Block 2
+  2708                           ;	CP2 = OFF, Block 2 (004000-005FFFh) not code-protected
+  2709                           ;	Code Protection Block 3
+  2710                           ;	CP3 = OFF, Block 3 (006000-007FFFh) not code-protected
+  2711  300008                     	org	3145736
+  2712  300008  0F                 	db	15
+  2713                           
+  2714                           ;Config register CONFIG5H @ 0x300009
+  2715                           ;	Boot Block Code Protection bit
+  2716                           ;	CPB = OFF, Boot block (000000-0007FFh) not code-protected
+  2717                           ;	Data EEPROM Code Protection bit
+  2718                           ;	CPD = OFF, Data EEPROM not code-protected
+  2719  300009                     	org	3145737
+  2720  300009  C0                 	db	192
+  2721                           
+  2722                           ;Config register CONFIG6L @ 0x30000A
+  2723                           ;	Write Protection Block 0
+  2724                           ;	WRT0 = OFF, Block 0 (000800-001FFFh) not write-protected
+  2725                           ;	Write Protection Block 1
+  2726                           ;	WRT1 = OFF, Block 1 (002000-003FFFh) not write-protected
+  2727                           ;	Write Protection Block 2
+  2728                           ;	WRT2 = OFF, Block 2 (004000-005FFFh) not write-protected
+  2729                           ;	Write Protection Block 3
+  2730                           ;	WRT3 = OFF, Block 3 (006000-007FFFh) not write-protected
+  2731  30000A                     	org	3145738
+  2732  30000A  0F                 	db	15
+  2733                           
+  2734                           ;Config register CONFIG6H @ 0x30000B
+  2735                           ;	Configuration Register Write Protection bit
+  2736                           ;	WRTC = OFF, Configuration registers (300000-3000FFh) not write-protected
+  2737                           ;	Boot Block Write Protection bit
+  2738                           ;	WRTB = OFF, Boot Block (000000-0007FFh) not write-protected
+  2739                           ;	Data EEPROM Write Protection bit
+  2740                           ;	WRTD = OFF, Data EEPROM not write-protected
+  2741  30000B                     	org	3145739
+  2742  30000B  E0                 	db	224
+  2743                           
+  2744                           ;Config register CONFIG7L @ 0x30000C
+  2745                           ;	Table Read Protection Block 0
+  2746                           ;	EBTR0 = OFF, Block 0 (000800-001FFFh) not protected from table reads executed in other
+      +                           blocks
+  2747                           ;	Table Read Protection Block 1
+  2748                           ;	EBTR1 = OFF, Block 1 (002000-003FFFh) not protected from table reads executed in other
+      +                           blocks
+  2749                           ;	Table Read Protection Block 2
+  2750                           ;	EBTR2 = OFF, Block 2 (004000-005FFFh) not protected from table reads executed in other
+      +                           blocks
+  2751                           ;	Table Read Protection Block 3
+  2752                           ;	EBTR3 = OFF, Block 3 (006000-007FFFh) not protected from table reads executed in other
+      +                           blocks
+  2753  30000C                     	org	3145740
+  2754  30000C  0F                 	db	15
+  2755                           
+  2756                           ;Config register CONFIG7H @ 0x30000D
+  2757                           ;	Boot Block Table Read Protection bit
+  2758                           ;	EBTRB = OFF, Boot Block (000000-0007FFh) not protected from table reads executed in ot
+      +                          her blocks
+  2759  30000D                     	org	3145741
+  2760  30000D  40                 	db	64
+  2761                           tosu	equ	0xFFF
+  2762                           tosh	equ	0xFFE
+  2763                           tosl	equ	0xFFD
+  2764                           stkptr	equ	0xFFC
+  2765                           pclatu	equ	0xFFB
+  2766                           pclath	equ	0xFFA
+  2767                           pcl	equ	0xFF9
+  2768                           tblptru	equ	0xFF8
+  2769                           tblptrh	equ	0xFF7
+  2770                           tblptrl	equ	0xFF6
+  2771                           tablat	equ	0xFF5
+  2772                           prodh	equ	0xFF4
+  2773                           prodl	equ	0xFF3
+  2774                           indf0	equ	0xFEF
+  2775                           postinc0	equ	0xFEE
+  2776                           postdec0	equ	0xFED
+  2777                           preinc0	equ	0xFEC
+  2778                           plusw0	equ	0xFEB
+  2779                           fsr0h	equ	0xFEA
+  2780                           fsr0l	equ	0xFE9
+  2781                           wreg	equ	0xFE8
+  2782                           indf1	equ	0xFE7
+  2783                           postinc1	equ	0xFE6
+  2784                           postdec1	equ	0xFE5
+  2785                           preinc1	equ	0xFE4
+  2786                           plusw1	equ	0xFE3
+  2787                           fsr1h	equ	0xFE2
+  2788                           fsr1l	equ	0xFE1
+  2789                           bsr	equ	0xFE0
+  2790                           indf2	equ	0xFDF
+  2791                           postinc2	equ	0xFDE
+  2792                           postdec2	equ	0xFDD
+  2793                           preinc2	equ	0xFDC
+  2794                           plusw2	equ	0xFDB
+  2795                           fsr2h	equ	0xFDA
+  2796                           fsr2l	equ	0xFD9
+  2797                           status	equ	0xFD8
+
+Data Sizes:
+    Strings     58
+    Constant    10
+    Data        0
+    BSS         57
+    Persistent  10
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95     47      64
+    BANK0           160      0      50
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+
+Pointer List with Targets:
+
+    ADC_InterruptHandler	PTR FTN()void  size(2) Largest target is 1
+		 -> Absolute function(), 
+
+    sprintf@f	PTR const unsigned char  size(2) Largest target is 7
+		 -> STR_4(CODE[7]), STR_1(CODE[7]), 
+
+    sprintf@cp	PTR const unsigned char  size(2) Largest target is 14
+		 -> STR_8(CODE[7]), ?_sprintf(COMRAM[2]), STR_6(CODE[3]), STR_5(CODE[14]), 
+		 -> STR_3(CODE[3]), STR_2(CODE[13]), 
+
+    sprintf@sp	PTR unsigned char  size(2) Largest target is 50
+		 -> xvalueASCII(BANK0[50]), 
+
+    sprintf@ap	PTR void [1] size(2) Largest target is 2
+		 -> ?_sprintf(COMRAM[2]), 
+
+    SendUsartString@str	PTR unsigned char  size(2) Largest target is 50
+		 -> STR_7(CODE[17]), xvalueASCII(BANK0[50]), 
+
+    EUSART_SetErrorHandler@interruptHandler	PTR FTN()void  size(2) Largest target is 1
+		 -> EUSART_DefaultErrorHandler(), 
+
+    EUSART_ErrorHandler	PTR FTN()void  size(2) Largest target is 1
+		 -> Absolute function(), EUSART_DefaultErrorHandler(), 
+
+    EUSART_SetOverrunErrorHandler@interruptHandler	PTR FTN()void  size(2) Largest target is 1
+		 -> EUSART_DefaultOverrunErrorHandler(), 
+
+    EUSART_OverrunErrorHandler	PTR FTN()void  size(2) Largest target is 1
+		 -> Absolute function(), EUSART_DefaultOverrunErrorHandler(), 
+
+    EUSART_SetFramingErrorHandler@interruptHandler	PTR FTN()void  size(2) Largest target is 1
+		 -> EUSART_DefaultFramingErrorHandler(), 
+
+    EUSART_FramingErrorHandler	PTR FTN()void  size(2) Largest target is 1
+		 -> Absolute function(), EUSART_DefaultFramingErrorHandler(), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_map
+    _sprintf->___lwmod
+    ___lwmod->___lwdiv
+    _map->___aldiv
+    ___aldiv->___lmul
+    _SendUsartString->_EUSART_Write
+    _EUSART_Initialize->_EUSART_SetErrorHandler
+    _EUSART_Initialize->_EUSART_SetFramingErrorHandler
+    _EUSART_Initialize->_EUSART_SetOverrunErrorHandler
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 1     1      0    4108
+                                             46 COMRAM     1     1      0
+                  _ADC_GetConversion
+                _EPWM1_LoadDutyValue
+                 _PWM2_LoadDutyValue
+                  _SYSTEM_Initialize
+                    _SendUsartString
+                                _map
+                            _sprintf
+ ---------------------------------------------------------------------------------
+ (1) _sprintf                                             26    16     10    1521
+                                             12 COMRAM    20    10     10
+                            ___lwdiv
+                            ___lwmod
+ ---------------------------------------------------------------------------------
+ (2) ___lwmod                                              5     1      4     311
+                                              7 COMRAM     5     1      4
+                            ___lwdiv (ARG)
+ ---------------------------------------------------------------------------------
+ (2) ___lwdiv                                              7     3      4     314
+                                              0 COMRAM     7     3      4
+ ---------------------------------------------------------------------------------
+ (1) _map                                                 20     0     20    1736
+                                             26 COMRAM    20     0     20
+                            ___aldiv
+                             ___lmul
+ ---------------------------------------------------------------------------------
+ (2) ___lmul                                              12     4      8     370
+                                              0 COMRAM    12     4      8
+ ---------------------------------------------------------------------------------
+ (2) ___aldiv                                             14     6      8     452
+                                             12 COMRAM    14     6      8
+                             ___lmul (ARG)
+ ---------------------------------------------------------------------------------
+ (1) _SendUsartString                                      2     0      2     295
+                                              1 COMRAM     2     0      2
+                       _EUSART_Write
+ ---------------------------------------------------------------------------------
+ (2) _EUSART_Write                                         1     1      0      22
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _SYSTEM_Initialize                                    0     0      0     294
+                     _ADC_Initialize
+                   _EPWM1_Initialize
+                  _EUSART_Initialize
+              _OSCILLATOR_Initialize
+             _PIN_MANAGER_Initialize
+                    _PWM2_Initialize
+                    _TMR2_Initialize
+ ---------------------------------------------------------------------------------
+ (2) _TMR2_Initialize                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _PWM2_Initialize                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _PIN_MANAGER_Initialize                               0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _OSCILLATOR_Initialize                                0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _EUSART_Initialize                                    0     0      0     294
+             _EUSART_SetErrorHandler
+      _EUSART_SetFramingErrorHandler
+      _EUSART_SetOverrunErrorHandler
+ ---------------------------------------------------------------------------------
+ (3) _EUSART_SetOverrunErrorHandler                        2     0      2      98
+                                              0 COMRAM     2     0      2
+ ---------------------------------------------------------------------------------
+ (3) _EUSART_SetFramingErrorHandler                        2     0      2      98
+                                              0 COMRAM     2     0      2
+ ---------------------------------------------------------------------------------
+ (3) _EUSART_SetErrorHandler                               2     0      2      98
+                                              0 COMRAM     2     0      2
+ ---------------------------------------------------------------------------------
+ (2) _EPWM1_Initialize                                     0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _ADC_Initialize                                       0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _PWM2_LoadDutyValue                                   4     2      2     120
+                                              0 COMRAM     4     2      2
+ ---------------------------------------------------------------------------------
+ (1) _EPWM1_LoadDutyValue                                  4     2      2     120
+                                              0 COMRAM     4     2      2
+ ---------------------------------------------------------------------------------
+ (1) _ADC_GetConversion                                    5     3      2      22
+                                              0 COMRAM     5     3      2
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _ADC_GetConversion
+   _EPWM1_LoadDutyValue
+   _PWM2_LoadDutyValue
+   _SYSTEM_Initialize
+     _ADC_Initialize
+     _EPWM1_Initialize
+     _EUSART_Initialize
+       _EUSART_SetErrorHandler
+       _EUSART_SetFramingErrorHandler
+       _EUSART_SetOverrunErrorHandler
+     _OSCILLATOR_Initialize
+     _PIN_MANAGER_Initialize
+     _PWM2_Initialize
+     _TMR2_Initialize
+   _SendUsartString
+     _EUSART_Write
+   _map
+     ___aldiv
+       ___lmul (ARG)
+     ___lmul
+   _sprintf
+     ___lwdiv
+     ___lwmod
+       ___lwdiv (ARG)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             5FF      0       0      30        0.0%
+EEDATA             100      0       0       0        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0      32       5       31.2%
+BITCOMRAM           5F      0       0       0        0.0%
+COMRAM              5F     2F      40       1       67.4%
+BITBIGSFRhhhl       1D      0       0      17        0.0%
+BITBIGSFRllllll     1C      0       0      28        0.0%
+BITBIGSFRhhhh        D      0       0      16        0.0%
+BITBIGSFRllh         C      0       0      21        0.0%
+BITBIGSFRllllll      7      0       0      25        0.0%
+BITBIGSFRhhl         6      0       0      18        0.0%
+BITBIGSFRhlhhhh      5      0       0      19        0.0%
+BITBIGSFRlhhl        5      0       0      20        0.0%
+BITBIGSFRllllhh      4      0       0      23        0.0%
+BITBIGSFRllllhl      4      0       0      24        0.0%
+BITBIGSFRlllh        2      0       0      22        0.0%
+BITBIGSFRllllll      1      0       0      27        0.0%
+BITBIGSFRllllll      1      0       0      26        0.0%
+BIGSFR               0      0       0     200        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      72      29        0.0%
+DATA                 0      0      72       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.36 build 20220127204148 
+Symbol Table                                                                                   Sat Dec 31 20:51:06 2022
+
+                                           l43 0D8A                                             l70 0EC4  
+                                           l82 0F16                                             l67 0EB2  
+                                           l85 0F0C                                             l88 0F20  
+                                          l101 0EEA                                            l135 0EAE  
+                                          l232 0DA4                                            l217 0EDA  
+                                          l138 0E54                                            l250 0E24  
+                                          l162 0F02                                            l235 0DC4  
+                                          l331 088C                                            l413 0B32  
+                                          l247 0EF8                                            l159 0E94  
+                                          l345 0C7A                                            l346 0C8A  
+                                          l195 0DF4                                            l285 0892  
+                                          l295 0D4C                                            l298 0BAC  
+                                          l820 0C20                                            l813 0C18  
+                                          l830 0CEE                                            l823 0CE6  
+                                          u400 0A3A                                            u401 0A36  
+                                          u410 0A5C                                            u411 0A58  
+                                          u420 0A96                                            u500 0CBC  
+                                          u421 0A92                                            u501 0CB8  
+                                          u430 0AB8                                            u510 0CD2  
+                                          _PR2 000FCB                                            u431 0AB4  
+                                          u511 0CCE                                            u520 0DB2  
+                                          u440 0AE0                                            u600 07CC  
+                                          u521 0DAE                                            u441 0ADC  
+                                          u601 07C8                                            u370 0EC0  
+                                          u450 0B12                                            u610 07E2  
+                                          u530 0664                                            u371 0EBC  
+                                          u451 0B0E                                            u611 07DE  
+                                          u531 0660                                            u380 0C40  
+                                          u460 0BC8                                            u620 085E  
+                                          u540 06AA                                            u381 0C3C  
+                                          u461 0BC4                                            u621 085A  
+                                          u541 06A6                                            u390 0C7A  
+                                          u470 0BE6                                            u630 0880  
+                                          u550 06DE                                            u391 0C76  
+                                          u471 0BE2                                            u631 087C  
+                                          u640 0D14                                            u480 0C02  
+                                          u560 0708                                            u481 0BFE  
+                                          u650 0D3C                                            u490 0C9E  
+                                          u570 0718                                            u491 0C9A  
+                                          u571 0714                                            u660 0D4C  
+                                          u580 077A                                            u661 0D48  
+                                          u581 0776                                            u557 06D4  
+                                          u590 07B4                                            u670 0A14  
+                                          u647 0D0A                                            u591 07B0  
+                                          u567 06FE                                            u671 0A10  
+                                          u657 0D32                                            u687 0942  
+                                          u697 09FC                                            _map 0B34  
+               ?_EUSART_SetFramingErrorHandler 0001                                _TMR2_Initialize 0EDC  
+                                          wreg 000FE8                                           l1411 0F18  
+                                         l1421 0D86                                           l1413 0D4E  
+                                         l1501 0B22                                           l1431 0E96  
+                                         l1407 0F0E                                           l1415 0D62  
+                                         l1423 0EB2                                           l1511 0BD0  
+                                         l1409 0F04                                           l1417 0D6E  
+                                         l1441 0DE8                                           l1433 0DC6  
+                                         l1425 0EC0                                           l1521 0C0A  
+                                         l1513 0BD8                                           l1505 0BAE  
+                                         l1601 077A                                           l1419 0D7A  
+                                         l1443 0DF2                                           l1435 0DDE  
+                                         l1427 0EDC                                           l1451 0C22  
+                                         l1523 0C0C                                           l1515 0BE6  
+                                         l1507 0BB6                                           l1531 0CA6  
+                                         l1611 078A                                           l1603 077E  
+                                         l1445 0EFA                                           l1437 0DE0  
+                                         l1429 0EE4                                           l1461 0A28  
+                                         l1453 0C32                                           l1525 0C12  
+                                         l1517 0BEC                                           l1509 0BC8  
+                                         l1541 0CE0                                           l1533 0CAE  
+                                         l1621 07E2                                           l1605 0786  
+                                         l1551 0DA0                                           l1543 0E26  
+                                         l1439 0DE6                                           l1447 0EEC  
+                                         l1471 0A5C                                           l1463 0A2C  
+                                         l1455 0C40                                           l1519 0C02  
+                                         l1535 0CBC                                           l1527 0C8C  
+                                         l1631 0848                                           l1623 07EE  
+                                         l1615 07B8                                           l1553 0DA2  
+                                         l1449 0EC6                                           l1545 0E78  
+                                         l1641 0CF0                                           l1481 0A9E  
+                                         l1473 0A6C                                           l1465 0A3A  
+                                         l1457 0C50                                           l1561 0B34  
+                                         l1537 0CD2                                           l1529 0C9E  
+                                         l1633 084C                                           l1625 07F2  
+                                         l1617 07BA                                           l1555 0DB2  
+                                         l1547 0E90                                           l1643 0CF4  
+                                         l1491 0AF0                                           l1483 0AAA  
+                                         l1475 0A70                                           l1467 0A4A  
+                                         l1459 0C5A                                           l1539 0CDA  
+                                         l1627 07FA                                           l1619 07CC  
+                                         l1571 0670                                           l1635 085E  
+                                         l1651 0904                                           l1549 0D8E  
+                                         l1645 0D18                                           l1493 0AF2  
+                                         l1485 0AB8                                           l1477 0A80  
+                                         l1469 0A4E                                           l1629 083C  
+                                         l1637 0880                                           l1581 06AA  
+                                         l1573 0678                                           l1565 0646  
+                                         l1661 09B2                                           l1653 0930  
+                                         l1559 0DF6                                           l1647 0D1C  
+                                         l1495 0AFC                                           l1487 0AC2  
+                                         l1479 0A96                                           l1583 06B6  
+                                         l1575 0680                                           l1567 0652  
+                                         l1663 09BE                                           l1655 093C  
+                                         l1489 0AE0                                           l1497 0B02  
+                                         l1585 06E0                                           l1577 0690  
+                                         l1593 071C                                           l1569 0664  
+                                         l1665 09EA                                           l1657 094C  
+                                         l1649 088E                                           l1499 0B12  
+                                         l1595 0754                                           l1587 06E4  
+                                         l1579 0698                                           l1667 0A06  
+                                         l1659 095A                                           l1597 0764  
+                                         l1589 06E8                                           l1669 0A14  
+                                         l1599 076C                                           ?_map 001B  
+                                         STR_1 063E                                           STR_2 062A  
+                                         STR_3 0619                                           STR_4 063E  
+                                         STR_5 061C                                           STR_6 0619  
+                                         STR_7 060B                                           STR_8 0637  
+                                         _LATA 000F89                                           _LATB 000F8A  
+                                         _LATC 000F8B                                           _LATD 000F8C  
+                                         _LATE 000F8D                                           _TMR2 000FCC  
+                                         _WPUB 000F7C                                           _main 088E  
+                                         fsr0h 000FEA                                           indf0 000FEF  
+                                         fsr2h 000FDA                                           fsr0l 000FE9  
+                                         indf2 000FDF                                           map@x 001B  
+                                         fsr2l 000FD9                                           prodh 000FF4  
+                                         prodl 000FF3                                           start 0000  
+                        ??_EPWM1_LoadDutyValue 0003                                   ___param_bank 000000  
+                                        ??_map 002F                        __end_of_PWM2_Initialize 0EFA  
+                                ?_EUSART_Write 0001                  __end_of_OSCILLATOR_Initialize 0F04  
+                              __end_of___aldiv 0B34                                          ?_main 0001  
+                                        _ANSEL 000F7E                                          _T2CON 000FCA  
+                              __end_of___lwdiv 0C22                                __end_of___lwmod 0CF0  
+                                        _RCREG 000FAE                                          _RCSTA 000FAB  
+                                        _SPBRG 000FAF                                          _TRISA 000F92  
+                                        _TRISB 000F93                                          _TRISC 000F94  
+                                        _TRISD 000F95                                          _TRISE 000F96  
+                                        _TXREG 000FAD                                          _TXSTA 000FAC  
+                          ___lmul@multiplicand 0005                                    _xvalueASCII 0060  
+                              __end_of_dpowers 060B                                          tablat 000FF5  
+                                        status 000FD8                                __end_of_sprintf 088E  
+                              __initialization 0E56                                   __end_of_main 0A28  
+                               ??_EUSART_Write 0001                        __end_of_TMR2_Initialize 0EEC  
+                                       ??_main 002F                                   _ADC_Result_1 0032  
+                                 _ADC_Result_2 003C                                  __activetblptr 000002  
+            _EUSART_DefaultFramingErrorHandler 000000                                         _ADCON0 000FC2  
+                                       _ADCON1 000FC1                                         _ADCON2 000FC0  
+                   _EUSART_OverrunErrorHandler 0036                                         _ADRESH 000FC4  
+                                       _ADRESL 000FC3                                         _CCPR1H 000FBF  
+                                       _CCPR2H 000FBC                                         _CCPR1L 000FBE  
+                                       _CCPR2L 000FBB                                         _ANSELH 000F7F  
+                                       _OSCCON 000FD3                                         _SPBRGH 000FB0  
+                                       ___lmul 0C22                                      ??___aldiv 0015  
+                                    ??___lwdiv 0005                                      ??___lwmod 000C  
+                             ?_PWM2_Initialize 0001                                         clear_0 0E5C  
+                                       clear_1 0E68                                         isa$std 000001  
+                                 __mediumconst 0000                                         tblptrh 000FF7  
+                                       tblptrl 000FF6                                         tblptru 000FF8  
+                     ADC_GetConversion@channel 0005                                      ??_sprintf 0017  
+                            _SYSTEM_Initialize 0E78                                     __accesstop 0060  
+                      __end_of__initialization 0E6E                             ?_SYSTEM_Initialize 0001  
+                   __end_of_PWM2_LoadDutyValue 0E26                                  ___rparam_used 000001  
+                            ?_EPWM1_Initialize 0001                                 __pcstackCOMRAM 0001  
+                          ??_SYSTEM_Initialize 0003                             ??_EPWM1_Initialize 0001  
+                             ?_TMR2_Initialize 0001                ??_EUSART_SetOverrunErrorHandler 0003  
+                    __end_of_SYSTEM_Initialize 0E96                                     __pbssBANK0 0060  
+                         __end_of_EUSART_Write 0EC6                                     __pnvCOMRAM 0030  
+                                      ?___lmul 0001                                        _CCP1CON 000FBD  
+                                      _CCP2CON 000FBA                                        _ECCP1AS 000FB6  
+                                      _BAUDCON 000FB8                                 ___lmul@product 0009  
+                                      _OSCTUNE 000F9B                                        _PWM1CON 000FB7  
+                                      _PSTRCON 000FB9                       ??_EUSART_SetErrorHandler 0003  
+                  __end_of_EPWM1_LoadDutyValue 0E56                                        _Pan_MAP 0030  
+                         _ADC_InterruptHandler 003E                                        __Hparam 0000  
+                                      __Lparam 0000                                        ___aldiv 0A28  
+                                      ___lwdiv 0BAE                                        ___lwmod 0C8C  
+                                 __psmallconst 0600                                        __pcinit 0E56  
+                                      __ramtop 0600                                        __ptext0 088E  
+                                      __ptext1 0646                                        __ptext2 0C8C  
+                                      __ptext3 0BAE                                        __ptext4 0B34  
+                                      __ptext5 0C22                                        __ptext6 0A28  
+                                      __ptext7 0CF0                                        __ptext8 0EB0  
+                                      __ptext9 0E78                                        _dpowers 0601  
+                        _OSCILLATOR_Initialize 0EFA                                      _T2CONbits 000FCA  
+                             ___aldiv@dividend 000D                       ??_PIN_MANAGER_Initialize 0001  
+                                      _sprintf 0646                           end_of_initialization 0E6E  
+        __end_of_EUSART_SetOverrunErrorHandler 0F0E                  _EUSART_SetOverrunErrorHandler 0F04  
+                                __Lmediumconst 0000                              _EUSART_Initialize 0D4E  
+                           ?_EUSART_Initialize 0001                                      _RCSTAbits 000FAB  
+                             ___aldiv@quotient 0017                                        postdec2 000FDD  
+                                      postinc0 000FEE                                        postinc2 000FDE  
+                          ??_EUSART_Initialize 0003                                      _PORTBbits 000F81  
+                           SendUsartString@str 0002                              ??_SendUsartString 0004  
+                                   map@out_max 002B                                     map@out_min 0027  
+                    __end_of_EUSART_Initialize 0D8C                                      _TXSTAbits 000FAC  
+                               __end_of___lmul 0C8C                     _EUSART_DefaultErrorHandler 000000  
+                                 _EUSART_Write 0EB0                             _PWM2_LoadDutyValue 0DF6  
+                               _ADC_Initialize 0EC6                         ?_OSCILLATOR_Initialize 0001  
+                          start_initialization 0E56                            ?_PWM2_LoadDutyValue 0001  
+                                  __end_of_map 0BAE                   EPWM1_LoadDutyValue@dutyValue 0001  
+               ?_EUSART_SetOverrunErrorHandler 0001                           ??_PWM2_LoadDutyValue 0003  
+                   _EUSART_FramingErrorHandler 0038                    PWM2_LoadDutyValue@dutyValue 0001  
+                                     ??___lmul 0009                         _EUSART_SetErrorHandler 0F18  
+                       __end_of_ADC_Initialize 0EDC                                    __pbssCOMRAM 003A  
+                                  sprintf@flag 0018                                    sprintf@prec 0019  
+                             ___lwdiv@dividend 0001                         _PIN_MANAGER_Initialize 0DC6  
+                                     ?___aldiv 000D                                       ?___lwdiv 0001  
+                                     ?___lwmod 0008                                ?_ADC_Initialize 0001  
+                                  __smallconst 0600                               ___lwdiv@quotient 0005  
+                                     ?_sprintf 000D                                ___aldiv@divisor 0011  
+                            ??_PWM2_Initialize 0001                                ___aldiv@counter 0015  
+       EUSART_SetErrorHandler@interruptHandler 0001                              _eusartRxLastError 0040  
+                                     _PIR1bits 000F9E                ??_EUSART_SetFramingErrorHandler 0003  
+            _EUSART_DefaultOverrunErrorHandler 000000                                _SendUsartString 0CF0  
+                                    map@in_max 0023                                      map@in_min 001F  
+                                   _ADCON0bits 000FC2                               _EPWM1_Initialize 0E96  
+                            ___lmul@multiplier 0001                                    _INTCON2bits 000FF1  
+                            ??_TMR2_Initialize 0001                                       __Hrparam 0000  
+                                     __Lrparam 0000                                       _Tilt_MAP 003A  
+                            _ADC_GetConversion 0D8C                        ??_OSCILLATOR_Initialize 0001  
+                          _EUSART_ErrorHandler 0034                             ?_ADC_GetConversion 0001  
+                          ??_ADC_GetConversion 0003                                     sprintf@val 001E  
+                              ___lwdiv@divisor 0003                                ___lwdiv@counter 0007  
+                                     __ptext10 0EDC                                       __ptext11 0EEC  
+                                     __ptext20 0DF6                                       __ptext12 0DC6  
+                                     __ptext21 0E26                                       __ptext13 0EFA  
+                                     __ptext22 0D8C                                       __ptext14 0D4E  
+                                     __ptext15 0F04                                       __ptext16 0F0E  
+                                     __ptext17 0F18                                       __ptext18 0E96  
+                                     __ptext19 0EC6                        __end_of_SendUsartString 0D4E  
+                    __end_of_ADC_GetConversion 0DC6                        ?_EUSART_SetErrorHandler 0001  
+EUSART_SetOverrunErrorHandler@interruptHandler 0001                                       isa$xinst 000000  
+        __end_of_EUSART_SetFramingErrorHandler 0F18                  _EUSART_SetFramingErrorHandler 0F0E  
+                                   _INTCONbits 000FF2                                      sprintf@ap 001A  
+                                    sprintf@cp 001C                                      sprintf@sp 000D  
+                             ___lwmod@dividend 0008                        ?_PIN_MANAGER_Initialize 0001  
+               __end_of_EUSART_SetErrorHandler 0F22                               ??_ADC_Initialize 0001  
+EUSART_SetFramingErrorHandler@interruptHandler 0001                                       sprintf@c 0020  
+                                     sprintf@f 000F                                ___lwmod@divisor 000A  
+                              _PWM2_Initialize 0EEC                                ___lwmod@counter 000C  
+                                 ___aldiv@sign 0016                            _EPWM1_LoadDutyValue 0E26  
+                           EUSART_Write@txData 0001                 __end_of_PIN_MANAGER_Initialize 0DF6  
+                             ?_SendUsartString 0002                       __end_of_EPWM1_Initialize 0EB0  
+                         ?_EPWM1_LoadDutyValue 0001  
