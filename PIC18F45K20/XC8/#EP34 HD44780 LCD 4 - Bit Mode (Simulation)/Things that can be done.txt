@@ -1,0 +1,9 @@
+Autoscroll: Shift text right and left.
+Blink: Control of the block-style cursor.
+Cursor: Control of the underscore-style cursor.
+Display: Quickly blank the display without losing what's on it.
+Hello World: Displays "hello world!" and the seconds since reset.
+Scroll: Scroll text left and right.
+Serial Display: Accepts serial input, displays it.
+Set Cursor: Set the cursor position.
+Text Direction: Control which way text flows from the cursor.

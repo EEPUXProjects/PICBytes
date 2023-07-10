@@ -1,0 +1,19 @@
+Welcome to this revamped mini series called PICbytes,
+
+Here you will find various microcontroller tutorials using the PIC18F45K20 Microcontroller. 
+
+In this video we will find out how to use the HD44780 Alphanumeric Display in 4 Bit mode.
+
+Source Code and  Proteus Files : 
+
+#MPLABXC8
+#MPLABX 
+#EmbeddedProgramming
+#Microcontrollers 
+#ElectronicsTutorials
+
+More interesting and useful examples to come soon. 
+
+Until then,
+
+Goodbyeeee.
