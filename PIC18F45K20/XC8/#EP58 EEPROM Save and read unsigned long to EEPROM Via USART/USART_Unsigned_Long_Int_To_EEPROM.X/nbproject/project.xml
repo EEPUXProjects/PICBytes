@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>com.microchip.mplab.nbide.embedded.makeproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>USART_Unsigned_Long_Int_To_EEPROM</name>
+            <name>USART_Long_Int_To_EEPROM</name>
+            <name>USART_Int_To_EEPROM</name>
+            <name>USART_Int_To_EEPROM</name>
+            <name>USART_Multiple_Digit_To_EEPROM</name>
+            <name>EEPROM_USART_Integer_To_EEPROM</name>
+            <name>EEPROM_USART_To_EEPROM</name>
+            <name>EEPROM_Update_Value</name>
+            <name>EEPROM_Update_Value</name>
+            <name>EEPROM_Calculate_Value_of_Array</name>
+            <name>EEPROM_Read_Entire_Array</name>
+            <name>EEPROM_Read_And_Write</name>
+            <creation-uuid>731a8563-eee6-4fbc-9cc1-03437449f8dc</creation-uuid>
+            <make-project-type>0</make-project-type>
+            <c-extensions>c</c-extensions>
+            <cpp-extensions/>
+            <header-extensions>h</header-extensions>
+            <asminc-extensions/>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <make-dep-projects/>
+            <sourceRootList/>
+            <confList>
+                <confElem>
+                    <name>default</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
+        </data>
+    </configuration>
+</project>
