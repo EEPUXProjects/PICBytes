@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production\DC_Fan_Controlled_Via_LM35_Temp.X.production.hex">
+    <memory name="program">
+      <units>bytes</units>
+      <length>32768</length>
+      <used>8437</used>
+      <free>24331</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>1536</length>
+      <used>236</used>
+      <free>1300</free>
+    </memory>
+  </executable>
+</project>
