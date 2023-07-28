@@ -1,1 +1,1 @@
-![Ditter_Datter](https://github.com/EEPUXProjects/PICBytes/assets/50055478/c8917ee1-c32f-4947-8ee6-08b7e712a386)
+![Ditter_Datter](https://github.com/EEPUXProjects/PICBytes/assets/50055478/ac05027c-76a3-47bf-b5de-c9cb2fe562e3)
