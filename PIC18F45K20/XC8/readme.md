@@ -1,1 +1,10 @@
+PLEASE READ !!!
+
+Compatible with following Software and configuration :
+MPLAB X V6.10
+PIC18F-K_DFP v1.7.134
+XC8 V2.41
+MCC CLASSIC V5.0
+Proteus V8.15
+Note : The Zip file inside any which folder contains everything for that project. So just download the zip folder.
 
