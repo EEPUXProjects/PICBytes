@@ -1,1 +1,1 @@
-![Morse_Code_Optimised_Example](https://github.com/EEPUXProjects/PICBytes/assets/50055478/7f3e4444-e7b2-403a-a0b0-ba1b53b71ad6)
+![Morse_Code_Unoptimised_Example](https://github.com/EEPUXProjects/PICBytes/assets/50055478/d7ee47e9-e4dd-451b-b5e8-a5e450f713f5)
