@@ -1,2 +1,1 @@
-
-![8- Bit Register Incrementing Example](https://github.com/EEPUXProjects/PICBytes/assets/50055478/1e9f3c69-7709-4e81-b969-610db7b05548)
+![8- Bit Register Incrementing Example](https://github.com/EEPUXProjects/PICBytes/assets/50055478/7a91bb70-cfae-4e16-a263-c48969a1843f)
