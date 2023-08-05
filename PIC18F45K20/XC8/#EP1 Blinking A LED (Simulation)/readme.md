@@ -1,1 +1,1 @@
-![Capture](https://github.com/EEPUXProjects/PICBytes/assets/50055478/9d26c73f-506b-4ce8-a8bc-58292b17a230)
+![GPIO Basics Blinking A LED](https://github.com/EEPUXProjects/PICBytes/assets/50055478/a28184f9-2b6b-46fd-b079-c6d5010ee2ca)
