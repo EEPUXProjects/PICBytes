@@ -1,0 +1,12 @@
+Discuss schematic
+Show Current Sinking and sourcing options and discuss difference. Direction of diode.
+Discuss max current of each port and total current output
+Calculate how much current the led draws and calculate the resistance
+
+Discuss and setup code
+Delay routine
+difference between TRIS, PORT and LATC and using full port or single pin with custom name
+show turning led fully on , fully off and flashing.
+
+Simulation
+Modify delay for faster blinking
