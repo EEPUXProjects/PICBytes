@@ -1,0 +1,120 @@
+/* Exercise : Switched RGB LED Example
+ * Author : Usmaan H
+ * Version : 1.0
+ * Description : Cycling the colour of the common cathode RGB LED with a switch.
+ */
+
+// Include Libraries
+#include "mcc_generated_files/mcc.h"
+
+// Variables
+char Counter ; // This variable stores the value to select the colour.
+
+// Color Functions
+
+// Red
+void RED(){
+    RED_LAT = HIGH;  //Enable RED LED
+    GREEN_LAT = LOW; //Disable GREEN LED
+    BLUE_LAT = LOW;  //Disable BLUE LED
+}
+// Green
+void GREEN(){
+    RED_LAT = LOW;    //Disable RED LED
+    GREEN_LAT = HIGH; //Enable GREEN LED
+    BLUE_LAT = LOW;  //Disable BLUE LED 
+}
+// Blue
+void BLUE(){
+    RED_LAT = LOW;   //Disable RED LED
+    GREEN_LAT = LOW; //Disable GREEN LED
+    BLUE_LAT = HIGH;  //Enable BLUE LED
+}
+// White
+void WHITE(){
+    RED_LAT = HIGH;   //Enable RED LED
+    GREEN_LAT = HIGH; //Enable GREEN LED
+    BLUE_LAT = HIGH;  //Enable BLUE LED
+}
+// Yellow
+void YELLOW(){
+    RED_LAT = HIGH;   //Enable RED LED
+    GREEN_LAT = HIGH; //Enable GREEN LED
+    BLUE_LAT = LOW;  //Disable BLUE LED
+}
+// None
+void NONE(){
+    RED_LAT = LOW;   //Disable RED LED
+    GREEN_LAT = LOW; //Disable GREEN LED
+    BLUE_LAT = LOW;  //Disable BLUE LED
+}
+// Purple
+void PURPLE(){
+    RED_LAT = HIGH;  //Enable RED LED
+    GREEN_LAT = LOW; //Disable GREEN LED
+    BLUE_LAT = HIGH;  //Enable BLUE LED
+}
+// Cyan
+void CYAN(){
+    RED_LAT = LOW;    //Disable RED LED
+    GREEN_LAT = HIGH; //Enable GREEN LED
+    BLUE_LAT = HIGH;  //Enable BLUE LED
+}
+
+/*
+                         Main application
+ */
+
+void main(void)
+{
+    // Initialize the device
+    SYSTEM_Initialize();
+
+    while (1)
+    {   //Switch selection function
+        switch (Counter){
+            case 0:
+                NONE(); // LED's Off
+                break;// Exit Statement.
+            case 1:
+                RED();// RED Colour.              
+                break;// Exit Statement.
+            case 2:
+                GREEN();// Green Colour                    
+                break;// Exit Statement.
+            case 3:     
+                YELLOW();// White Colour  
+                break;// Exit Statement.
+            case 4:
+                BLUE();// Blue Colour
+                break;// Exit Statement.
+            case 5:
+                PURPLE();// Purple Colour
+                break;// Exit Statement.
+            case 6:
+                CYAN();// Cyan Colour
+                break;// Exit Statement.
+            case 7:
+                WHITE();// White Colour
+                break;// Exit Statement.
+            default: 
+                NOP(); // Waste 1 instruction cycle doing nothing.
+                break;// Exit Statement.
+        }
+    // Condition for pressing switch SW0.    
+    if(SW0_PORT == LOW){
+        __delay_ms(500); // Switch debounce delay. Adjust as needed.
+        while(SW0_PORT == LOW); // Wait for switch to be released.
+        Counter++; // Increment Counter variable by one.
+        if(Counter == 8){ 
+            Counter=0; // Reset Counter to 0
+        }
+    }
+    else if (SW0_PORT == HIGH){
+        NOP(); // Waste 1 instruction cycle doing nothing.
+    }
+    }
+}
+/**
+ End of File
+*/
