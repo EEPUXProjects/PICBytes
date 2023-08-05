@@ -1,2 +1,1 @@
-
-![Switched RGB LED Example](https://github.com/EEPUXProjects/PICBytes/assets/50055478/5090ceaf-42ae-455a-8349-957f62388937)
+![Switched RGB LED Example](https://github.com/EEPUXProjects/PICBytes/assets/50055478/83d65e8e-f828-4178-b719-1aefeb65f600)
