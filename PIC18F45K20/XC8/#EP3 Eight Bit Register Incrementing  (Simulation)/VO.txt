@@ -1,0 +1,14 @@
+Discuss schematic
+Show and discuss schematic components. 
+Discuss d0 being 2 to power 0 and d7 being 2 to power 7
+
+Discuss and setup code
+Setup mcc 
+show turning on leds 2 to power 0 and 2 to power 7 with binary and hex decimal reference on web calc
+discuss post and pre incrementers
+discuss addressing entire port
+discuss rewarpping to restart code and not leave carryoing on with no output.
+Provide two codes one for incrementing and one for decremnting.
+
+Simulation
+show simulation for each switch in sequence. LED as output.
