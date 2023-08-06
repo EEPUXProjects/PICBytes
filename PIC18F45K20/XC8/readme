@@ -1,5 +1,7 @@
 PLEASE READ !!!
 
+PIC18F45K20 is a 3.3V MCU.
+
 Compatible with following Software and configuration :
 MPLAB X V6.10
 PIC18F-K_DFP v1.7.134
